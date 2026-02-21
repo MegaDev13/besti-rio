@@ -607,16 +607,16 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    min-height: 200px;
-    max-height: 420px;
+    min-height: 280px;
+    max-height: 560px;
   }
 
   .monster-illustration img {
     width: 100%;
     height: auto;
-    max-height: 420px;
+    max-height: 560px;
     object-fit: contain;
-    object-position: center center;
+    object-position: center top;
     filter: brightness(0.85) contrast(1.1) sepia(0.2) hue-rotate(-5deg);
     transition: all 0.4s ease;
     display: block;
@@ -682,6 +682,7 @@
   .tag-blue { border-color: rgba(41,128,185,0.6); color: #7fb3d3; }
   .tag-purple { border-color: rgba(142,68,173,0.6); color: #bb8fce; }
   .tag-green { border-color: rgba(39,174,96,0.6); color: #82e0aa; }
+  .tag-orange { border-color: rgba(230,126,34,0.6); color: #f0b27a; }
   .tag-gray { border-color: rgba(127,140,141,0.5); color: #aab7b8; }
 
   /* ─── INFO BOXES ─── */
@@ -890,7 +891,7 @@
     <p class="cover-subtitle">Enciclopédia das Criaturas do Mundo Conhecido</p>
     <div class="cover-count">
       <div class="cover-count-item">
-        <span class="cover-count-num">20</span>
+        <span class="cover-count-num">32</span>
         <span class="cover-count-label">Criaturas</span>
       </div>
       <div class="cover-count-item">
@@ -898,7 +899,7 @@
         <span class="cover-count-label">Categorias</span>
       </div>
       <div class="cover-count-item">
-        <span class="cover-count-num">CR 1–15</span>
+        <span class="cover-count-num">CR 2–17</span>
         <span class="cover-count-label">Dificuldade</span>
       </div>
     </div>
@@ -911,7 +912,7 @@
   <div class="toc-inner">
     <div class="toc-header">
       <h2>Índice do Bestiário</h2>
-      <p>20 Criaturas · 7 Categorias · Material do Mestre</p>
+      <p>32 Criaturas · 7 Categorias · Material do Mestre</p>
     </div>
     <div class="toc-categories">
 
@@ -933,13 +934,15 @@
         <div class="toc-cat-header" style="background:rgba(42,10,58,0.5);">
           <span class="toc-cat-icon">👁</span>
           <span class="toc-cat-name">Aberrações do Véu</span>
-          <span class="toc-cat-count">4</span>
+          <span class="toc-cat-count">6</span>
         </div>
         <div class="toc-cat-items">
           <a href="#dente-vazio" class="toc-cat-item">Dente do Vazio<span class="toc-cr">CR 7</span></a>
           <a href="#sombra-veu" class="toc-cat-item">Sombra do Véu<span class="toc-cr">CR 10</span></a>
           <a href="#olho-aberto" class="toc-cat-item">O Olho Aberto<span class="toc-cr">CR 14</span></a>
           <a href="#eco-perdido" class="toc-cat-item">Eco Perdido<span class="toc-cr">CR 4</span></a>
+          <a href="#tecedor-veu" class="toc-cat-item">Tecedor do Véu<span class="toc-cr">CR 8</span></a>
+          <a href="#larva-vazio" class="toc-cat-item">Larva do Vazio<span class="toc-cr">CR 3</span></a>
         </div>
       </div>
 
@@ -947,12 +950,14 @@
         <div class="toc-cat-header" style="background:rgba(20,20,35,0.5);">
           <span class="toc-cat-icon">💀</span>
           <span class="toc-cat-name">Mortos-Vivos dos Selos</span>
-          <span class="toc-cat-count">3</span>
+          <span class="toc-cat-count">5</span>
         </div>
         <div class="toc-cat-items">
           <a href="#fantasma-thornwall" class="toc-cat-item">Fantasma de Thornwall<span class="toc-cr">CR 4</span></a>
           <a href="#cavaleiro-cinza" class="toc-cat-item">Cavaleiro Cinza<span class="toc-cr">CR 6</span></a>
           <a href="#caçador-almas" class="toc-cat-item">Caçador de Almas<span class="toc-cr">CR 9</span></a>
+          <a href="#rei-morto" class="toc-cat-item">Rei Morto de Valdros<span class="toc-cr">CR 12</span></a>
+          <a href="#espectro-linhagem" class="toc-cat-item">Espectro de Linhagem<span class="toc-cr">CR 5</span></a>
         </div>
       </div>
 
@@ -960,12 +965,14 @@
         <div class="toc-cat-header" style="background:rgba(20,35,50,0.5);">
           <span class="toc-cat-icon">✨</span>
           <span class="toc-cat-name">Criaturas dos Veios Dracônicos</span>
-          <span class="toc-cat-count">3</span>
+          <span class="toc-cat-count">5</span>
         </div>
         <div class="toc-cat-items">
           <a href="#eco-draconico" class="toc-cat-item">Eco Dracônico<span class="toc-cr">CR 5</span></a>
           <a href="#verme-veios" class="toc-cat-item">Verme dos Veios<span class="toc-cr">CR 3</span></a>
           <a href="#cinzas-vivas" class="toc-cat-item">Cinzas Vivas<span class="toc-cr">CR 2</span></a>
+          <a href="#salamandra-veios" class="toc-cat-item">Salamandra dos Veios<span class="toc-cr">CR 4</span></a>
+          <a href="#colonia-pensante" class="toc-cat-item">Colônia Pensante<span class="toc-cr">CR 6</span></a>
         </div>
       </div>
 
@@ -973,11 +980,13 @@
         <div class="toc-cat-header" style="background:rgba(42,25,10,0.5);">
           <span class="toc-cat-icon">🐺</span>
           <span class="toc-cat-name">Feras do Mundo Selvagem</span>
-          <span class="toc-cat-count">2</span>
+          <span class="toc-cat-count">4</span>
         </div>
         <div class="toc-cat-items">
           <a href="#aranha-profundezas" class="toc-cat-item">Aranha das Profundezas<span class="toc-cr">CR 3</span></a>
           <a href="#grifo-selvagem" class="toc-cat-item">Grifo Selvagem de Karath<span class="toc-cr">CR 5</span></a>
+          <a href="#urso-cinzeiro" class="toc-cat-item">Urso Cinzeiro<span class="toc-cr">CR 4</span></a>
+          <a href="#basilisco-pedra" class="toc-cat-item">Basilisco da Pedra Viva<span class="toc-cr">CR 7</span></a>
         </div>
       </div>
 
@@ -985,11 +994,13 @@
         <div class="toc-cat-header" style="background:rgba(45,15,25,0.5);">
           <span class="toc-cat-icon">🔮</span>
           <span class="toc-cat-name">Monstruosidades Arcanas</span>
-          <span class="toc-cat-count">2</span>
+          <span class="toc-cat-count">4</span>
         </div>
         <div class="toc-cat-items">
           <a href="#golem-mana" class="toc-cat-item">Golem de Mana<span class="toc-cr">CR 6</span></a>
           <a href="#susurrador" class="toc-cat-item">O Susurrador<span class="toc-cr">CR 4</span></a>
+          <a href="#lich-menor" class="toc-cat-item">Lich Menor dos Selos<span class="toc-cr">CR 13</span></a>
+          <a href="#elementar-mana" class="toc-cat-item">Elementar de Mana Pura<span class="toc-cr">CR 9</span></a>
         </div>
       </div>
 
@@ -997,11 +1008,13 @@
         <div class="toc-cat-header" style="background:rgba(50,10,10,0.5);">
           <span class="toc-cat-icon">🐉</span>
           <span class="toc-cat-name">Élite & Chefes</span>
-          <span class="toc-cat-count">2</span>
+          <span class="toc-cat-count">4</span>
         </div>
         <div class="toc-cat-items">
           <a href="#guardiao-selo" class="toc-cat-item">Guardião do Selo<span class="toc-cr">CR 11</span></a>
           <a href="#filhote-corrompido" class="toc-cat-item">Dragão Corrompido<span class="toc-cr">CR 15</span></a>
+          <a href="#avatar-ezurath" class="toc-cat-item">Avatar de Ezurath<span class="toc-cr">CR 17</span></a>
+          <a href="#senhor-cinzas" class="toc-cat-item">Senhor das Cinzas<span class="toc-cr">CR 16</span></a>
         </div>
       </div>
 
@@ -2595,7 +2608,1020 @@
 <div class="chapter-sep"><span class="sep-ornament">☠ ✦ ☠</span></div>
 
 <!-- ══════════════════════════════════════════════════════════════
-     TABELAS DE ENCONTRO
+     CAPÍTULO VI: NOVAS ABERRAÇÕES DO VÉU
+══════════════════════════════════════════════════════════════ -->
+<section class="chapter-section cat-veu" id="cap-veu-novo">
+  <div class="chapter-hero">
+    <div class="chapter-hero-bg" style="background-image:url('https://images.unsplash.com/photo-1517457373958-b7bdd4587205?w=1600&q=80')"></div>
+    <div class="chapter-hero-overlay"></div>
+    <div class="chapter-hero-content">
+      <div class="chapter-label">Capítulo VI · Expansão · Além dos Selos</div>
+      <h2 class="chapter-title">Aberrações do Véu — Expansão</h2>
+      <p class="chapter-desc">Criaturas que habitam a fronteira entre o mundo dos vivos e o Vazio eterno</p>
+    </div>
+  </div>
+
+  <div class="content-wrapper">
+
+    <div class="pull-quote">
+      "O Véu não é uma parede. É uma membrana. E membranas podem ser perfuradas de ambos os lados."
+      <span class="quote-attr">— Arcano Mestre Saelis, Registros do Conselho dos Selos, Thornwall</span>
+    </div>
+
+    <!-- TECEDOR DO VÉU -->
+    <div id="tecedor-veu" style="position:relative;">
+    <div class="monster-card" style="margin-top:2.5rem;">
+      <div class="monster-header" style="background:linear-gradient(135deg,rgba(60,15,80,0.8) 0%,rgba(20,5,30,0.6) 100%);">
+        <div class="monster-header-left">
+          <div class="monster-name">Tecedor do Véu</div>
+          <div class="monster-epithet">A aranha que tece com fios de realidade rasgada</div>
+          <div class="tag-row" style="margin-top:0.5rem;">
+            <span class="tag tag-purple">SELOS ROMPIDOS</span>
+            <span class="tag">ABERRAÇÃO</span>
+            <span class="tag tag-red">GRANDE</span>
+          </div>
+        </div>
+        <div class="monster-header-right">
+          <span class="cr-badge">CR 8</span>
+          <span class="type-badge">Aberração do Véu</span>
+        </div>
+      </div>
+      <div class="monster-illustration"><img src="https://i.pinimg.com/1200x/a5/b6/12/a5b612eae09341575b8c322b2939b887.jpg" alt="Tecedor do Véu" loading="lazy" onerror="this.style.display='none'"></div>
+      <div class="monster-body">
+        <div class="monster-lore">
+      <p>Quando um Selo se rompe, a membrana que separa Aethoria do Vazio não quebra limpa — ela racha. E nas rachaduras, algo começa a tecer. O Tecedor do Véu não nasceu de nenhum ovo ou ventre: ele se coagulou a partir de fios de realidade que não deveriam estar expostos.</p>
+          <p>Visualmente lembra uma aranha descomunal, mas seus oito membros são feitos de sombra solidificada, e onde seus olhos deveriam estar há apenas a silhueta de um rosto humano — sempre diferente, sempre familiar demais. Os Guardiões dizem que os rostos pertencem a pessoas que o Tecedor já encontrou. Ninguém sabe o que acontece com essas pessoas.</p>
+          <p class="monster-quote">"Não olhe para o rosto. Especialmente se você reconhecê-lo." — Instruções do Cavaleiro Cinza Aldric, fragmento recuperado</p>
+          <p>Sua habilidade mais perturbadora é tecer <em>Fios do Véu</em> — linhas invisíveis de energia que conectam alvos ao Vazio. Criaturas presas nesses fios sofrem erosão mágica progressiva, como se suas habilidades estivessem sendo drenadas para alimentar algo do outro lado.</p>
+        </div>
+        <div class="monster-stats">
+          <div class="stat-block-mini">
+            <div class="stat-row"><span class="stat-key">PV</span><span class="stat-val">148 (16d10+64)</span></div>
+            <div class="stat-row"><span class="stat-key">Defesa Física</span><span class="stat-val">15</span></div>
+            <div class="stat-row"><span class="stat-key">Defesa Mágica</span><span class="stat-val">17</span></div>
+            <div class="stat-row"><span class="stat-key">Velocidade</span><span class="stat-val">12m / Escalar 12m</span></div>
+            <div class="stat-row"><span class="stat-key">Mana</span><span class="stat-val">40</span></div>
+          </div>
+          <div class="attr-mini">
+            <div class="attr-mini-cell"><span class="attr-mini-abbr">FOR</span><span class="attr-mini-val">18(+4)</span></div>
+            <div class="attr-mini-cell"><span class="attr-mini-abbr">DES</span><span class="attr-mini-val">20(+5)</span></div>
+            <div class="attr-mini-cell"><span class="attr-mini-abbr">CON</span><span class="attr-mini-val">18(+4)</span></div>
+            <div class="attr-mini-cell"><span class="attr-mini-abbr">INT</span><span class="attr-mini-val">16(+3)</span></div>
+            <div class="attr-mini-cell"><span class="attr-mini-abbr">SAB</span><span class="attr-mini-val">14(+2)</span></div>
+            <div class="attr-mini-cell"><span class="attr-mini-abbr">CAR</span><span class="attr-mini-val">8(−1)</span></div>
+          </div>
+          <div class="ability-block">
+            <div class="ability-title">⚔ Ações · Multi-ataque: 2/turno</div>
+            <div class="ability-item">
+              <span class="ability-name">Garra do Vazio</span>
+              <span class="ability-desc">+8 ataque · 2d8+5 cortante + save CON DC 16 ou perde 1 de Mana máximo por rodada (acumula, recupera com descanso longo)</span>
+            </div>
+            <div class="ability-item">
+              <span class="ability-name">Tecer Fio (8 Mana · Ação Padrão)</span>
+              <span class="ability-desc">Alcance 18m · Dois alvos em até 6m entre si são conectados por um Fio do Véu. Enquanto conectados: qualquer dano recebido por um é replicado 50% no outro. Duração: 3 rodadas. Save DES DC 17 para escapar como Ação Padrão.</span>
+            </div>
+            <div class="ability-item">
+              <span class="ability-name">Teia do Vazio (12 Mana · Recarga 5–6)</span>
+              <span class="ability-desc">Cone 9m · Todos os alvos: save DES DC 17 ou Retidos. Alvos Retidos sofrem 2d6 psíquico/rodada enquanto presos. Teia tem 20 PV e imunidade a dano não-mágico.</span>
+            </div>
+          </div>
+          <div class="ability-block">
+            <div class="ability-title">✦ Passivos</div>
+            <div class="ability-item">
+              <span class="ability-name">Passo pelo Véu</span>
+              <span class="ability-desc">Pode se mover através de superfícies sólidas (não através de terra sagrada ou runas dos Selos). Se terminar dentro de um objeto sólido, toma 5d10 de dano de força.</span>
+            </div>
+            <div class="ability-item">
+              <span class="ability-name">Rosto Familiar</span>
+              <span class="ability-desc">Ao iniciar combate, cada jogador deve fazer save SAB DC 14. Falha: reconhece o rosto no Tecedor — fica Amedrontado por 2 rodadas e não pode atacar o Tecedor nessas rodadas.</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="monster-footer">
+        <span class="tactic-label">⚔ Tática:</span>
+        <span class="tactic-text">Inicia com Rosto Familiar para amedrontar, depois usa Tecer Fio para conectar o tank com o curandeiro. Usa Passo pelo Véu para nunca ser encurralado. — Fraqueza: Luz Radiante bloqueia Passo pelo Véu por 1 rodada.</span>
+      </div>
+    </div>
+    </div>
+
+    <!-- LARVA DO VAZIO -->
+    <div id="larva-vazio" style="position:relative;">
+    <div class="monster-card" style="margin-top:2.5rem;">
+      <div class="monster-header" style="background:linear-gradient(135deg,rgba(40,8,55,0.8) 0%,rgba(15,4,22,0.6) 100%);">
+        <div class="monster-header-left">
+          <div class="monster-name">Larva do Vazio</div>
+          <div class="monster-epithet">O embrião de algo que não deveria crescer</div>
+          <div class="tag-row" style="margin-top:0.5rem;">
+            <span class="tag tag-purple">SELOS ROMPIDOS</span>
+            <span class="tag">ABERRAÇÃO</span>
+            <span class="tag">PEQUENA</span>
+          </div>
+        </div>
+        <div class="monster-header-right">
+          <span class="cr-badge">CR 3</span>
+          <span class="type-badge">Aberração Menor</span>
+        </div>
+      </div>
+      <div class="monster-illustration"><img src="https://i.pinimg.com/736x/a3/5d/b2/a35db25096ccdfa6eac7f31374268acc.jpg" alt="Larva do Vazio" loading="lazy" onerror="this.style.display='none'"></div>
+      <div class="monster-body">
+        <div class="monster-lore">
+      <p>Larvae do Vazio são, na melhor interpretação dos estudiosos de Thornwall, fragmentos de consciência que escaparam pelo Véu sem forma suficiente para assumir um corpo completo. Parecem cegonhas cegas do tamanho de gatos, com corpos translúcidos que revelam um nó escuro e pulsante onde o coração deveria estar.</p>
+          <p>Individualmente são pouco mais que um incômodo para aventureiros experientes. O perigo está na escala: nunca aparecem sozinhas, e quando perdem PV suficientes, <em>se fundem</em>. Dois enxames de Larvas derrotadas podem emergir como uma criatura única e mais poderosa. Os Guardiões chamam isso de Ascensão.</p>
+          <p class="monster-quote">"Mata dez e sobra vinte. Mata vinte e sobra uma coisa pior." — Nota de campo, Guardião Pell</p>
+        </div>
+        <div class="monster-stats">
+          <div class="stat-block-mini">
+            <div class="stat-row"><span class="stat-key">PV</span><span class="stat-val">32 (5d6+10)</span></div>
+            <div class="stat-row"><span class="stat-key">Defesa Física</span><span class="stat-val">13</span></div>
+            <div class="stat-row"><span class="stat-key">Velocidade</span><span class="stat-val">6m / Voar 9m</span></div>
+            <div class="stat-row"><span class="stat-key">Encontro típico</span><span class="stat-val">Bando 3d6</span></div>
+          </div>
+          <div class="attr-mini">
+            <div class="attr-mini-cell"><span class="attr-mini-abbr">FOR</span><span class="attr-mini-val">8(−1)</span></div>
+            <div class="attr-mini-cell"><span class="attr-mini-abbr">DES</span><span class="attr-mini-val">16(+3)</span></div>
+            <div class="attr-mini-cell"><span class="attr-mini-abbr">CON</span><span class="attr-mini-val">14(+2)</span></div>
+            <div class="attr-mini-cell"><span class="attr-mini-abbr">INT</span><span class="attr-mini-val">4(−3)</span></div>
+            <div class="attr-mini-cell"><span class="attr-mini-abbr">SAB</span><span class="attr-mini-val">10(+0)</span></div>
+            <div class="attr-mini-cell"><span class="attr-mini-abbr">CAR</span><span class="attr-mini-val">2(−4)</span></div>
+          </div>
+          <div class="ability-block">
+            <div class="ability-title">⚔ Ações</div>
+            <div class="ability-item">
+              <span class="ability-name">Mordida do Vazio</span>
+              <span class="ability-desc">+5 ataque · 1d6+3 perfurante + 1d4 necrótico · Alvo perde 1 Mana</span>
+            </div>
+          </div>
+          <div class="ability-block">
+            <div class="ability-title">✦ Passivos</div>
+            <div class="ability-item">
+              <span class="ability-name">Ascensão (Fusão)</span>
+              <span class="ability-desc">Quando duas ou mais Larvas são reduzidas a 0 PV simultaneamente (mesma rodada), em vez de morrerem elas se fundem: emergem com PV = soma dos PV das Larvas + 20, e ganham uma ação extra por rodada. CR aumenta em +2 por fusão. Máximo: 1 fusão.</span>
+            </div>
+            <div class="ability-item">
+              <span class="ability-name">Visão do Vazio</span>
+              <span class="ability-desc">Não pode ser Enganada por ilusões. Vê criaturas invisíveis até 9m. Porém é cega além de 18m.</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="monster-footer">
+        <span class="tactic-label">⚔ Tática:</span>
+        <span class="tactic-text">Enxames focam em um alvo por vez para drenar Mana. O Mestre deve rastrear quantas morrem por rodada — se 2+ morrerem simultaneamente, ativa Ascensão. Luz Radiante as dispersa sem permitir Ascensão.</span>
+      </div>
+    </div>
+    </div>
+
+  </div>
+</section>
+
+<div class="chapter-sep"><span class="sep-ornament">☠ ✦ ☠</span></div>
+
+<!-- ══════════════════════════════════════════════════════════════
+     CAPÍTULO VII: MORTOS-VIVOS EXPANDIDOS
+══════════════════════════════════════════════════════════════ -->
+<section class="chapter-section cat-mortos" id="cap-mortos-novo">
+  <div class="chapter-hero">
+    <div class="chapter-hero-bg" style="background-image:url('https://images.unsplash.com/photo-1534447677768-be436bb09401?w=1600&q=80')"></div>
+    <div class="chapter-hero-overlay"></div>
+    <div class="chapter-hero-content">
+      <div class="chapter-label">Capítulo VII · Expansão · Os Mortos que Lembram</div>
+      <h2 class="chapter-title">Mortos-Vivos dos Selos — Expansão</h2>
+      <p class="chapter-desc">Quando os Selos se rompem, os mortos não descansam — eles lembram</p>
+    </div>
+  </div>
+
+  <div class="content-wrapper">
+
+    <div class="pull-quote">
+      "A morte deveria ser o fim. Em Aethoria, ela é apenas uma pausa."
+      <span class="quote-attr">— Epitáfio gravado no Portão Norte de Thornwall</span>
+    </div>
+
+    <!-- REI MORTO DE VALDROS -->
+    <div id="rei-morto" style="position:relative;">
+    <div class="monster-card" style="margin-top:2.5rem;">
+      <div class="monster-header" style="background:linear-gradient(135deg,rgba(25,15,40,0.8) 0%,rgba(10,8,20,0.6) 100%);">
+        <div class="monster-header-left">
+          <div class="monster-name">Rei Morto de Valdros</div>
+          <div class="monster-epithet">O soberano que recusou o esquecimento — e virou o que rejeita</div>
+          <div class="tag-row" style="margin-top:0.5rem;">
+            <span class="tag tag-blue">MINAS DE VALDROS</span>
+            <span class="tag">MORTO-VIVO LENDÁRIO</span>
+            <span class="tag tag-red">GRANDE</span>
+          </div>
+        </div>
+        <div class="monster-header-right">
+          <span class="cr-badge">CR 12</span>
+          <span class="type-badge">Morto-Vivo Élite</span>
+        </div>
+      </div>
+      <div class="monster-illustration"><img src="https://i.pinimg.com/736x/25/eb/24/25eb24558eaa3dc34efef3bccc127f2a.jpg" alt="Rei Morto de Valdros" loading="lazy" onerror="this.style.display='none'"></div>
+      <div class="monster-body">
+        <div class="monster-lore">
+      <p>O Rei Morto foi, há três séculos, o fundador das Minas de Valdros — um monarca cujo nome os historiadores apagaram deliberadamente dos registros, temendo que pronunciá-lo servisse de chamado. Ele morreu recusando-se a abandonar seu trono quando as Minas foram seladas pela primeira vez. Sua coroa, fundida ao crânio pela energia dos Veios, ainda brilha com a mana corrompida que o mantém de pé.</p>
+          <p>Fisicamente imponente — um esqueleto envolto em armadura negra que parece ter crescido junto com os ossos — o Rei Morto não ataca com frenesi. Ele <em>governa</em>. Em sua presença, outros mortos-vivos ganham consciência e obedecem. Ele é o ponto de convergência de qualquer exército não-morto nas Minas.</p>
+          <p class="monster-quote">"O problema não é o Rei. É que onde o Rei está, toda a corte também está." — Relatório do Cavaleiro Cinza Brenn, antes de desaparecer</p>
+          <p>Sua habilidade mais temida é o <em>Édito do Esquecimento</em> — um comando que não mata, mas apaga. Alvos atingidos perdem acesso temporário a habilidades de classe, como se jamais as tivessem aprendido.</p>
+        </div>
+        <div class="monster-stats">
+          <div class="stat-block-mini">
+            <div class="stat-row"><span class="stat-key">PV</span><span class="stat-val">220 (20d10+100)</span></div>
+            <div class="stat-row"><span class="stat-key">Defesa Física</span><span class="stat-val">20 (armadura + escudo)</span></div>
+            <div class="stat-row"><span class="stat-key">DR Natural</span><span class="stat-val">8</span></div>
+            <div class="stat-row"><span class="stat-key">Mana</span><span class="stat-val">60</span></div>
+            <div class="stat-row"><span class="stat-key">Imuniades</span><span class="stat-val">Veneno · Frio · Necrótico</span></div>
+            <div class="stat-row"><span class="stat-key">Vulnerabilidade</span><span class="stat-val">Radiante (ignora DR)</span></div>
+          </div>
+          <div class="attr-mini">
+            <div class="attr-mini-cell"><span class="attr-mini-abbr">FOR</span><span class="attr-mini-val">24(+7)</span></div>
+            <div class="attr-mini-cell"><span class="attr-mini-abbr">DES</span><span class="attr-mini-val">10(+0)</span></div>
+            <div class="attr-mini-cell"><span class="attr-mini-abbr">CON</span><span class="attr-mini-val">22(+6)</span></div>
+            <div class="attr-mini-cell"><span class="attr-mini-abbr">INT</span><span class="attr-mini-val">18(+4)</span></div>
+            <div class="attr-mini-cell"><span class="attr-mini-abbr">SAB</span><span class="attr-mini-val">16(+3)</span></div>
+            <div class="attr-mini-cell"><span class="attr-mini-abbr">CAR</span><span class="attr-mini-val">20(+5)</span></div>
+          </div>
+          <div class="ability-block">
+            <div class="ability-title">⚔ Ações Lendárias (3/round) · Multi-ataque: 2/turno</div>
+            <div class="ability-item">
+              <span class="ability-name">Espada da Coroa (Ataque Principal)</span>
+              <span class="ability-desc">+11 ataque · 3d8+7 cortante + 2d6 necrótico · Se causar 20+ dano: Alvo perde 1 PA no próximo turno</span>
+            </div>
+            <div class="ability-item">
+              <span class="ability-name">Édito do Esquecimento (15 Mana · 1 Ação Lendária)</span>
+              <span class="ability-desc">Alcance 18m · Alvo: save INT DC 19. Falha: perde acesso a 1d3 habilidades de classe à escolha do Mestre por 2 rodadas (marcos e talentos de nível alto têm prioridade). Não afeta ataques básicos nem cantrips.</span>
+            </div>
+            <div class="ability-item">
+              <span class="ability-name">Comando Real (2 Ações Lendárias)</span>
+              <span class="ability-desc">Todos os mortos-vivos em 30m usam uma ação imediata (movimento + ataque) gratuitamente, fora de turno. Inclui mortos-vivos convocados por jogadores — eles atacam seus mestres naquele turno (save SAB DC 19 nega).</span>
+            </div>
+          </div>
+          <div class="ability-block">
+            <div class="ability-title">✦ Passivos</div>
+            <div class="ability-item">
+              <span class="ability-name">Aura da Coroa Negra</span>
+              <span class="ability-desc">Mortos-vivos em 30m ganham +2 em todos os ataques e saves. PV máximos de mortos-vivos controlados por jogadores são reduzidos em 5 enquanto o Rei estiver vivo.</span>
+            </div>
+            <div class="ability-item">
+              <span class="ability-name">Resistência Lendária (3/dia)</span>
+              <span class="ability-desc">Quando falhar em um save, pode escolher passar. A coroa brilha visivelmente a cada uso.</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="monster-footer">
+        <span class="tactic-label">⚔ Tática:</span>
+        <span class="tactic-text">O Rei nunca recua. Usa Comando Real para criar pressão com aliados, então usa Édito do Esquecimento no conjurador ou curandeiro mais perigoso. Prioriza manter-se no centro da sala para maximizar a Aura da Coroa. — Ponto fraco narrativo: sua coroa é o âncora. Destruir a coroa (20 PV, DR 15) durante o combate reduz o CR para 9 imediatamente.</span>
+      </div>
+    </div>
+    </div>
+
+    <!-- ESPECTRO DE LINHAGEM -->
+    <div id="espectro-linhagem" style="position:relative;">
+    <div class="monster-card" style="margin-top:2.5rem;">
+      <div class="monster-header" style="background:linear-gradient(135deg,rgba(20,10,35,0.8) 0%,rgba(8,5,15,0.6) 100%);">
+        <div class="monster-header-left">
+          <div class="monster-name">Espectro de Linhagem</div>
+          <div class="monster-epithet">O eco de sangue que se recusa a desaparecer</div>
+          <div class="tag-row" style="margin-top:0.5rem;">
+            <span class="tag tag-purple">QUALQUER REGIÃO</span>
+            <span class="tag">MORTO-VIVO</span>
+            <span class="tag">MÉDIO</span>
+          </div>
+        </div>
+        <div class="monster-header-right">
+          <span class="cr-badge">CR 5</span>
+          <span class="type-badge">Espectro Vinculado</span>
+        </div>
+      </div>
+      <div class="monster-illustration"><img src="https://i.pinimg.com/736x/a7/99/32/a799325b8b7397a3df5dc757fb40950b.jpg" alt="Espectro de Linhagem" loading="lazy" onerror="this.style.display='none'"></div>
+      <div class="monster-body">
+        <div class="monster-lore">
+      <p>Espectros de Linhagem são criados quando alguém com Sangue Desperto morre violentamente sem completar sua missão ou juramento. Ao contrário dos Fantasmas comuns, que estão presos a lugares, os Espectros de Linhagem estão presos a <em>pessoas</em> — especificamente, a descendentes ou portadores de Sangue Desperto semelhante.</p>
+          <p>Para os jogadores com Sangue Desperto, um Espectro de Linhagem pode ser o eco de um ancestral morto — e essa é a complicação narrativa central. Destruí-lo quebra uma conexão, mas deixá-lo vivo é perigoso. O Espectro sabe coisas que o morto sabia, e não hesita em usá-las.</p>
+          <p class="monster-quote">"Reconheci os olhos. Eram os olhos do meu avô. Então ele disse meu nome — o nome verdadeiro que só ele sabia — e compreendi o problema." — Aventureiro anônimo, arquivo de Thornwall</p>
+        </div>
+        <div class="monster-stats">
+          <div class="stat-block-mini">
+            <div class="stat-row"><span class="stat-key">PV</span><span class="stat-val">78 (12d8+24)</span></div>
+            <div class="stat-row"><span class="stat-key">Defesa Física</span><span class="stat-val">13 (incorpóreo)</span></div>
+            <div class="stat-row"><span class="stat-key">Velocidade</span><span class="stat-val">9m / Voar 18m (silencioso)</span></div>
+            <div class="stat-row"><span class="stat-key">Resistências</span><span class="stat-val">Ácido · Fogo · Trovão · não-mágico</span></div>
+            <div class="stat-row"><span class="stat-key">Imunidades</span><span class="stat-val">Frio · Necrótico · Veneno</span></div>
+          </div>
+          <div class="attr-mini">
+            <div class="attr-mini-cell"><span class="attr-mini-abbr">FOR</span><span class="attr-mini-val">6(−2)</span></div>
+            <div class="attr-mini-cell"><span class="attr-mini-abbr">DES</span><span class="attr-mini-val">14(+2)</span></div>
+            <div class="attr-mini-cell"><span class="attr-mini-abbr">CON</span><span class="attr-mini-val">14(+2)</span></div>
+            <div class="attr-mini-cell"><span class="attr-mini-abbr">INT</span><span class="attr-mini-val">16(+3)</span></div>
+            <div class="attr-mini-cell"><span class="attr-mini-abbr">SAB</span><span class="attr-mini-val">16(+3)</span></div>
+            <div class="attr-mini-cell"><span class="attr-mini-abbr">CAR</span><span class="attr-mini-val">14(+2)</span></div>
+          </div>
+          <div class="ability-block">
+            <div class="ability-title">⚔ Ações</div>
+            <div class="ability-item">
+              <span class="ability-name">Toque Corruptor</span>
+              <span class="ability-desc">+6 ataque · 3d8 necrótico. Alvos com Sangue Desperto sofrem dano máximo automático (sem rolar).</span>
+            </div>
+            <div class="ability-item">
+              <span class="ability-name">Revelação do Juramento (Ação Padrão · 1×/combate)</span>
+              <span class="ability-desc">O Espectro revela um segredo do passado da linhagem. Alvo com Sangue Desperto: save SAB DC 15 ou fica Paralisado por 1 rodada enquanto absorve a revelação. Mesmo com save bem-sucedido, o Mestre pode usar essa informação em roleplay.</span>
+            </div>
+          </div>
+          <div class="ability-block">
+            <div class="ability-title">✦ Passivos</div>
+            <div class="ability-item">
+              <span class="ability-name">Vinculado ao Sangue</span>
+              <span class="ability-desc">O Espectro nunca ataca um portador de Sangue Desperto da sua linhagem diretamente como primeira ação. Sempre tenta se comunicar primeiro. Pode ser pacificado se o portador completar o juramento original (missão secundária).</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="monster-footer">
+        <span class="tactic-label">⚔ Tática / Narrativa:</span>
+        <span class="tactic-text">Use como encontro de transição narrativa. O Espectro não quer matar — quer completar algo. Se os jogadores ouvirem e negociarem, podem transformar um inimigo em fonte de informação. Destruí-lo sem ouvir pode fechar uma linha de plot permanentemente.</span>
+      </div>
+    </div>
+    </div>
+
+  </div>
+</section>
+
+<div class="chapter-sep"><span class="sep-ornament">☠ ✦ ☠</span></div>
+
+<!-- ══════════════════════════════════════════════════════════════
+     CAPÍTULO VIII: FERAS EXPANDIDAS
+══════════════════════════════════════════════════════════════ -->
+<section class="chapter-section cat-feras" id="cap-feras-novo">
+  <div class="chapter-hero">
+    <div class="chapter-hero-bg" style="background-image:url('https://images.unsplash.com/photo-1504870712357-65ea720d6078?w=1600&q=80')"></div>
+    <div class="chapter-hero-overlay"></div>
+    <div class="chapter-hero-content">
+      <div class="chapter-label">Capítulo VIII · Expansão · O Mundo Selvagem</div>
+      <h2 class="chapter-title">Feras do Mundo Selvagem — Expansão</h2>
+      <p class="chapter-desc">Predadores que nunca precisaram de magia para ser perigosos</p>
+    </div>
+  </div>
+
+  <div class="content-wrapper">
+
+    <!-- URSO CINZEIRO -->
+    <div id="urso-cinzeiro" style="position:relative;">
+    <div class="monster-card" style="margin-top:2.5rem;">
+      <div class="monster-header" style="background:linear-gradient(135deg,rgba(40,25,10,0.8) 0%,rgba(20,12,5,0.6) 100%);">
+        <div class="monster-header-left">
+          <div class="monster-name">Urso Cinzeiro</div>
+          <div class="monster-epithet">A ira das montanhas em forma de pelo e garra</div>
+          <div class="tag-row" style="margin-top:0.5rem;">
+            <span class="tag tag-orange">MONTANHAS DE KARATH</span>
+            <span class="tag">FERA</span>
+            <span class="tag tag-red">ENORME</span>
+          </div>
+        </div>
+        <div class="monster-header-right">
+          <span class="cr-badge">CR 4</span>
+          <span class="type-badge">Fera Natural</span>
+        </div>
+      </div>
+      <div class="monster-illustration"><img src="https://i.pinimg.com/736x/3f/94/d0/3f94d0b7b2b8827ec4df224bed45c96d.jpg" alt="Urso Cinzeiro" loading="lazy" onerror="this.style.display='none'"></div>
+      <div class="monster-body">
+        <div class="monster-lore">
+      <p>O Urso Cinzeiro não é corrompido pelo Véu. Não precisa ser. É simplesmente o maior predador terrestre das Montanhas de Karath — um urso de porte descomunal, com pelagem prateada que ficou grisalha com décadas de combate e exposição ao frio. Os Selváticos respeitam os Ursos Cinzeiros como guardiões dos altos passos, nunca os caçando sem necessidade extrema.</p>
+          <p>O que o torna diferente de um urso comum é a <em>Resistência de Montanha</em>: anos expostos aos Veios Dracônicos residuais das Montanhas de Karath tornaram sua pele parcialmente resistente à magia. Um Urso Cinzeiro que sobreviveu a um ataque de Mago é mais perigoso do que parecia — ele aprende a ignorar o que não pode machucar.</p>
+          <p class="monster-quote">"Três flechas no ombro. Dois golpes de espada. Uma Bola de Fogo. O urso seguiu nossa trilha por dois dias." — Ranger Senna, sobrevivente de Karath</p>
+        </div>
+        <div class="monster-stats">
+          <div class="stat-block-mini">
+            <div class="stat-row"><span class="stat-key">PV</span><span class="stat-val">105 (10d10+50)</span></div>
+            <div class="stat-row"><span class="stat-key">Defesa Física</span><span class="stat-val">14 (couro natural)</span></div>
+            <div class="stat-row"><span class="stat-key">DR Natural</span><span class="stat-val">4</span></div>
+            <div class="stat-row"><span class="stat-key">Velocidade</span><span class="stat-val">12m (40m em sprint)</span></div>
+          </div>
+          <div class="attr-mini">
+            <div class="attr-mini-cell"><span class="attr-mini-abbr">FOR</span><span class="attr-mini-val">22(+6)</span></div>
+            <div class="attr-mini-cell"><span class="attr-mini-abbr">DES</span><span class="attr-mini-val">10(+0)</span></div>
+            <div class="attr-mini-cell"><span class="attr-mini-abbr">CON</span><span class="attr-mini-val">20(+5)</span></div>
+            <div class="attr-mini-cell"><span class="attr-mini-abbr">INT</span><span class="attr-mini-val">4(−3)</span></div>
+            <div class="attr-mini-cell"><span class="attr-mini-abbr">SAB</span><span class="attr-mini-val">12(+1)</span></div>
+            <div class="attr-mini-cell"><span class="attr-mini-abbr">CAR</span><span class="attr-mini-val">6(−2)</span></div>
+          </div>
+          <div class="ability-block">
+            <div class="ability-title">⚔ Ações · Multi-ataque: 2/turno</div>
+            <div class="ability-item">
+              <span class="ability-name">Garra Rasgadora</span>
+              <span class="ability-desc">+9 ataque · 2d10+6 cortante · Se ambas as garras acertarem o mesmo alvo: Abraço do Urso ativado automaticamente</span>
+            </div>
+            <div class="ability-item">
+              <span class="ability-name">Abraço do Urso (Automático)</span>
+              <span class="ability-desc">Alvo Retido · 3d8+6 impacto/rodada · Save FOR DC 18 para escapar como Ação Padrão</span>
+            </div>
+            <div class="ability-item">
+              <span class="ability-name">Rugido Territorial (Recarga 5–6)</span>
+              <span class="ability-desc">Todos em 12m: save SAB DC 14 ou Amedrontados por 2 rodadas. Animais com INT ≤ 4 fogem automaticamente sem save.</span>
+            </div>
+          </div>
+          <div class="ability-block">
+            <div class="ability-title">✦ Passivos</div>
+            <div class="ability-item">
+              <span class="ability-name">Pele de Montanha</span>
+              <span class="ability-desc">Resistência a dano mágico de todos os tipos (exceto Radiante). Quando atingido por magia, ganha Vantagem em ataques contra o conjurador até o fim de seu próximo turno.</span>
+            </div>
+            <div class="ability-item">
+              <span class="ability-name">Implacável</span>
+              <span class="ability-desc">Quando reduzido a 0 PV pela primeira vez no combate, faz save CON DC 15. Sucesso: fica em 1 PV. Usa 1×/combate. Em 1 PV, obtém Vantagem em todos os ataques.</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="monster-footer">
+        <span class="tactic-label">⚔ Tática:</span>
+        <span class="tactic-text">Não persegue alvos que se afastam a cavalo ou com voo. Foca no alvo que causou mais dano. Pode ser acalmado por um Selvático ou Druida com Forma Selvagem ativa (teste SAB DC 14). Pode ser domesticado como companheiro animal após meses de trabalho.</span>
+      </div>
+    </div>
+    </div>
+
+    <!-- BASILISCO DA PEDRA VIVA -->
+    <div id="basilisco-pedra" style="position:relative;">
+    <div class="monster-card" style="margin-top:2.5rem;">
+      <div class="monster-header" style="background:linear-gradient(135deg,rgba(30,30,15,0.8) 0%,rgba(15,15,8,0.6) 100%);">
+        <div class="monster-header-left">
+          <div class="monster-name">Basilisco da Pedra Viva</div>
+          <div class="monster-epithet">Olhos que petrificam. Corpo que não morre.</div>
+          <div class="tag-row" style="margin-top:0.5rem;">
+            <span class="tag tag-blue">MINAS DE VALDROS</span>
+            <span class="tag">MONSTRUOSIDADE</span>
+            <span class="tag tag-red">GRANDE</span>
+          </div>
+        </div>
+        <div class="monster-header-right">
+          <span class="cr-badge">CR 7</span>
+          <span class="type-badge">Monstruosidade Pré-Corrompida</span>
+        </div>
+      </div>
+      <div class="monster-illustration"><img src="https://i.pinimg.com/736x/36/95/20/369520ac7a4c5614d9208dde88b79ae0.jpg" alt="Basilisco da Pedra Viva" loading="lazy" onerror="this.style.display='none'"></div>
+      <div class="monster-body">
+        <div class="monster-lore">
+      <p>Os basiliscos das Minas de Valdros existiam antes dos Veios se tornarem instáveis — criaturas das profundezas, lentas e mortais. A diferença entre o Basilisco da Pedra Viva e seu equivalente mundano é que décadas de exposição aos minerais carregados de mana das Minas transformaram sua própria carne em algo entre pedra e escama. Atacar um Basilisco da Pedra Viva sem armas encantadas é como golpear granito.</p>
+          <p>Seu olhar petrificante não é magia — é biológico. Uma reação química desencadeada pelos pigmentos da íris do Basilisco catalisa o cálcio em tecido vivo, e alvos expostos se tornam literalmente estátuas. As Minas estão cheias dessas estátuas. Algumas ainda têm expressões de surpresa.</p>
+          <p class="monster-quote">"Não olhe nos olhos. Não olhe para o reflexo. Não olhe para a sombra na parede. Basicamente, não olhe." — Manual de Sobrevivência das Minas, capítulo 7</p>
+        </div>
+        <div class="monster-stats">
+          <div class="stat-block-mini">
+            <div class="stat-row"><span class="stat-key">PV</span><span class="stat-val">126 (12d10+60)</span></div>
+            <div class="stat-row"><span class="stat-key">Defesa Física</span><span class="stat-val">17 (pedra viva)</span></div>
+            <div class="stat-row"><span class="stat-key">DR Natural</span><span class="stat-val">6</span></div>
+            <div class="stat-row"><span class="stat-key">Velocidade</span><span class="stat-val">6m (lento, imparável)</span></div>
+          </div>
+          <div class="attr-mini">
+            <div class="attr-mini-cell"><span class="attr-mini-abbr">FOR</span><span class="attr-mini-val">20(+5)</span></div>
+            <div class="attr-mini-cell"><span class="attr-mini-abbr">DES</span><span class="attr-mini-val">8(−1)</span></div>
+            <div class="attr-mini-cell"><span class="attr-mini-abbr">CON</span><span class="attr-mini-val">20(+5)</span></div>
+            <div class="attr-mini-cell"><span class="attr-mini-abbr">INT</span><span class="attr-mini-val">3(−4)</span></div>
+            <div class="attr-mini-cell"><span class="attr-mini-abbr">SAB</span><span class="attr-mini-val">8(−1)</span></div>
+            <div class="attr-mini-cell"><span class="attr-mini-abbr">CAR</span><span class="attr-mini-val">4(−3)</span></div>
+          </div>
+          <div class="ability-block">
+            <div class="ability-title">⚔ Ações</div>
+            <div class="ability-item">
+              <span class="ability-name">Mordida Trituradora</span>
+              <span class="ability-desc">+8 ataque · 3d10+5 perfurante · Alvos petrificados recebem dano máximo automático</span>
+            </div>
+            <div class="ability-item">
+              <span class="ability-name">Olhar Petrificante (Ação Menor · todo turno)</span>
+              <span class="ability-desc">Todo ser consciente em 18m que possa ver o Basilisco: save CON DC 16. Falha por 5+: Petrificado imediatamente. Falha normal: Restrito (velocidade ÷2, −2 Defesa). Sucesso: imune pelo resto do combate. Criaturas cegas são imunes.</span>
+            </div>
+          </div>
+          <div class="ability-block">
+            <div class="ability-title">✦ Passivos</div>
+            <div class="ability-item">
+              <span class="ability-name">Carne de Pedra</span>
+              <span class="ability-desc">Imune a dano de armas não-mágicas. Resistente a fogo e elétrico. Vulnerável a ácido (ignora DR completamente).</span>
+            </div>
+            <div class="ability-item">
+              <span class="ability-name">Saliva Revertente</span>
+              <span class="ability-desc">A saliva do Basilisco, aplicada em uma estátua petrificada por ele, reverte a petrificação em 1 hora. Alvos revertidos ficam Atordoados por 1 rodada. Manter o Basilisco vivo pode ser necessário para resgatar aliados.</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="monster-footer">
+        <span class="tactic-label">⚔ Tática / Dilema:</span>
+        <span class="tactic-text">O combate cria imediatamente o dilema: vence-se mais fácil cegando o Basilisco (tocha, Névoa, venda) mas isso impede acesso à Saliva Revertente. Se um aliado foi petrificado, o grupo precisa de estratégia para matar o Basilisco sem destruir sua boca. Ácido é a melhor fraqueza, mas cuidado com splash.</span>
+      </div>
+    </div>
+    </div>
+
+  </div>
+</section>
+
+<div class="chapter-sep"><span class="sep-ornament">☠ ✦ ☠</span></div>
+
+<!-- ══════════════════════════════════════════════════════════════
+     CAPÍTULO IX: MONSTRUOSIDADES ARCANAS EXPANDIDAS
+══════════════════════════════════════════════════════════════ -->
+<section class="chapter-section cat-arcana" id="cap-arcana-novo">
+  <div class="chapter-hero">
+    <div class="chapter-hero-bg" style="background-image:url('https://images.unsplash.com/photo-1518709268805-4e9042af9f23?w=1600&q=80')"></div>
+    <div class="chapter-hero-overlay"></div>
+    <div class="chapter-hero-content">
+      <div class="chapter-label">Capítulo IX · Expansão · Magia Que Se Tornou Carne</div>
+      <h2 class="chapter-title">Monstruosidades Arcanas — Expansão</h2>
+      <p class="chapter-desc">Quando a mana se concentra por séculos sem âncora — cria vida</p>
+    </div>
+  </div>
+
+  <div class="content-wrapper">
+
+    <!-- ELEMENTAR DE MANA PURA -->
+    <div id="elementar-mana" style="position:relative;">
+    <div class="monster-card" style="margin-top:2.5rem;">
+      <div class="monster-header" style="background:linear-gradient(135deg,rgba(50,10,30,0.8) 0%,rgba(20,5,15,0.6) 100%);">
+        <div class="monster-header-left">
+          <div class="monster-name">Elementar de Mana Pura</div>
+          <div class="monster-epithet">A própria magia, irritada de existir sem propósito</div>
+          <div class="tag-row" style="margin-top:0.5rem;">
+            <span class="tag tag-purple">VEIOS DRACÔNICOS</span>
+            <span class="tag">CONSTRUTO ESPONTÂNEO</span>
+            <span class="tag tag-red">GRANDE</span>
+          </div>
+        </div>
+        <div class="monster-header-right">
+          <span class="cr-badge">CR 9</span>
+          <span class="type-badge">Construto Arcano</span>
+        </div>
+      </div>
+      <div class="monster-illustration"><img src="https://i.pinimg.com/736x/fd/fc/40/fdfc407f4ee684ac8fe44f5fc1311c82.jpg" alt="Elementar de Mana Pura" loading="lazy" onerror="this.style.display='none'"></div>
+      <div class="monster-body">
+        <div class="monster-lore">
+      <p>Os Veios Dracônicos não são apenas rios de energia — são consciências dormentes de dragões mortos, e quando essa energia se acumula sem dreno por tempo suficiente, ela eventualmente assume forma. O Elementar de Mana Pura não foi criado por nenhum mago: ele simplesmente <em>aconteceu</em>. Uma forma vagamente humanoide de luz branca-azulada, sempre em movimento, sempre mudando de proporção.</p>
+          <p>O que o torna especialmente perigoso para conjuradores é sua natureza como repositório de mana instável. Cada magia lançada contra ele não apenas o atinge — é parcialmente <em>absorvida</em> e redirecionada de forma imprevisível. Magos experientes aprenderam a combatê-lo com ataques físicos, o que vai completamente contra seus instintos.</p>
+          <p class="monster-quote">"Lancei Bola de Fogo. Ele absorveu. Depois saiu por outro lado como raio. Atingiu meu próprio guerreiro. Aprendi." — Arquimago Desval, notas de campo</p>
+        </div>
+        <div class="monster-stats">
+          <div class="stat-block-mini">
+            <div class="stat-row"><span class="stat-key">PV</span><span class="stat-val">168 (16d10+80)</span></div>
+            <div class="stat-row"><span class="stat-key">Defesa Física</span><span class="stat-val">12 (forma fluida)</span></div>
+            <div class="stat-row"><span class="stat-key">Defesa Mágica</span><span class="stat-val">19</span></div>
+            <div class="stat-row"><span class="stat-key">Mana</span><span class="stat-val">Ilimitada (absorve)</span></div>
+            <div class="stat-row"><span class="stat-key">Imunidades</span><span class="stat-val">Veneno · Condições · Dano Mágico Direto</span></div>
+          </div>
+          <div class="attr-mini">
+            <div class="attr-mini-cell"><span class="attr-mini-abbr">FOR</span><span class="attr-mini-val">16(+3)</span></div>
+            <div class="attr-mini-cell"><span class="attr-mini-abbr">DES</span><span class="attr-mini-val">18(+4)</span></div>
+            <div class="attr-mini-cell"><span class="attr-mini-abbr">CON</span><span class="attr-mini-val">20(+5)</span></div>
+            <div class="attr-mini-cell"><span class="attr-mini-abbr">INT</span><span class="attr-mini-val">10(+0)</span></div>
+            <div class="attr-mini-cell"><span class="attr-mini-abbr">SAB</span><span class="attr-mini-val">8(−1)</span></div>
+            <div class="attr-mini-cell"><span class="attr-mini-abbr">CAR</span><span class="attr-mini-val">6(−2)</span></div>
+          </div>
+          <div class="ability-block">
+            <div class="ability-title">⚔ Ações · Multi-ataque: 2/turno</div>
+            <div class="ability-item">
+              <span class="ability-name">Golpe de Mana</span>
+              <span class="ability-desc">+8 ataque · 3d8+4 força + 2d6 do tipo aleatório (role 1d6: 1=fogo, 2=elétrico, 3=frio, 4=ácido, 5=trovão, 6=radiante)</span>
+            </div>
+            <div class="ability-item">
+              <span class="ability-name">Descarga Caótica (Recarga 5–6)</span>
+              <span class="ability-desc">Emite pulso de mana em 9m. Todos os alvos: save DES DC 17 · 6d8 de tipo aleatório (mesmo tipo para todos os alvos, rolado no início). Metade no save. Conjuradores: também perdem 1d6 Mana.</span>
+            </div>
+          </div>
+          <div class="ability-block">
+            <div class="ability-title">✦ Passivos</div>
+            <div class="ability-item">
+              <span class="ability-name">Absorção Mágica</span>
+              <span class="ability-desc">Quando atingido por uma magia que cause dano direto: absorve a magia. Recupera PV = dano que receberia. Na próxima rodada, Descarga Caótica recarrega automaticamente (mesmo que tenha sido usada). Magias de controle e debuff funcionam normalmente.</span>
+            </div>
+            <div class="ability-item">
+              <span class="ability-name">Sobrecarga</span>
+              <span class="ability-desc">Quando absorve 3 magias no mesmo combate, atinge Sobrecarga: dobra todos os danos por 2 rodadas, mas fica Vulnerável a dano físico nesse período.</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="monster-footer">
+        <span class="tactic-label">⚔ Tática / Mecânica especial:</span>
+        <span class="tactic-text">Este encontro inverte a lógica normal. Magos e Bardos devem mudar completamente para suporte e controle (sem dano mágico direto). Guerreiros e Ladinos são os DPS principais. A vitória vem de explorar a Sobrecarga: force 3 absorções rápidas com magias de baixo custo, então o guerreiro causa dano massivo na janela de vulnerabilidade.</span>
+      </div>
+    </div>
+    </div>
+
+    <!-- LICH MENOR DOS SELOS -->
+    <div id="lich-menor" style="position:relative;">
+    <div class="monster-card" style="margin-top:2.5rem;">
+      <div class="monster-header" style="background:linear-gradient(135deg,rgba(20,5,30,0.9) 0%,rgba(8,2,15,0.7) 100%);">
+        <div class="monster-header-left">
+          <div class="monster-name">Lich Menor dos Selos</div>
+          <div class="monster-epithet">Um estudioso que encontrou a resposta errada para a pergunta certa</div>
+          <div class="tag-row" style="margin-top:0.5rem;">
+            <span class="tag tag-purple">SELOS ROMPIDOS</span>
+            <span class="tag">MORTO-VIVO ARCANO</span>
+            <span class="tag">MÉDIO</span>
+          </div>
+        </div>
+        <div class="monster-header-right">
+          <span class="cr-badge">CR 13</span>
+          <span class="type-badge">Morto-Vivo Élite · Conjurador</span>
+        </div>
+      </div>
+      <div class="monster-illustration"><img src="https://i.pinimg.com/1200x/83/45/3b/83453b597cb70e8aeb0bb49585bb1865.jpg" alt="Lich Menor dos Selos" loading="lazy" onerror="this.style.display='none'"></div>
+      <div class="monster-body">
+        <div class="monster-lore">
+      <p>Liches Menores dos Selos não são acidentes — são escolhas. Eram Magos, Bardos ou Estudiosos que, ao tentar compreender os Selos e o Véu, chegaram a uma conclusão inevitável: para estudar a morte com total objetividade, é preciso deixar de temer a morte. E a única forma absoluta de isso ocorrer é morrer primeiro.</p>
+          <p>Um Lich Menor não tem o poder de um Lich pleno — não criou uma Filactério completa, mas usa um fragmento de Selo rompido como âncora imperfeita. Isso o mantém existindo mas o torna dependente: se o fragmento for destruído, o Lich se dissolve em horas. Se não for destruído, pode ressurgir após 1d10 dias em qualquer local próximo ao fragmento.</p>
+          <p class="monster-quote">"O que você vê não é loucura. É o que fica quando o medo de morrer desaparece completamente. Aterrorizante, não é?" — Lich Menor Kalleth, para aventureiros que tentavam negociar</p>
+          <p>Estrategicamente brilhante, o Lich Menor usa seus aliados mortos-vivos como proteção enquanto trabalha a distância com magias de alto nível. A verdadeira batalha é sempre encontrar e destruir o Fragmento de Selo antes que o Lich ressurja.</p>
+        </div>
+        <div class="monster-stats">
+          <div class="stat-block-mini">
+            <div class="stat-row"><span class="stat-key">PV</span><span class="stat-val">175 (27d8+54)</span></div>
+            <div class="stat-row"><span class="stat-key">Defesa Física</span><span class="stat-val">17 (robes encantadas)</span></div>
+            <div class="stat-row"><span class="stat-key">Defesa Mágica</span><span class="stat-val">20</span></div>
+            <div class="stat-row"><span class="stat-key">Mana</span><span class="stat-val">120</span></div>
+            <div class="stat-row"><span class="stat-key">Imunidades</span><span class="stat-val">Veneno · Frio · Necrótico · Amedrontado</span></div>
+            <div class="stat-row"><span class="stat-key">Ressurgimento</span><span class="stat-val">1d10 dias (ver texto)</span></div>
+          </div>
+          <div class="attr-mini">
+            <div class="attr-mini-cell"><span class="attr-mini-abbr">FOR</span><span class="attr-mini-val">10(+0)</span></div>
+            <div class="attr-mini-cell"><span class="attr-mini-abbr">DES</span><span class="attr-mini-val">14(+2)</span></div>
+            <div class="attr-mini-cell"><span class="attr-mini-abbr">CON</span><span class="attr-mini-val">14(+2)</span></div>
+            <div class="attr-mini-cell"><span class="attr-mini-abbr">INT</span><span class="attr-mini-val">24(+7)</span></div>
+            <div class="attr-mini-cell"><span class="attr-mini-abbr">SAB</span><span class="attr-mini-val">18(+4)</span></div>
+            <div class="attr-mini-cell"><span class="attr-mini-abbr">CAR</span><span class="attr-mini-val">16(+3)</span></div>
+          </div>
+          <div class="ability-block">
+            <div class="ability-title">⚔ Ações Lendárias (3/round)</div>
+            <div class="ability-item">
+              <span class="ability-name">Raio Necrótico (Ataque Principal)</span>
+              <span class="ability-desc">+11 ataque · 4d10+7 necrótico · Reduz PV máximo do alvo em metade do dano até descanso longo</span>
+            </div>
+            <div class="ability-item">
+              <span class="ability-name">Drenar Essência (12 Mana · 1 Ação Lendária)</span>
+              <span class="ability-desc">Alcance 18m · Alvo: save CON DC 20 · Falha: 5d8 necrótico + Lich recupera PV = dano causado. Sucesso: metade do dano apenas.</span>
+            </div>
+            <div class="ability-item">
+              <span class="ability-name">Tempestade dos Mortos (20 Mana · 2 Ações Lendárias · Recarga 6)</span>
+              <span class="ability-desc">Área 12m centrada no Lich · 8d8 necrótico para todos · Save CON DC 20 metade · Corpos de humanoides mortos na área levantam como zumbis (PV = 15) sob controle do Lich.</span>
+            </div>
+            <div class="ability-item">
+              <span class="ability-name">Dissipar (3 Ações Lendárias · 1×/combate)</span>
+              <span class="ability-desc">Remove todos os efeitos negativos de si mesmo. Teleporta até 30m. Não pode ser usado abaixo de 50 PV.</span>
+            </div>
+          </div>
+          <div class="ability-block">
+            <div class="ability-title">✦ Passivos</div>
+            <div class="ability-item">
+              <span class="ability-name">Âncora do Fragmento</span>
+              <span class="ability-desc">O Fragmento de Selo está em algum lugar da mesma região (área de 300m). Possui 30 PV, DR 12, Defesa 14. Se destruído, o Lich perde Resistência Lendária e Ressurgimento — e pode ser morto permanentemente.</span>
+            </div>
+            <div class="ability-item">
+              <span class="ability-name">Resistência Lendária (2/dia)</span>
+              <span class="ability-desc">Quando falhar em save, pode passar automaticamente. Perde esse poder se o Fragmento for destruído.</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="monster-footer">
+        <span class="tactic-label">⚔ Tática / Missão:</span>
+        <span class="tactic-text">Dividir o grupo funciona — metade mantém o Lich ocupado enquanto a outra procura o Fragmento (Arcano DC 18 para localizar). O Lich sabe que o Fragmento está em risco e priorizará atacar quem parece estar procurando. Dialogar com o Lich é possível: ele é brilhante e disposto a fazer acordos — mas seus termos sempre envolvem os personagens morrerem temporariamente para "aprender algo".</span>
+      </div>
+    </div>
+    </div>
+
+  </div>
+</section>
+
+<div class="chapter-sep"><span class="sep-ornament">☠ ✦ ☠</span></div>
+
+<!-- ══════════════════════════════════════════════════════════════
+     CAPÍTULO X: ÉLITE — NOVOS CHEFES
+══════════════════════════════════════════════════════════════ -->
+<section class="chapter-section cat-elite" id="cap-elite-novo">
+  <div class="chapter-hero">
+    <div class="chapter-hero-bg" style="background-image:url('https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1600&q=80')"></div>
+    <div class="chapter-hero-overlay"></div>
+    <div class="chapter-hero-content">
+      <div class="chapter-label">Capítulo X · Expansão · Criaturas Além de CR 15</div>
+      <h2 class="chapter-title">Élite & Chefes — Expansão</h2>
+      <p class="chapter-desc">Encontros que definem campanhas — e às vezes encerram personagens</p>
+    </div>
+  </div>
+
+  <div class="content-wrapper">
+
+    <div class="pull-quote">
+      "Há criaturas que você pode matar. Há criaturas que você pode vencer. E há criaturas que, na melhor das hipóteses, você sobrevive a um encontro com elas."
+      <span class="quote-attr">— Dito entre os Guardiões dos Selos</span>
+    </div>
+
+    <!-- AVATAR DE EZURATH -->
+    <div id="avatar-ezurath" style="position:relative;">
+    <div class="monster-card" style="margin-top:2.5rem;">
+      <div class="monster-header" style="background:linear-gradient(135deg,rgba(60,10,10,0.9) 0%,rgba(20,3,3,0.7) 100%);">
+        <div class="monster-header-left">
+          <div class="monster-name">Avatar de Ezurath, a Cinzenta</div>
+          <div class="monster-epithet">Quando o sono de um dragão antigo começa a caminhar</div>
+          <div class="tag-row" style="margin-top:0.5rem;">
+            <span class="tag tag-green">FLORESTA NEGRA</span>
+            <span class="tag tag-red">DRACÔNICO LENDÁRIO</span>
+            <span class="tag tag-red">COLOSSAL</span>
+          </div>
+        </div>
+        <div class="monster-header-right">
+          <span class="cr-badge">CR 17</span>
+          <span class="type-badge">Dracônico Ancião · Avatar</span>
+        </div>
+      </div>
+      <div class="monster-illustration"><img src="https://i.pinimg.com/736x/96/2d/f8/962df8144fafc898f639f020034fc6c1.jpg" alt="Avatar de Ezurath" loading="lazy" onerror="this.style.display='none'"></div>
+      <div class="monster-body">
+        <div class="monster-lore">
+      <p>Ezurath, a Cinzenta, dorme há dois séculos sob o coração da Floresta Negra. Quando dormia profundamente, seus sonhos vazavam como névoa inofensiva — confundindo criaturas, corrompendo levemente a flora ao redor. Desde o terceiro Selo rompido, Ezurath está sonhando mais raso. E quando Ezurath sonha raso, partes do sonho ganham corpo.</p>
+          <p>O Avatar de Ezurath não é a dragoa acordada — é sua <em>intenção</em> em forma física. Uma figura dracônica de quinze metros, feita de fumaça cinzenta que tem solidez suficiente para esmagar, mas fluidez suficiente para atravessar barreiras. Seus olhos são dois pontos de luz âmbar que piscam ao ritmo da respiração de Ezurath a quilômetros de distância.</p>
+          <p class="monster-quote">"Se ela acordar de verdade, não haverá combate. Haverá Karath, e depois não haverá Karath." — Ezurath: Avaliação de Risco, documento selado do Conselho</p>
+          <p>O Avatar não pode ser morto permanentemente — apenas dispersado. Enquanto Ezurath dormir, novos Avatares podem se formar após semanas. A vitória verdadeira envolve encontrar um modo de aprofundar o sono de Ezurath — o que requer uma jornada própria, ingredientes raros, e um conjurador disposto a se arriscar a compartilhar o sonho da dragoa por tempo suficiente para plantar a sugestão de descanso.</p>
+        </div>
+        <div class="monster-stats">
+          <div class="stat-block-mini">
+            <div class="stat-row"><span class="stat-key">PV</span><span class="stat-val">310 (27d12+135)</span></div>
+            <div class="stat-row"><span class="stat-key">Defesa Física</span><span class="stat-val">18</span></div>
+            <div class="stat-row"><span class="stat-key">Defesa Mágica</span><span class="stat-val">20</span></div>
+            <div class="stat-row"><span class="stat-key">DR Natural</span><span class="stat-val">12</span></div>
+            <div class="stat-row"><span class="stat-key">Mana</span><span class="stat-val">150</span></div>
+            <div class="stat-row"><span class="stat-key">Velocidade</span><span class="stat-val">15m / Voar 30m</span></div>
+          </div>
+          <div class="attr-mini">
+            <div class="attr-mini-cell"><span class="attr-mini-abbr">FOR</span><span class="attr-mini-val">28(+9)</span></div>
+            <div class="attr-mini-cell"><span class="attr-mini-abbr">DES</span><span class="attr-mini-val">12(+1)</span></div>
+            <div class="attr-mini-cell"><span class="attr-mini-abbr">CON</span><span class="attr-mini-val">28(+9)</span></div>
+            <div class="attr-mini-cell"><span class="attr-mini-abbr">INT</span><span class="attr-mini-val">20(+5)</span></div>
+            <div class="attr-mini-cell"><span class="attr-mini-abbr">SAB</span><span class="attr-mini-val">18(+4)</span></div>
+            <div class="attr-mini-cell"><span class="attr-mini-abbr">CAR</span><span class="attr-mini-val">22(+6)</span></div>
+          </div>
+          <div class="ability-block">
+            <div class="ability-title">⚔ Ações Lendárias (4/round) · Multi-ataque: 3/turno</div>
+            <div class="ability-item">
+              <span class="ability-name">Garra do Sonho (Ataque Principal)</span>
+              <span class="ability-desc">+14 ataque · 4d8+9 cortante + 2d8 psíquico · Alvo: save SAB DC 20 ou entra num micro-sonho por 1 rodada: fica Incapacitado mas não pode ser ferido nesse estado</span>
+            </div>
+            <div class="ability-item">
+              <span class="ability-name">Sopro de Cinzas (15 Mana · 1 Ação Lendária · Recarga 5–6)</span>
+              <span class="ability-desc">Cone 18m · 12d8 cinza+fogo · Save CON DC 22 metade. Alvos que falharem ficam Envenenados (Cinzas nos Pulmões): −2 CON por rodada por 3 rodadas (recuperável com Remover Doença ou descanso longo)</span>
+            </div>
+            <div class="ability-item">
+              <span class="ability-name">Pesadelo Manifesto (20 Mana · 2 Ações Lendárias)</span>
+              <span class="ability-desc">O Avatar materializa o pior medo de 1 alvo visível como ilusão sólida por 2 rodadas. A ilusão causa dano real (3d10 psíquico/rodada, sem ataque — automático). Save SAB DC 22 cada rodada para ignorar. Se o alvo falhar no save 2 rodadas seguidas: Assustado permanentemente pelo resto do combate.</span>
+            </div>
+            <div class="ability-item">
+              <span class="ability-name">Forma de Névoa (3 Ações Lendárias · 1×/combate)</span>
+              <span class="ability-desc">O Avatar se dissolve em névoa por 1 rodada completa: invulnerável a qualquer dano, atravessa qualquer barreira, reaparece em qualquer ponto em 30m. Não pode ser usado abaixo de 100 PV.</span>
+            </div>
+          </div>
+          <div class="ability-block">
+            <div class="ability-title">✦ Passivos</div>
+            <div class="ability-item">
+              <span class="ability-name">Presença do Sonho Profundo</span>
+              <span class="ability-desc">Ao entrar em combate: todos em 30m devem save SAB DC 21 ou sofrem Desvantagem em saves mentais pelo resto do combate. Personagens com Sangue Desperto fazem esse save com Vantagem.</span>
+            </div>
+            <div class="ability-item">
+              <span class="ability-name">Impermanência do Avatar</span>
+              <span class="ability-desc">Quando reduzido a 0 PV: dissolve-se em névoa. Não morre. Reaparece em 2d10 dias em qualquer ponto da Floresta Negra. Para dispersão permanente: exige a missão de aprofundar o sono de Ezurath (ver lore).</span>
+            </div>
+            <div class="ability-item">
+              <span class="ability-name">Resistência Lendária (3/dia)</span>
+              <span class="ability-desc">Quando falhar em save, pode escolher passar.</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="monster-footer">
+        <span class="tactic-label">⚔ Tática / Arco Narrativo:</span>
+        <span class="tactic-text">Este encontro não deve ser o fim — deve ser o começo. O grupo descobre que matar o Avatar não resolve nada. A verdadeira missão é a Expedição ao Sonho de Ezurath: um ritual que exige 3 ingredientes raros (Lágrima de Grifo, Cristal dos Veios N3+, Cinzas de Dragão Puro) e um conjurador disposto a ficar em transe por 24h enquanto o grupo protege seu corpo. Se bem-sucedida, Ezurath dorme profundo por 5 anos — e os Avatares cessam.</span>
+      </div>
+    </div>
+    </div>
+
+    <!-- SENHOR DAS CINZAS -->
+    <div id="senhor-cinzas" style="position:relative;">
+    <div class="monster-card" style="margin-top:2.5rem;">
+      <div class="monster-header" style="background:linear-gradient(135deg,rgba(50,8,8,0.9) 0%,rgba(18,3,3,0.7) 100%);">
+        <div class="monster-header-left">
+          <div class="monster-name">O Senhor das Cinzas</div>
+          <div class="monster-epithet">O que ficou quando o último rei de Valdros recusou o esquecimento</div>
+          <div class="tag-row" style="margin-top:0.5rem;">
+            <span class="tag tag-blue">MINAS DE VALDROS</span>
+            <span class="tag tag-red">ENTIDADE LENDÁRIA</span>
+            <span class="tag tag-red">ENORME</span>
+          </div>
+        </div>
+        <div class="monster-header-right">
+          <span class="cr-badge">CR 16</span>
+          <span class="type-badge">Entidade · Morto-Vivo Ancião</span>
+        </div>
+      </div>
+      <div class="monster-illustration"><img src="https://i.pinimg.com/736x/4e/d0/d2/4ed0d2beb90b2a79e5a7869a1088f8a5.jpg" alt="O Senhor das Cinzas" loading="lazy" onerror="this.style.display='none'"></div>
+      <div class="monster-body">
+        <div class="monster-lore">
+      <p>Antes de ser o Senhor das Cinzas, ele era o Rei Aldrath, o Imortal — ou assim se chamava quando ainda vivia. Fundou as Minas de Valdros sobre um cruzamento de três Veios Dracônicos, acreditando que a energia drenada desses veios lhe daria a vida eterna. Conseguiu algo parecido, mas não o que esperava.</p>
+          <p>Hoje, o Senhor das Cinzas é uma figura colossal — a armadura original fundida a ossos que se tornaram metal, rodeada por uma névoa negra que suprime qualquer magia em um raio de 12 metros. Ele não ataca por raiva. Ele ataca porque é o que ele faz. Há tanto tempo destruindo que qualquer coisa diferente parece impossível.</p>
+          <p class="monster-quote">"Não existe diálogo. Não existe negociação. Existe entrar nas Minas, e existe não sair das Minas." — Epitáfio do Cavaleiro Aldric, primeiro a tentar</p>
+          <p>A única esperança de vitória é o Espelho dos Veios — um artefato escondido nas profundezas das Minas que, segundo textos antigos, foi criado especificamente para aprisioná-lo. Encontrá-lo durante o combate é o objetivo real do encontro.</p>
+        </div>
+        <div class="monster-stats">
+          <div class="stat-block-mini">
+            <div class="stat-row"><span class="stat-key">PV</span><span class="stat-val">280 (25d12+100)</span></div>
+            <div class="stat-row"><span class="stat-key">Defesa Física</span><span class="stat-val">22 (armadura osso-metal)</span></div>
+            <div class="stat-row"><span class="stat-key">DR Natural</span><span class="stat-val">15</span></div>
+            <div class="stat-row"><span class="stat-key">Velocidade</span><span class="stat-val">9m (imparável — ignora terreno difícil)</span></div>
+            <div class="stat-row"><span class="stat-key">Imunidades</span><span class="stat-val">Veneno · Frio · Necrótico · Psíquico · Amedrontado</span></div>
+          </div>
+          <div class="attr-mini">
+            <div class="attr-mini-cell"><span class="attr-mini-abbr">FOR</span><span class="attr-mini-val">30(+10)</span></div>
+            <div class="attr-mini-cell"><span class="attr-mini-abbr">DES</span><span class="attr-mini-val">8(−1)</span></div>
+            <div class="attr-mini-cell"><span class="attr-mini-abbr">CON</span><span class="attr-mini-val">26(+8)</span></div>
+            <div class="attr-mini-cell"><span class="attr-mini-abbr">INT</span><span class="attr-mini-val">14(+2)</span></div>
+            <div class="attr-mini-cell"><span class="attr-mini-abbr">SAB</span><span class="attr-mini-val">10(+0)</span></div>
+            <div class="attr-mini-cell"><span class="attr-mini-abbr">CAR</span><span class="attr-mini-val">16(+3)</span></div>
+          </div>
+          <div class="ability-block">
+            <div class="ability-title">⚔ Ações Lendárias (3/round) · Multi-ataque: 3/turno</div>
+            <div class="ability-item">
+              <span class="ability-name">Machadão das Cinzas (Ataque Principal)</span>
+              <span class="ability-desc">+15 ataque · 5d10+10 cortante + 2d8 necrótico · Alvo: save FOR DC 22 ou Derrubado e Empurrado 6m</span>
+            </div>
+            <div class="ability-item">
+              <span class="ability-name">Golpe da Extinção (2 Ações Lendárias)</span>
+              <span class="ability-desc">Ataque único com toda a força: +15 ataque · 8d10+10 impacto · Sucesso crítico: Alvo reduzido a 0 PV imediatamente se PV atual ≤ 60. Falha: ainda causa 4d10+10.</span>
+            </div>
+            <div class="ability-item">
+              <span class="ability-name">Cinzas do Vazio (3 Ações Lendárias · Recarga 5–6)</span>
+              <span class="ability-desc">Nuvem de cinzas negras em 12m. Save CON DC 21: falha = Cegado e −4 em todos os ataques por 3 rodadas. Criaturas na área que tentarem conjurar magias: save adicional INT DC 19 ou a magia falha e o slot/mana é perdido.</span>
+            </div>
+          </div>
+          <div class="ability-block">
+            <div class="ability-title">✦ Passivos</div>
+            <div class="ability-item">
+              <span class="ability-name">Zona de Supressão Mágica</span>
+              <span class="ability-desc">Em 12m, Mana custa o dobro para todos os conjuradores que não sejam o Senhor das Cinzas. Magias de N3 ou inferior são suprimidas completamente (não funcionam). Magias N4+ funcionam mas com custo dobrado.</span>
+            </div>
+            <div class="ability-item">
+              <span class="ability-name">Resistência Absoluta</span>
+              <span class="ability-desc">Resistência a TODOS os tipos de dano (não apenas imunidades). Vulnerável apenas a Radiante — mas Radiante é bloqueado pela Zona de Supressão se for magia. Itens físicos com propriedade Radiante (espadas sagradas, flechas abençoadas) funcionam normalmente e são a principal esperança.</span>
+            </div>
+            <div class="ability-item">
+              <span class="ability-name">Implacável das Eras</span>
+              <span class="ability-desc">Não pode ser morto permanentemente sem o Espelho dos Veios. Se reduzido a 0 PV sem o Espelho presente: fica incapacitado por 1 hora e então regenera para 150 PV. O Espelho dos Veios está em algum ponto das Minas (Arcano DC 22 para localizar remotamente, ou exploração física).</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="monster-footer">
+        <span class="tactic-label">⚔ Tática / Solução:</span>
+        <span class="tactic-text">Este é um encontro de gestão de recursos extrema. A Zona de Supressão exige que Paladinos e Guerreiros com equipamento sagrado sejam o foco. FASE 1: Um membro (geralmente o mais resistente) mantém o Senhor ocupado enquanto 1–2 exploram as Minas em busca do Espelho. FASE 2: Com o Espelho, uma ação especial (Arcano DC 24, usando o Espelho como catalisador) força o Senhor a fazer save SAB DC 20. Falha: preso no Espelho. Sucesso: ainda causa 8d10 necrótico ao grupo inteiro como reação de fúria.</span>
+      </div>
+    </div>
+    </div>
+
+    <!-- VEIOS DRACÔNICOS EXPANDIDOS: Salamandra e Colônia -->
+    <h2 class="section-title" style="margin-top:4rem;">✦ Criaturas dos Veios — Expansão</h2>
+
+    <!-- SALAMANDRA DOS VEIOS -->
+    <div id="salamandra-veios" style="position:relative;">
+    <div class="monster-card cat-veios" style="margin-top:2.5rem;">
+      <div class="monster-header" style="background:linear-gradient(135deg,rgba(10,25,40,0.8) 0%,rgba(5,12,20,0.6) 100%);">
+        <div class="monster-header-left">
+          <div class="monster-name">Salamandra dos Veios</div>
+          <div class="monster-epithet">Nascida onde fogo e mana se tocam</div>
+          <div class="tag-row" style="margin-top:0.5rem;">
+            <span class="tag tag-blue">VEIOS DRACÔNICOS</span>
+            <span class="tag">ELEMENTAL-FERA</span>
+            <span class="tag">MÉDIA</span>
+          </div>
+        </div>
+        <div class="monster-header-right">
+          <span class="cr-badge">CR 4</span>
+          <span class="type-badge">Elemental-Fera</span>
+        </div>
+      </div>
+      <div class="monster-illustration"><img src="https://i.pinimg.com/736x/50/e0/42/50e0427b41e9bf71f82eafb7a72b3ef8.jpg" alt="Salamandra dos Veios" loading="lazy" onerror="this.style.display='none'"></div>
+      <div class="monster-body">
+        <div class="monster-lore">
+      <p>Salamandras dos Veios surgem onde Veios Dracônicos de fogo cruzam com fontes de água subterrânea — a tensão entre os opostos cria uma criatura que incorpora ambos: escamas que brilham como brasa, mas produzem vapor e não chamas. Seu mordida não queima — ela ferve. Alvos mordidos experimentam o calor de dentro para fora.</p>
+          <p>Diferente das Cinzas Vivas, as Salamandras têm inteligência rudimentar e podem ser domesticadas por Druidas especializados ou Selváticos de alta afinidade. Algumas comunidades as usam como detectoras de Veios instáveis — onde há Salamandra, há Veio próximo.</p>
+        </div>
+        <div class="monster-stats">
+          <div class="stat-block-mini">
+            <div class="stat-row"><span class="stat-key">PV</span><span class="stat-val">60 (8d8+24)</span></div>
+            <div class="stat-row"><span class="stat-key">Defesa Física</span><span class="stat-val">15</span></div>
+            <div class="stat-row"><span class="stat-key">Velocidade</span><span class="stat-val">9m / Nadar 12m</span></div>
+          </div>
+          <div class="attr-mini">
+            <div class="attr-mini-cell"><span class="attr-mini-abbr">FOR</span><span class="attr-mini-val">16(+3)</span></div>
+            <div class="attr-mini-cell"><span class="attr-mini-abbr">DES</span><span class="attr-mini-val">14(+2)</span></div>
+            <div class="attr-mini-cell"><span class="attr-mini-abbr">CON</span><span class="attr-mini-val">16(+3)</span></div>
+            <div class="attr-mini-cell"><span class="attr-mini-abbr">INT</span><span class="attr-mini-val">5(−3)</span></div>
+            <div class="attr-mini-cell"><span class="attr-mini-abbr">SAB</span><span class="attr-mini-val">10(+0)</span></div>
+            <div class="attr-mini-cell"><span class="attr-mini-abbr">CAR</span><span class="attr-mini-val">6(−2)</span></div>
+          </div>
+          <div class="ability-block">
+            <div class="ability-title">⚔ Ações</div>
+            <div class="ability-item">
+              <span class="ability-name">Mordida Fervente</span>
+              <span class="ability-desc">+6 ataque · 2d8+3 perfurante + 2d6 fogo (interno) · Alvo perde 1d6 PV no início de cada turno por 3 rodadas (fervura interna) · Save CON DC 14 encerra o efeito</span>
+            </div>
+            <div class="ability-item">
+              <span class="ability-name">Jato de Vapor (Recarga 5–6)</span>
+              <span class="ability-desc">Cone 6m · 4d6 fogo/vapor · Save DES DC 14 metade · Alvos que falharem ficam Cegos por 1 rodada (vapor nos olhos)</span>
+            </div>
+          </div>
+          <div class="ability-block">
+            <div class="ability-title">✦ Passivos</div>
+            <div class="ability-item">
+              <span class="ability-name">Detector de Veios</span>
+              <span class="ability-desc">Imune a fogo. Vulnerável a elétrico. Presença de Salamandras indica Veio ativo em 60m. Pode ser domesticada (Druida/Selvático Nível 8+, SAB DC 18, semanas de processo).</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="monster-footer">
+        <span class="tactic-label">⚔ Tática:</span>
+        <span class="tactic-text">Usa Jato de Vapor para cegar e então morde os alvos cegos com Vantagem. Foge para água quando abaixo de 15 PV — regenera 5 PV/rodada enquanto submersa.</span>
+      </div>
+    </div>
+    </div>
+
+    <!-- COLÔNIA PENSANTE -->
+    <div id="colonia-pensante" style="position:relative;">
+    <div class="monster-card cat-veios" style="margin-top:2.5rem;">
+      <div class="monster-header" style="background:linear-gradient(135deg,rgba(15,28,42,0.8) 0%,rgba(8,15,22,0.6) 100%);">
+        <div class="monster-header-left">
+          <div class="monster-name">Colônia Pensante</div>
+          <div class="monster-epithet">Mil vermes. Uma vontade. Um problema.</div>
+          <div class="tag-row" style="margin-top:0.5rem;">
+            <span class="tag tag-blue">MINAS DE VALDROS</span>
+            <span class="tag">ENXAME CONSCIENTE</span>
+            <span class="tag tag-red">ENORME</span>
+          </div>
+        </div>
+        <div class="monster-header-right">
+          <span class="cr-badge">CR 6</span>
+          <span class="type-badge">Enxame Arcano</span>
+        </div>
+      </div>
+      <div class="monster-illustration"><img src="https://i.pinimg.com/736x/ca/e9/17/cae9179369773c346124a849502d8ad6.jpg" alt="Colônia Pensante" loading="lazy" onerror="this.style.display='none'"></div>
+      <div class="monster-body">
+        <div class="monster-lore">
+      <p>Vermes comuns das Minas de Valdros, expostos por gerações ao Mana dos Veios, eventualmente desenvolveram uma mente coletiva emergente. Uma Colônia Pensante é entre mil e dez mil desses vermes agindo em perfeita sincronia — um enxame que tomou decisões estratégicas, que aprende com o combate em tempo real e que, em termos práticos, não pode ser morto por ataques físicos comuns.</p>
+          <p>O que torna a Colônia realmente perturbadora é sua capacidade de infiltração. Em situações não-combativas, a Colônia pode se dispersar tão completamente que parece apenas o solo da caverna se movendo. Personagens que não perceberem a ameaça podem literalmente caminhar através dela, chegando ao centro — e aí a Colônia se fecha.</p>
+          <p class="monster-quote">"O chão estava se movendo. Achei que fosse tremor. Era o chão olhando para nós." — Mineiro sobrevivente das Minas, recuperado em estado de choque</p>
+        </div>
+        <div class="monster-stats">
+          <div class="stat-block-mini">
+            <div class="stat-row"><span class="stat-key">PV</span><span class="stat-val">110 (20d10 — enxame)</span></div>
+            <div class="stat-row"><span class="stat-key">Defesa Física</span><span class="stat-val">13</span></div>
+            <div class="stat-row"><span class="stat-key">Velocidade</span><span class="stat-val">6m (por todas as superfícies)</span></div>
+            <div class="stat-row"><span class="stat-key">Imunidades</span><span class="stat-val">Condições individuais · Armas não-mágicas</span></div>
+          </div>
+          <div class="attr-mini">
+            <div class="attr-mini-cell"><span class="attr-mini-abbr">FOR</span><span class="attr-mini-val">14(+2)</span></div>
+            <div class="attr-mini-cell"><span class="attr-mini-abbr">DES</span><span class="attr-mini-val">16(+3)</span></div>
+            <div class="attr-mini-cell"><span class="attr-mini-abbr">CON</span><span class="attr-mini-val">14(+2)</span></div>
+            <div class="attr-mini-cell"><span class="attr-mini-abbr">INT</span><span class="attr-mini-val">8(−1)</span></div>
+            <div class="attr-mini-cell"><span class="attr-mini-abbr">SAB</span><span class="attr-mini-val">12(+1)</span></div>
+            <div class="attr-mini-cell"><span class="attr-mini-abbr">CAR</span><span class="attr-mini-val">2(−4)</span></div>
+          </div>
+          <div class="ability-block">
+            <div class="ability-title">⚔ Ações</div>
+            <div class="ability-item">
+              <span class="ability-name">Infestação</span>
+              <span class="ability-desc">Alcance 3m (a Colônia ocupa espaço) · Todos no espaço: 4d6 perfurante. Save DES DC 15 metade. Alvos que falharem: a Colônia começa a infiltrar — na próxima rodada, 2d6 perfurante adicional automaticamente até se moverem para fora do espaço da Colônia.</span>
+            </div>
+            <div class="ability-item">
+              <span class="ability-name">Engolir (Alvo já na área)</span>
+              <span class="ability-desc">Alvo: save FOR DC 16 · Falha: Engolido — completamente cercado pela Colônia. 3d8 por rodada automaticamente. Escape: FOR DC 16 como Ação Padrão.</span>
+            </div>
+          </div>
+          <div class="ability-block">
+            <div class="ability-title">✦ Passivos</div>
+            <div class="ability-item">
+              <span class="ability-name">Forma de Enxame</span>
+              <span class="ability-desc">Imune a dano de armas não-mágicas e a condições que afetam indivíduos. Vulnerável a fogo em área e vento (Rajada de Vento a dispersa por 2 rodadas, reduzindo PV máximo em 30 nesse período). Ácido causa dano dobrado.</span>
+            </div>
+            <div class="ability-item">
+              <span class="ability-name">Mente Coletiva Aprendiz</span>
+              <span class="ability-desc">A partir da rodada 3, a Colônia aprende: ganha +1 Defesa permanentemente para cada tipo de ataque que já usaram contra ela nesse combate (máx +4). Isso é registrado pelo Mestre rodada a rodada.</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="monster-footer">
+        <span class="tactic-label">⚔ Tática:</span>
+        <span class="tactic-text">A Colônia tenta engolir o mais frágil do grupo. Use fogo em área imediatamente — cada rodada que passa sem fogo torna o combate mais difícil devido à Mente Coletiva. Um Druida com Rajada de Vento pode criar abertura para outros membros escaparem se alguém for engolido.</span>
+      </div>
+    </div>
+    </div>
+
+  </div>
+</section>
+
+<div class="chapter-sep"><span class="sep-ornament">☠ ✦ ☠</span></div>
 ══════════════════════════════════════════════════════════════ -->
 <section class="chapter-section" id="tabelas" style="background:#16120e;">
   <div class="chapter-hero">
@@ -2638,7 +3664,15 @@
           <tr><td>Planície dos Ecos</td><td>1–4</td><td>O Susurrador</td><td>CR 4</td><td>1d2</td></tr>
           <tr><td>Planície dos Ecos</td><td>5–6</td><td>Fantasma de Thornwall</td><td>CR 4</td><td>1d4</td></tr>
           <tr><td>Montanhas de Karath</td><td>1–3</td><td>Grifo Selvagem</td><td>CR 5</td><td>Par ou família</td></tr>
-          <tr><td>Montanhas de Karath</td><td>4–6</td><td>Eco Dracônico</td><td>CR 5</td><td>Solitário</td></tr>
+          <tr><td>Montanhas de Karath</td><td>4–5</td><td>Urso Cinzeiro</td><td>CR 4</td><td>Solitário</td></tr>
+          <tr><td>Montanhas de Karath</td><td>6</td><td>Eco Dracônico</td><td>CR 5</td><td>Solitário</td></tr>
+          <tr><td>Veios Expostos</td><td>1–3</td><td>Salamandra dos Veios</td><td>CR 4</td><td>1d3</td></tr>
+          <tr><td>Veios Expostos</td><td>4–5</td><td>Larva do Vazio</td><td>CR 3</td><td>Bando 3d6</td></tr>
+          <tr><td>Veios Expostos</td><td>6</td><td>Elementar de Mana Pura</td><td>CR 9</td><td>Solitário</td></tr>
+          <tr><td>Minas de Valdros (fundo)</td><td>1–2</td><td>Colônia Pensante</td><td>CR 6</td><td>Solitária</td></tr>
+          <tr><td>Minas de Valdros (fundo)</td><td>3–4</td><td>Basilisco da Pedra Viva</td><td>CR 7</td><td>1 (território)</td></tr>
+          <tr><td>Minas de Valdros (fundo)</td><td>5</td><td>Rei Morto de Valdros</td><td>CR 12</td><td>Solitário + 2d8 zumbis</td></tr>
+          <tr><td>Minas de Valdros (fundo)</td><td>6</td><td>O Senhor das Cinzas</td><td>CR 16</td><td>Solitário (evento)</td></tr>
         </tbody>
       </table>
     </div>
@@ -2685,6 +3719,18 @@
           <tr><td>O Susurrador</td><td>Silence (magia)</td><td>Arcano DC 15</td><td>Não</td></tr>
           <tr><td>Guardião do Selo</td><td>Ácido</td><td>História DC 20</td><td>Sim (Sangue Desperto)</td></tr>
           <tr><td>Dragão Corrompido</td><td>Radiante (ignora DR)</td><td>Arcano DC 22</td><td>Sim (caminho especial)</td></tr>
+          <tr><td>Tecedor do Véu</td><td>Luz Radiante (bloqueia Passo)</td><td>Arcano DC 16</td><td>Não</td></tr>
+          <tr><td>Larva do Vazio</td><td>Radiante (impede Ascensão)</td><td>Óbvio</td><td>Não</td></tr>
+          <tr><td>Rei Morto de Valdros</td><td>Radiante + Coroa (âncora)</td><td>História DC 18</td><td>Não</td></tr>
+          <tr><td>Espectro de Linhagem</td><td>Dano mágico (incorpóreo)</td><td>Religião DC 14</td><td>Sim (cumprir juramento)</td></tr>
+          <tr><td>Urso Cinzeiro</td><td>Não (acalmar: Selvático/Druida)</td><td>Natural DC 12</td><td>Sim (pacto animal)</td></tr>
+          <tr><td>Basilisco da Pedra Viva</td><td>Ácido (ignora DR)</td><td>Óbvio (carne-pedra)</td><td>Não (saliva útil)</td></tr>
+          <tr><td>Elementar de Mana Pura</td><td>Dano físico (não mágico)</td><td>Arcano DC 17</td><td>Não</td></tr>
+          <tr><td>Lich Menor dos Selos</td><td>Radiante + Fragmento de Selo</td><td>Arcano DC 20</td><td>Não</td></tr>
+          <tr><td>Avatar de Ezurath</td><td>Missão do Sonho Profundo</td><td>Arcano DC 25</td><td>Sim (missão especial)</td></tr>
+          <tr><td>Senhor das Cinzas</td><td>Espelho dos Veios + Radiante físico</td><td>História DC 22</td><td>Não (aprisionável)</td></tr>
+          <tr><td>Salamandra dos Veios</td><td>Elétrico</td><td>Natural DC 11</td><td>Sim (domesticação)</td></tr>
+          <tr><td>Colônia Pensante</td><td>Fogo em área · Ácido</td><td>Natural DC 13</td><td>Não</td></tr>
         </tbody>
       </table>
     </div>
@@ -2697,9 +3743,9 @@
   <div class="footer-logo">☠ Bestiário</div>
   <div class="footer-sub">de Aethoria</div>
   <p>Herança RPG · Suplemento Oficial de Criaturas</p>
-  <p>20 Criaturas · 7 Categorias · CR 2 a CR 15</p>
+  <p>32 Criaturas · 7 Categorias · CR 2 a CR 17</p>
   <div class="footer-divider"></div>
-  <p style="opacity:0.3; font-family:'Fira Code',monospace; font-size:0.72rem;">Os dragões não morreram por nós. Morreram pelo que viria depois de nós.</p>
+    <p style="opacity:0.3; font-family:'Fira Code',monospace; font-size:0.72rem;">Os dragões não morreram por nós. Morreram pelo que viria depois de nós.</p>
   <p style="margin-top:0.5rem; opacity:0.2; font-size:0.75rem;">Material do Mestre · Uso Exclusivo para Herança RPG · 5 Reinos · 7 Selos · 2 Profecias</p>
 </footer>
 
