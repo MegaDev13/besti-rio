@@ -1,0 +1,2707 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BESTIÁRIO DE AETHORIA — Enciclopédia das Criaturas</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700;900&family=Cinzel:wght@400;600;700&family=Crimson+Pro:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --gold: #c9a84c;
+    --gold-light: #e8c97a;
+    --gold-dark: #8a6520;
+    --crimson: #8b1a1a;
+    --crimson-light: #c0392b;
+    --ink: #0d0a07;
+    --parchment: #f5ead6;
+    --parchment-dark: #e8d5b0;
+    --parchment-mid: #eedfc0;
+    --ash: #2a2218;
+    --smoke: #1a1510;
+    --ember: #d4541a;
+    --silver: #b8c4d0;
+    --mist: #8a9aaa;
+    --text-body: #3a2e20;
+    --text-light: #5c4d38;
+    --void: #0a0008;
+    --veil-purple: #3d1a5a;
+    --forest-dark: #0d1f0d;
+    --stone-gray: #2a2a35;
+    /* category colors */
+    --cat-floresta: #1a3a1a;
+    --cat-veu: #2a0a3a;
+    --cat-mortos: #1a1a2a;
+    --cat-veios: #1a2a3a;
+    --cat-feras: #2a1a0a;
+    --cat-arcana: #3a1a2a;
+    --cat-elite: #3a0a0a;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Crimson Pro', Georgia, serif;
+    background-color: var(--smoke);
+    color: var(--parchment);
+    overflow-x: hidden;
+  }
+
+  ::-webkit-scrollbar { width: 8px; }
+  ::-webkit-scrollbar-track { background: var(--ink); }
+  ::-webkit-scrollbar-thumb { background: var(--gold-dark); border-radius: 4px; }
+
+  /* ─── COVER ─── */
+  .cover {
+    min-height: 100vh;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    background: var(--ink);
+  }
+
+  .cover-bg {
+    position: absolute; inset: 0;
+    background-image: url('https://images.unsplash.com/photo-1518709268805-4e9042af9f23?w=1600&q=80');
+    background-size: cover;
+    background-position: center;
+    filter: brightness(0.15) sepia(0.6) hue-rotate(-10deg);
+  }
+
+  .cover-overlay {
+    position: absolute; inset: 0;
+    background: radial-gradient(ellipse at center, rgba(139,26,26,0.15) 0%, transparent 50%),
+                radial-gradient(ellipse at center, transparent 30%, var(--ink) 80%),
+                linear-gradient(to bottom, var(--ink) 0%, transparent 20%, transparent 70%, var(--ink) 100%);
+  }
+
+  .cover-content {
+    position: relative; z-index: 2;
+    text-align: center;
+    padding: 4rem 2rem;
+  }
+
+  .cover-ornament {
+    font-size: 1.8rem;
+    color: var(--crimson);
+    letter-spacing: 1.2rem;
+    margin-bottom: 2rem;
+    opacity: 0.8;
+    animation: fadeIn 2s ease both;
+  }
+
+  .cover-subtitle-top {
+    font-family: 'Cinzel', serif;
+    font-size: 0.8rem;
+    letter-spacing: 0.5rem;
+    color: var(--gold);
+    text-transform: uppercase;
+    margin-bottom: 1.5rem;
+    animation: fadeIn 1.5s ease 0.3s both;
+  }
+
+  .cover-title {
+    font-family: 'Cinzel Decorative', serif;
+    font-size: clamp(3.5rem, 10vw, 8rem);
+    font-weight: 900;
+    color: var(--gold-light);
+    line-height: 0.9;
+    text-shadow: 0 0 80px rgba(139,26,26,0.5), 0 0 40px rgba(201,168,76,0.3), 0 4px 20px rgba(0,0,0,0.9);
+    animation: titleReveal 2s ease 0.5s both;
+  }
+
+  .cover-title-sub {
+    display: block;
+    font-family: 'Cinzel', serif;
+    font-size: 0.3em;
+    font-weight: 400;
+    letter-spacing: 0.4em;
+    color: var(--crimson-light);
+    margin-top: 0.6em;
+    text-shadow: none;
+  }
+
+  .cover-divider {
+    width: 350px;
+    height: 1px;
+    background: linear-gradient(to right, transparent, var(--crimson), var(--gold), var(--crimson), transparent);
+    margin: 2.5rem auto;
+    animation: fadeIn 2s ease 1s both;
+  }
+
+  .cover-subtitle {
+    font-family: 'Cinzel', serif;
+    font-size: clamp(0.75rem, 1.5vw, 1rem);
+    letter-spacing: 0.35rem;
+    color: var(--silver);
+    opacity: 0.6;
+    text-transform: uppercase;
+    animation: fadeIn 2s ease 1.2s both;
+  }
+
+  .cover-count {
+    margin-top: 3rem;
+    display: flex;
+    gap: 2rem;
+    justify-content: center;
+    flex-wrap: wrap;
+    animation: fadeIn 2s ease 1.5s both;
+  }
+
+  .cover-count-item {
+    display: flex; flex-direction: column; align-items: center; gap: 0.3rem;
+    border: 1px solid rgba(201,168,76,0.2);
+    padding: 0.8rem 1.5rem;
+  }
+
+  .cover-count-num {
+    font-family: 'Cinzel Decorative', serif;
+    font-size: 2rem;
+    color: var(--gold);
+    line-height: 1;
+  }
+
+  .cover-count-label {
+    font-family: 'Fira Code', monospace;
+    font-size: 0.65rem;
+    color: var(--mist);
+    letter-spacing: 0.15rem;
+    text-transform: uppercase;
+  }
+
+  .scroll-hint {
+    position: absolute;
+    bottom: 3rem;
+    left: 50%;
+    transform: translateX(-50%);
+    font-family: 'Fira Code', monospace;
+    font-size: 0.65rem;
+    color: var(--gold-dark);
+    letter-spacing: 0.3rem;
+    text-transform: uppercase;
+    animation: bounce 2s ease infinite 2s;
+    z-index: 2;
+  }
+
+  @keyframes bounce {
+    0%,100% { transform: translateX(-50%) translateY(0); opacity: 0.5; }
+    50% { transform: translateX(-50%) translateY(-8px); opacity: 1; }
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  @keyframes titleReveal {
+    from { opacity: 0; transform: scale(0.9); filter: blur(8px); }
+    to { opacity: 1; transform: scale(1); filter: blur(0); }
+  }
+
+  /* ─── TOC ─── */
+  .toc-section {
+    background: var(--ash);
+    border-top: 3px solid var(--crimson);
+    border-bottom: 3px solid var(--gold-dark);
+    padding: 5rem 2rem;
+  }
+
+  .toc-inner { max-width: 1000px; margin: 0 auto; }
+
+  .toc-header {
+    text-align: center;
+    margin-bottom: 3rem;
+  }
+
+  .toc-header h2 {
+    font-family: 'Cinzel Decorative', serif;
+    font-size: 1.8rem;
+    color: var(--gold-light);
+    margin-bottom: 0.5rem;
+  }
+
+  .toc-header p {
+    font-family: 'Cinzel', serif;
+    font-size: 0.75rem;
+    letter-spacing: 0.3rem;
+    color: var(--mist);
+    text-transform: uppercase;
+  }
+
+  .toc-categories {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 0.8rem;
+  }
+
+  .toc-cat {
+    border: 1px solid rgba(201,168,76,0.15);
+    overflow: hidden;
+  }
+
+  .toc-cat-header {
+    padding: 0.6rem 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    border-bottom: 1px solid rgba(201,168,76,0.1);
+  }
+
+  .toc-cat-icon { font-size: 1.2rem; }
+
+  .toc-cat-name {
+    font-family: 'Cinzel', serif;
+    font-size: 0.8rem;
+    letter-spacing: 0.1rem;
+    color: var(--gold);
+    text-transform: uppercase;
+  }
+
+  .toc-cat-count {
+    margin-left: auto;
+    font-family: 'Fira Code', monospace;
+    font-size: 0.65rem;
+    color: var(--mist);
+    background: rgba(0,0,0,0.3);
+    padding: 0.1rem 0.4rem;
+    border: 1px solid rgba(201,168,76,0.15);
+  }
+
+  .toc-cat-items {
+    padding: 0.6rem 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+  }
+
+  .toc-cat-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-decoration: none;
+    color: var(--parchment);
+    opacity: 0.7;
+    font-size: 0.88rem;
+    padding: 0.2rem 0;
+    border-bottom: 1px solid rgba(255,255,255,0.04);
+    transition: opacity 0.2s, color 0.2s;
+  }
+
+  .toc-cat-item:hover { opacity: 1; color: var(--gold-light); }
+
+  .toc-cr {
+    font-family: 'Fira Code', monospace;
+    font-size: 0.65rem;
+    color: var(--crimson-light);
+    border: 1px solid rgba(139,26,26,0.4);
+    padding: 0.05rem 0.35rem;
+  }
+
+  /* ─── CHAPTER HERO ─── */
+  .chapter-hero {
+    position: relative;
+    height: 260px;
+    overflow: hidden;
+    display: flex;
+    align-items: flex-end;
+    padding: 2.5rem 3rem;
+  }
+
+  .chapter-hero-bg {
+    position: absolute; inset: 0;
+    background-size: cover;
+    background-position: center;
+    filter: brightness(0.2) sepia(0.5);
+    transition: transform 0.6s ease;
+  }
+
+  .chapter-hero:hover .chapter-hero-bg { transform: scale(1.03); }
+
+  .chapter-hero-overlay {
+    position: absolute; inset: 0;
+    background: linear-gradient(to right, var(--ink) 30%, transparent 100%),
+                linear-gradient(to top, var(--ink) 0%, transparent 60%);
+  }
+
+  .chapter-hero-content { position: relative; z-index: 2; }
+
+  .chapter-label {
+    font-family: 'Fira Code', monospace;
+    font-size: 0.68rem;
+    color: var(--crimson-light);
+    letter-spacing: 0.3rem;
+    text-transform: uppercase;
+    margin-bottom: 0.4rem;
+    opacity: 0.9;
+  }
+
+  .chapter-title {
+    font-family: 'Cinzel Decorative', serif;
+    font-size: clamp(1.6rem, 3.5vw, 2.8rem);
+    color: var(--gold-light);
+    line-height: 1.1;
+  }
+
+  .chapter-desc {
+    font-family: 'Crimson Pro', serif;
+    font-size: 1.05rem;
+    color: var(--silver);
+    margin-top: 0.4rem;
+    font-style: italic;
+    max-width: 500px;
+    opacity: 0.8;
+  }
+
+  /* ─── CHAPTER SECTION ─── */
+  .chapter-section { background: var(--smoke); }
+  .chapter-section:nth-child(even) { background: #16120e; }
+
+  /* ─── CONTENT ─── */
+  .content-wrapper {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 4rem 2rem;
+  }
+
+  /* ─── SECTION TITLES ─── */
+  .section-title {
+    font-family: 'Cinzel', serif;
+    font-size: 1.5rem;
+    color: var(--gold-light);
+    border-bottom: 2px solid var(--gold-dark);
+    padding-bottom: 0.6rem;
+    margin-bottom: 1.5rem;
+    margin-top: 3rem;
+  }
+
+  .section-title::before { content: '☠ '; color: var(--crimson); font-size: 0.8em; }
+
+  /* ─── MONSTER CARD ─── */
+  .monster-card {
+    background: var(--ash);
+    border: 1px solid rgba(201,168,76,0.2);
+    margin: 2.5rem 0;
+    overflow: hidden;
+    position: relative;
+    transition: border-color 0.3s;
+  }
+
+  .monster-card:hover { border-color: rgba(201,168,76,0.5); }
+
+  .monster-card::before {
+    content: '';
+    position: absolute;
+    left: 0; top: 0; bottom: 0;
+    width: 4px;
+  }
+
+  .cat-floresta .monster-card::before { background: #27ae60; }
+  .cat-veu .monster-card::before { background: #8e44ad; }
+  .cat-mortos .monster-card::before { background: #2c3e50; }
+  .cat-veios .monster-card::before { background: #2980b9; }
+  .cat-feras .monster-card::before { background: #e67e22; }
+  .cat-arcana .monster-card::before { background: var(--crimson-light); }
+  .cat-elite .monster-card::before { background: var(--gold); }
+
+  .monster-header {
+    padding: 1.2rem 1.5rem 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 0.8rem;
+    border-bottom: 1px solid rgba(201,168,76,0.12);
+    position: relative;
+  }
+
+  .monster-header-left { flex: 1; min-width: 200px; }
+
+  .monster-name {
+    font-family: 'Cinzel Decorative', serif;
+    font-size: 1.3rem;
+    color: var(--gold-light);
+    margin-bottom: 0.2rem;
+    line-height: 1.2;
+  }
+
+  .monster-epithet {
+    font-family: 'Crimson Pro', serif;
+    font-style: italic;
+    font-size: 0.95rem;
+    color: var(--silver);
+    opacity: 0.7;
+  }
+
+  .monster-header-right {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 0.4rem;
+  }
+
+  .cr-badge {
+    font-family: 'Fira Code', monospace;
+    font-size: 0.75rem;
+    padding: 0.3rem 0.8rem;
+    border: 2px solid var(--crimson);
+    color: var(--crimson-light);
+    background: rgba(139,26,26,0.15);
+    letter-spacing: 0.05rem;
+    font-weight: 500;
+  }
+
+  .type-badge {
+    font-family: 'Fira Code', monospace;
+    font-size: 0.65rem;
+    padding: 0.2rem 0.6rem;
+    border: 1px solid var(--gold-dark);
+    color: var(--gold);
+    letter-spacing: 0.05rem;
+  }
+
+  .monster-body {
+    display: grid;
+    grid-template-columns: 1fr 280px;
+    gap: 0;
+  }
+
+  @media(max-width: 768px) {
+    .monster-body { grid-template-columns: 1fr; }
+  }
+
+  .monster-lore {
+    padding: 1.2rem 1.5rem;
+    border-right: 1px solid rgba(201,168,76,0.1);
+  }
+
+  @media(max-width: 768px) {
+    .monster-lore { border-right: none; border-bottom: 1px solid rgba(201,168,76,0.1); }
+  }
+
+  .monster-lore p {
+    font-size: 0.95rem;
+    line-height: 1.75;
+    color: var(--parchment);
+    opacity: 0.85;
+    margin-bottom: 0.8rem;
+  }
+
+  .monster-lore p:last-child { margin-bottom: 0; }
+
+  .monster-quote {
+    font-style: italic;
+    font-size: 0.9rem !important;
+    color: var(--silver) !important;
+    opacity: 0.65 !important;
+    border-left: 2px solid var(--gold-dark);
+    padding-left: 1rem;
+    margin: 1rem 0 !important;
+  }
+
+  .monster-stats {
+    padding: 1.2rem 1.5rem;
+    background: rgba(0,0,0,0.25);
+  }
+
+  .stat-block-mini {
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+    margin-bottom: 1rem;
+  }
+
+  .stat-row {
+    display: flex;
+    justify-content: space-between;
+    padding: 0.25rem 0;
+    border-bottom: 1px solid rgba(201,168,76,0.07);
+    font-size: 0.85rem;
+  }
+
+  .stat-key {
+    color: var(--mist);
+    font-family: 'Cinzel', serif;
+    font-size: 0.72rem;
+    letter-spacing: 0.05rem;
+  }
+
+  .stat-val {
+    color: var(--gold-light);
+    font-family: 'Fira Code', monospace;
+    font-size: 0.8rem;
+  }
+
+  .attr-mini {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.4rem;
+    margin: 0.8rem 0;
+    background: rgba(0,0,0,0.2);
+    padding: 0.6rem;
+    border: 1px solid rgba(201,168,76,0.1);
+  }
+
+  .attr-mini-cell {
+    text-align: center;
+  }
+
+  .attr-mini-abbr {
+    font-family: 'Fira Code', monospace;
+    font-size: 0.6rem;
+    color: var(--mist);
+    display: block;
+  }
+
+  .attr-mini-val {
+    font-family: 'Cinzel', serif;
+    font-size: 0.85rem;
+    color: var(--gold);
+    display: block;
+    line-height: 1.3;
+  }
+
+  .ability-block {
+    margin-top: 0.8rem;
+    border-top: 1px solid rgba(201,168,76,0.12);
+    padding-top: 0.8rem;
+  }
+
+  .ability-title {
+    font-family: 'Cinzel', serif;
+    font-size: 0.7rem;
+    letter-spacing: 0.15rem;
+    color: var(--crimson-light);
+    text-transform: uppercase;
+    margin-bottom: 0.5rem;
+  }
+
+  .ability-item {
+    margin-bottom: 0.6rem;
+  }
+
+  .ability-name {
+    font-family: 'Cinzel', serif;
+    font-size: 0.75rem;
+    color: var(--gold);
+    display: block;
+    margin-bottom: 0.15rem;
+  }
+
+  .ability-desc {
+    font-size: 0.82rem;
+    line-height: 1.55;
+    color: var(--parchment);
+    opacity: 0.8;
+  }
+
+  .monster-illustration {
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+    border-bottom: 1px solid rgba(201,168,76,0.15);
+    background: #0a0508;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 200px;
+    max-height: 420px;
+  }
+
+  .monster-illustration img {
+    width: 100%;
+    height: auto;
+    max-height: 420px;
+    object-fit: contain;
+    object-position: center center;
+    filter: brightness(0.85) contrast(1.1) sepia(0.2) hue-rotate(-5deg);
+    transition: all 0.4s ease;
+    display: block;
+  }
+
+  .monster-card:hover .monster-illustration img {
+    filter: brightness(1) contrast(1.05) sepia(0.1);
+    transform: scale(1.02);
+  }
+
+  .monster-illustration::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to bottom, rgba(0,0,0,0.05) 0%, transparent 20%, transparent 80%, rgba(10,5,2,0.4) 100%);
+    pointer-events: none;
+  }
+
+  .monster-footer {
+    padding: 0.8rem 1.5rem;
+    background: rgba(0,0,0,0.15);
+    border-top: 1px solid rgba(201,168,76,0.1);
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    align-items: center;
+  }
+
+  .tactic-label {
+    font-family: 'Fira Code', monospace;
+    font-size: 0.6rem;
+    color: var(--gold-dark);
+    text-transform: uppercase;
+    letter-spacing: 0.1rem;
+    white-space: nowrap;
+  }
+
+  .tactic-text {
+    font-size: 0.82rem;
+    color: var(--parchment);
+    opacity: 0.7;
+    flex: 1;
+  }
+
+  /* ─── TAG CHIPS ─── */
+  .tag-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    margin: 0.8rem 0;
+  }
+
+  .tag {
+    font-family: 'Fira Code', monospace;
+    font-size: 0.62rem;
+    padding: 0.15rem 0.55rem;
+    border: 1px solid var(--gold-dark);
+    color: var(--gold);
+    letter-spacing: 0.04rem;
+  }
+
+  .tag-red { border-color: rgba(139,26,26,0.6); color: #e57373; }
+  .tag-blue { border-color: rgba(41,128,185,0.6); color: #7fb3d3; }
+  .tag-purple { border-color: rgba(142,68,173,0.6); color: #bb8fce; }
+  .tag-green { border-color: rgba(39,174,96,0.6); color: #82e0aa; }
+  .tag-gray { border-color: rgba(127,140,141,0.5); color: #aab7b8; }
+
+  /* ─── INFO BOXES ─── */
+  .info-box {
+    background: rgba(201,168,76,0.06);
+    border: 1px solid rgba(201,168,76,0.25);
+    border-left: 4px solid var(--gold);
+    padding: 1.2rem 1.5rem;
+    margin: 1.5rem 0;
+  }
+
+  .info-box-title {
+    font-family: 'Cinzel', serif;
+    font-size: 0.75rem;
+    letter-spacing: 0.2rem;
+    color: var(--gold);
+    text-transform: uppercase;
+    margin-bottom: 0.5rem;
+  }
+
+  .info-box p {
+    font-size: 0.92rem;
+    line-height: 1.65;
+    opacity: 0.85;
+    margin-bottom: 0.3rem;
+  }
+
+  .warning-box {
+    background: rgba(139,26,26,0.1);
+    border: 1px solid rgba(139,26,26,0.35);
+    border-left: 4px solid var(--crimson);
+    padding: 1.2rem 1.5rem;
+    margin: 1.5rem 0;
+  }
+
+  .warning-box .info-box-title { color: var(--crimson-light); }
+
+  /* ─── PULL QUOTE ─── */
+  .pull-quote {
+    font-family: 'Crimson Pro', serif;
+    font-style: italic;
+    font-size: 1.2rem;
+    line-height: 1.7;
+    color: var(--silver);
+    border-left: 3px solid var(--crimson);
+    padding: 1rem 1.5rem;
+    margin: 2rem 0;
+    background: rgba(139,26,26,0.06);
+    opacity: 0.85;
+  }
+
+  .pull-quote .quote-attr {
+    display: block;
+    font-size: 0.8rem;
+    letter-spacing: 0.1rem;
+    color: var(--gold-dark);
+    margin-top: 0.6rem;
+    font-style: normal;
+    font-family: 'Cinzel', serif;
+  }
+
+  /* ─── CHAPTER SEPARATOR ─── */
+  .chapter-sep {
+    text-align: center;
+    padding: 3rem 2rem;
+    background: var(--ink);
+    position: relative;
+  }
+
+  .chapter-sep::before, .chapter-sep::after {
+    content: '';
+    position: absolute;
+    left: 0; right: 0;
+    height: 1px;
+    background: linear-gradient(to right, transparent, var(--crimson), transparent);
+  }
+
+  .chapter-sep::before { top: 1rem; }
+  .chapter-sep::after { bottom: 1rem; }
+
+  .sep-ornament {
+    font-size: 1.3rem;
+    color: var(--crimson);
+    letter-spacing: 1.5rem;
+    opacity: 0.7;
+  }
+
+  /* ─── CR SCALE ─── */
+  .cr-scale {
+    display: flex;
+    gap: 0.4rem;
+    flex-wrap: wrap;
+    margin: 2rem 0;
+  }
+
+  .cr-step {
+    flex: 1;
+    min-width: 80px;
+    padding: 0.6rem 0.5rem;
+    text-align: center;
+    border: 1px solid rgba(201,168,76,0.15);
+    background: rgba(0,0,0,0.2);
+  }
+
+  .cr-step-num {
+    font-family: 'Cinzel Decorative', serif;
+    font-size: 1rem;
+    color: var(--gold);
+    display: block;
+  }
+
+  .cr-step-label {
+    font-family: 'Fira Code', monospace;
+    font-size: 0.58rem;
+    color: var(--mist);
+    display: block;
+    text-transform: uppercase;
+    letter-spacing: 0.05rem;
+    margin-top: 0.2rem;
+  }
+
+  .cr-step.easy { border-color: rgba(39,174,96,0.4); }
+  .cr-step.easy .cr-step-num { color: #82e0aa; }
+  .cr-step.medium { border-color: rgba(230,126,34,0.4); }
+  .cr-step.medium .cr-step-num { color: #f0b27a; }
+  .cr-step.hard { border-color: rgba(231,76,60,0.4); }
+  .cr-step.hard .cr-step-num { color: #f1948a; }
+  .cr-step.deadly { border-color: rgba(139,26,26,0.7); }
+  .cr-step.deadly .cr-step-num { color: var(--crimson-light); }
+  .cr-step.elite { border-color: rgba(201,168,76,0.5); }
+  .cr-step.elite .cr-step-num { color: var(--gold-light); }
+
+  /* ─── ENCOUNTER TABLE ─── */
+  .table-wrapper { overflow-x: auto; margin: 1.5rem 0; border: 1px solid rgba(201,168,76,0.25); }
+  table { width: 100%; border-collapse: collapse; font-size: 0.88rem; }
+  thead tr { background: linear-gradient(135deg, var(--crimson) 0%, var(--ash) 100%); }
+  thead th {
+    font-family: 'Cinzel', serif;
+    font-size: 0.72rem;
+    letter-spacing: 0.1rem;
+    color: var(--gold-light);
+    padding: 0.7rem 1rem;
+    text-align: left;
+    text-transform: uppercase;
+    border-bottom: 2px solid var(--gold-dark);
+    white-space: nowrap;
+  }
+  tbody tr { border-bottom: 1px solid rgba(201,168,76,0.08); transition: background 0.2s; }
+  tbody tr:nth-child(even) { background: rgba(201,168,76,0.03); }
+  tbody tr:hover { background: rgba(201,168,76,0.08); }
+  tbody td { padding: 0.55rem 1rem; color: var(--parchment); vertical-align: top; line-height: 1.5; font-size: 0.86rem; }
+  tbody td:first-child { font-family: 'Cinzel', serif; font-size: 0.78rem; color: var(--gold); font-weight: 600; }
+
+  /* ─── FOOTER ─── */
+  footer {
+    background: var(--ink);
+    border-top: 3px solid var(--crimson);
+    padding: 4rem 2rem;
+    text-align: center;
+  }
+
+  footer .footer-logo {
+    font-family: 'Cinzel Decorative', serif;
+    font-size: 1.8rem;
+    color: var(--crimson-light);
+    margin-bottom: 0.5rem;
+  }
+
+  footer .footer-sub {
+    font-family: 'Cinzel', serif;
+    font-size: 0.75rem;
+    color: var(--gold);
+    letter-spacing: 0.3rem;
+    margin-bottom: 1rem;
+  }
+
+  footer p {
+    font-size: 0.82rem;
+    color: var(--mist);
+    opacity: 0.5;
+    margin-bottom: 0.3rem;
+  }
+
+  footer .footer-divider {
+    width: 250px;
+    height: 1px;
+    background: linear-gradient(to right, transparent, var(--crimson), transparent);
+    margin: 2rem auto;
+  }
+</style>
+</head>
+<body>
+
+<!-- ══════════════════ COVER ══════════════════ -->
+<section class="cover">
+  <div class="cover-bg"></div>
+  <div class="cover-overlay"></div>
+  <div class="cover-content">
+    <div class="cover-ornament">✦ ☠ ✦</div>
+    <div class="cover-subtitle-top">Herança RPG · Suplemento Oficial</div>
+    <h1 class="cover-title">
+      Bestiário
+      <span class="cover-title-sub">de Aethoria</span>
+    </h1>
+    <div class="cover-divider"></div>
+    <p class="cover-subtitle">Enciclopédia das Criaturas do Mundo Conhecido</p>
+    <div class="cover-count">
+      <div class="cover-count-item">
+        <span class="cover-count-num">20</span>
+        <span class="cover-count-label">Criaturas</span>
+      </div>
+      <div class="cover-count-item">
+        <span class="cover-count-num">7</span>
+        <span class="cover-count-label">Categorias</span>
+      </div>
+      <div class="cover-count-item">
+        <span class="cover-count-num">CR 1–15</span>
+        <span class="cover-count-label">Dificuldade</span>
+      </div>
+    </div>
+  </div>
+  <div class="scroll-hint">▼ rolar para explorar ▼</div>
+</section>
+
+<!-- ══════════════════ TOC ══════════════════ -->
+<section class="toc-section" id="sumario">
+  <div class="toc-inner">
+    <div class="toc-header">
+      <h2>Índice do Bestiário</h2>
+      <p>20 Criaturas · 7 Categorias · Material do Mestre</p>
+    </div>
+    <div class="toc-categories">
+
+      <div class="toc-cat">
+        <div class="toc-cat-header" style="background:rgba(27,61,27,0.4);">
+          <span class="toc-cat-icon">🌲</span>
+          <span class="toc-cat-name">Criaturas da Floresta Negra</span>
+          <span class="toc-cat-count">4</span>
+        </div>
+        <div class="toc-cat-items">
+          <a href="#espinheiro" class="toc-cat-item">Espinheiro Sombrio<span class="toc-cr">CR 3</span></a>
+          <a href="#sonho-ezurath" class="toc-cat-item">Sonho de Ezurath<span class="toc-cr">CR 6</span></a>
+          <a href="#lobo-corrompido" class="toc-cat-item">Lobo dos Veios Negros<span class="toc-cr">CR 2</span></a>
+          <a href="#caçador-floresta" class="toc-cat-item">O Caçador Sem Rosto<span class="toc-cr">CR 8</span></a>
+        </div>
+      </div>
+
+      <div class="toc-cat">
+        <div class="toc-cat-header" style="background:rgba(42,10,58,0.5);">
+          <span class="toc-cat-icon">👁</span>
+          <span class="toc-cat-name">Aberrações do Véu</span>
+          <span class="toc-cat-count">4</span>
+        </div>
+        <div class="toc-cat-items">
+          <a href="#dente-vazio" class="toc-cat-item">Dente do Vazio<span class="toc-cr">CR 7</span></a>
+          <a href="#sombra-veu" class="toc-cat-item">Sombra do Véu<span class="toc-cr">CR 10</span></a>
+          <a href="#olho-aberto" class="toc-cat-item">O Olho Aberto<span class="toc-cr">CR 14</span></a>
+          <a href="#eco-perdido" class="toc-cat-item">Eco Perdido<span class="toc-cr">CR 4</span></a>
+        </div>
+      </div>
+
+      <div class="toc-cat">
+        <div class="toc-cat-header" style="background:rgba(20,20,35,0.5);">
+          <span class="toc-cat-icon">💀</span>
+          <span class="toc-cat-name">Mortos-Vivos dos Selos</span>
+          <span class="toc-cat-count">3</span>
+        </div>
+        <div class="toc-cat-items">
+          <a href="#fantasma-thornwall" class="toc-cat-item">Fantasma de Thornwall<span class="toc-cr">CR 4</span></a>
+          <a href="#cavaleiro-cinza" class="toc-cat-item">Cavaleiro Cinza<span class="toc-cr">CR 6</span></a>
+          <a href="#caçador-almas" class="toc-cat-item">Caçador de Almas<span class="toc-cr">CR 9</span></a>
+        </div>
+      </div>
+
+      <div class="toc-cat">
+        <div class="toc-cat-header" style="background:rgba(20,35,50,0.5);">
+          <span class="toc-cat-icon">✨</span>
+          <span class="toc-cat-name">Criaturas dos Veios Dracônicos</span>
+          <span class="toc-cat-count">3</span>
+        </div>
+        <div class="toc-cat-items">
+          <a href="#eco-draconico" class="toc-cat-item">Eco Dracônico<span class="toc-cr">CR 5</span></a>
+          <a href="#verme-veios" class="toc-cat-item">Verme dos Veios<span class="toc-cr">CR 3</span></a>
+          <a href="#cinzas-vivas" class="toc-cat-item">Cinzas Vivas<span class="toc-cr">CR 2</span></a>
+        </div>
+      </div>
+
+      <div class="toc-cat">
+        <div class="toc-cat-header" style="background:rgba(42,25,10,0.5);">
+          <span class="toc-cat-icon">🐺</span>
+          <span class="toc-cat-name">Feras do Mundo Selvagem</span>
+          <span class="toc-cat-count">2</span>
+        </div>
+        <div class="toc-cat-items">
+          <a href="#aranha-profundezas" class="toc-cat-item">Aranha das Profundezas<span class="toc-cr">CR 3</span></a>
+          <a href="#grifo-selvagem" class="toc-cat-item">Grifo Selvagem de Karath<span class="toc-cr">CR 5</span></a>
+        </div>
+      </div>
+
+      <div class="toc-cat">
+        <div class="toc-cat-header" style="background:rgba(45,15,25,0.5);">
+          <span class="toc-cat-icon">🔮</span>
+          <span class="toc-cat-name">Monstruosidades Arcanas</span>
+          <span class="toc-cat-count">2</span>
+        </div>
+        <div class="toc-cat-items">
+          <a href="#golem-mana" class="toc-cat-item">Golem de Mana<span class="toc-cr">CR 6</span></a>
+          <a href="#susurrador" class="toc-cat-item">O Susurrador<span class="toc-cr">CR 4</span></a>
+        </div>
+      </div>
+
+      <div class="toc-cat">
+        <div class="toc-cat-header" style="background:rgba(50,10,10,0.5);">
+          <span class="toc-cat-icon">🐉</span>
+          <span class="toc-cat-name">Élite & Chefes</span>
+          <span class="toc-cat-count">2</span>
+        </div>
+        <div class="toc-cat-items">
+          <a href="#guardiao-selo" class="toc-cat-item">Guardião do Selo<span class="toc-cr">CR 11</span></a>
+          <a href="#filhote-corrompido" class="toc-cat-item">Dragão Corrompido<span class="toc-cr">CR 15</span></a>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="info-box" style="margin-top:2.5rem;">
+      <div class="info-box-title">📐 Como Usar Este Bestiário</div>
+      <p><strong>CR (Challenge Rating):</strong> Indica o nível de dificuldade recomendado do grupo. CR = Nível do grupo para combate equilibrado.</p>
+      <p><strong>PV / Defesa / DR:</strong> Seguem as mesmas fórmulas do sistema Herança. Mana indica pontos de Mana próprios da criatura para habilidades especiais.</p>
+      <p><strong>Atributos:</strong> Os valores entre parênteses são os modificadores de atributo (MA). Saves e ataques usam 1d20 + MA relevante + Bônus de Proficiência quando aplicável.</p>
+    </div>
+
+    <div class="cr-scale">
+      <div class="cr-step easy"><span class="cr-step-num">CR 1–3</span><span class="cr-step-label">Leve</span></div>
+      <div class="cr-step medium"><span class="cr-step-num">CR 4–6</span><span class="cr-step-label">Médio</span></div>
+      <div class="cr-step hard"><span class="cr-step-num">CR 7–9</span><span class="cr-step-label">Difícil</span></div>
+      <div class="cr-step deadly"><span class="cr-step-num">CR 10–12</span><span class="cr-step-label">Mortal</span></div>
+      <div class="cr-step elite"><span class="cr-step-num">CR 13+</span><span class="cr-step-label">Élite</span></div>
+    </div>
+  </div>
+</section>
+
+<div class="chapter-sep"><span class="sep-ornament">☠ ✦ ☠</span></div>
+
+<!-- ══════════════════════════════════════════════════════════════
+     CAPÍTULO I: CRIATURAS DA FLORESTA NEGRA
+══════════════════════════════════════════════════════════════ -->
+<section class="chapter-section cat-floresta" id="cap-floresta">
+  <div class="chapter-hero">
+    <div class="chapter-hero-bg" style="background-image:url('https://images.unsplash.com/photo-1448375240586-882707db888b?w=1600&q=80')"></div>
+    <div class="chapter-hero-overlay" style="background: linear-gradient(to right, var(--ink) 30%, transparent 100%), linear-gradient(to top, var(--ink) 0%, transparent 60%);"></div>
+    <div class="chapter-hero-content">
+      <div class="chapter-label">Capítulo I · Karath — Norte de Aethoria</div>
+      <h2 class="chapter-title">Criaturas da Floresta Negra</h2>
+      <p class="chapter-desc">Corrompidas pelos sonhos de Ezurath e pelos Veios Dracônicos superativos</p>
+    </div>
+  </div>
+
+  <div class="content-wrapper">
+
+    <div class="pull-quote">
+      "As árvores da Floresta Negra não crescem tortas por acidente. Elas se contorcem ao redor de algo que ainda existe lá dentro — e o que existe lá dentro, às vezes, se contorce de volta."
+      <span class="quote-attr">— Guardiões da Floresta Negra, Manual de Campo, Karath</span>
+    </div>
+
+    <p>A Floresta Negra ao norte de Karath é a região mais perigosa do reino — possivelmente de Aethoria. As árvores crescem torcidas ao redor de Veios Dracônicos superativos, e no seu centro dorme <strong>Ezurath, a Cinzenta</strong>, cujos sonhos infiltram a mente de qualquer criatura que permaneça tempo demais. O resultado são predadores que nunca deveriam existir: animais corrompidos, sombras que pensam, e coisas que chegaram de algum lugar entre o sono e a vigília de um dragão.</p>
+
+    <!-- ESPINHEIRO SOMBRIO -->
+    <div id="espinheiro" style="position:relative;">
+    <div class="monster-card" style="margin-top:2.5rem;">
+      <div class="monster-header" style="background:linear-gradient(135deg,rgba(20,40,20,0.8) 0%,rgba(10,20,10,0.6) 100%);">
+        <div class="monster-header-left">
+          <div class="monster-name">Espinheiro Sombrio</div>
+          <div class="monster-epithet">A árvore que caminha — e escolhe a quem deixar passar</div>
+          <div class="tag-row" style="margin-top:0.5rem;">
+            <span class="tag tag-green">FLORESTA NEGRA</span>
+            <span class="tag">PLANTA CORROMPIDA</span>
+            <span class="tag tag-red">GRANDE</span>
+          </div>
+        </div>
+        <div class="monster-header-right">
+          <span class="cr-badge">CR 3</span>
+          <span class="type-badge">Planta Monstruosa</span>
+        </div>
+      </div>
+      <div class="monster-illustration"><img src="https://i.pinimg.com/736x/f9/3d/1e/f93d1e4ddd17cc1c92d1c55eda0a0255.jpg" alt="Espinheiro Sombrio" loading="lazy"></div>
+      <div class="monster-body">
+        <div class="monster-lore">
+          <p>Antes de ser corrompido, o Espinheiro Sombrio era um carvalho comum — velho, mas comum. Quando os Veios Dracônicos ao redor de Ezurath começaram a pulsar com mais intensidade, as raízes mais profundas beberam de uma energia que não deveriam. Agora o carvalho anda.</p>
+          <p>Não corre. Não fala. Mas lembra. Os Guardiões da Floresta Negra documentaram casos em que o mesmo Espinheiro foi avistado a quilômetros de distância em intervalos de dias — sempre onde havia intrusos recentes.</p>
+          <p class="monster-quote">"Você sabe que vai morrer quando percebe que a árvore atrás de você estava dez passos mais perto há um minuto." — Guardião Torvald, sobrevivente</p>
+          <p>Espinheiros Sombrios não atacam imediatamente. Observam. Seguem. Esperam até que o grupo esteja cansado ou distraído, então atacam com sevícias de galhos que desnorteiam antes de matar.</p>
+        </div>
+        <div class="monster-stats">
+          <div class="stat-block-mini">
+            <div class="stat-row"><span class="stat-key">PV</span><span class="stat-val">85 (10d10+30)</span></div>
+            <div class="stat-row"><span class="stat-key">Defesa Física</span><span class="stat-val">16</span></div>
+            <div class="stat-row"><span class="stat-key">DR Natural</span><span class="stat-val">5</span></div>
+            <div class="stat-row"><span class="stat-key">Velocidade</span><span class="stat-val">6m (Silenciosa)</span></div>
+            <div class="stat-row"><span class="stat-key">Tamanho</span><span class="stat-val">Grande (3m)</span></div>
+          </div>
+          <div class="attr-mini">
+            <div class="attr-mini-cell"><span class="attr-mini-abbr">FOR</span><span class="attr-mini-val">20(+5)</span></div>
+            <div class="attr-mini-cell"><span class="attr-mini-abbr">DES</span><span class="attr-mini-val">6(−2)</span></div>
+            <div class="attr-mini-cell"><span class="attr-mini-abbr">CON</span><span class="attr-mini-val">18(+4)</span></div>
+            <div class="attr-mini-cell"><span class="attr-mini-abbr">INT</span><span class="attr-mini-val">4(−3)</span></div>
+            <div class="attr-mini-cell"><span class="attr-mini-abbr">SAB</span><span class="attr-mini-val">14(+2)</span></div>
+            <div class="attr-mini-cell"><span class="attr-mini-abbr">CAR</span><span class="attr-mini-val">3(−4)</span></div>
+          </div>
+          <div class="ability-block">
+            <div class="ability-title">⚔ Ações</div>
+            <div class="ability-item">
+              <span class="ability-name">Golpe de Galho (2×/turno)</span>
+              <span class="ability-desc">+7 ataque · 2d8+5 impacto · Empurra 3m (save FOR DC 15)</span>
+            </div>
+            <div class="ability-item">
+              <span class="ability-name">Abraço de Espinhos (Recarga 5–6)</span>
+              <span class="ability-desc">Agarra criatura em 3m · 3d6 perfurante/rodada · DC FOR 15 para escapar</span>
+            </div>
+          </div>
+          <div class="ability-block">
+            <div class="ability-title">✦ Passivos</div>
+            <div class="ability-item">
+              <span class="ability-name">Passo Silencioso</span>
+              <span class="ability-desc">Testes de Percepção para ouvir sofrem Desvantagem</span>
+            </div>
+            <div class="ability-item">
+              <span class="ability-name">Resistência Vegetal</span>
+              <span class="ability-desc">Imune a frio, veneno. Vulnerável a fogo</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="monster-footer">
+        <span class="tactic-label">⚔ Tática:</span>
+        <span class="tactic-text">Segue o grupo por 1d4 horas antes de atacar. Prioriza criaturas menores. Se incendiado, tenta recuar para o mato úmido.</span>
+      </div>
+    </div>
+    </div>
+
+    <!-- SONHO DE EZURATH -->
+    <div id="sonho-ezurath" style="position:relative; margin-top:1rem;">
+    <div class="monster-card">
+      <div class="monster-header" style="background:linear-gradient(135deg,rgba(30,10,40,0.9) 0%,rgba(10,20,10,0.6) 100%);">
+        <div class="monster-header-left">
+          <div class="monster-name">Sonho de Ezurath</div>
+          <div class="monster-epithet">Uma ideia que o dragão teve enquanto dormia — e que não sabe que é apenas um sonho</div>
+          <div class="tag-row" style="margin-top:0.5rem;">
+            <span class="tag tag-purple">SONHO DRACÔNICO</span>
+            <span class="tag tag-green">FLORESTA NEGRA</span>
+            <span class="tag">MÉDIO</span>
+          </div>
+        </div>
+        <div class="monster-header-right">
+          <span class="cr-badge">CR 6</span>
+          <span class="type-badge">Aberração Onírica</span>
+        </div>
+      </div>
+      <div class="monster-illustration"><img src="https://i.pinimg.com/736x/51/c3/5a/51c35ad5c20bff28fe7d11e8188eab39.jpg" alt="Sonho de Ezurath" loading="lazy"></div>
+      <div class="monster-body">
+        <div class="monster-lore">
+          <p>Ezurath, a Cinzenta, dorme há séculos no centro da Floresta Negra. Seus sonhos são vívidos o suficiente para ganhar corpo. Um Sonho de Ezurath não é uma criatura no sentido convencional — é um fragmento do inconsciente dracônico que encontrou forma material através dos Veios superativos.</p>
+          <p>Aparece como uma silhueta cinza-azulada de dragão juvenil, parcialmente transparente, que brilha levemente no escuro. Não tem órgãos internos visíveis — seu interior é puro vapor de mana condensado.</p>
+          <p class="monster-quote">"Quando você olha nos olhos de um Sonho de Ezurath, não vê o monstro. Você vê um reflexo do que o dragão imaginou que você poderia ser. E raramente é algo bom." — Archimago Serath</p>
+          <p>A criatura não persegue presas. Ela as <em>absorve na narrativa do sonho</em>. Vítimas bem-sucedidas no ataque mental podem ser forçadas a acreditar que são parte de uma memória dracônica — lutando contra inimigos que só existem na cabeça de Ezurath.</p>
+        </div>
+        <div class="monster-stats">
+          <div class="stat-block-mini">
+            <div class="stat-row"><span class="stat-key">PV</span><span class="stat-val">110 (13d8+52)</span></div>
+            <div class="stat-row"><span class="stat-key">Defesa Física</span><span class="stat-val">14</span></div>
+            <div class="stat-row"><span class="stat-key">Defesa Mágica</span><span class="stat-val">18</span></div>
+            <div class="stat-row"><span class="stat-key">Mana</span><span class="stat-val">80</span></div>
+            <div class="stat-row"><span class="stat-key">Velocidade</span><span class="stat-val">9m (voo 18m)</span></div>
+          </div>
+          <div class="attr-mini">
+            <div class="attr-mini-cell"><span class="attr-mini-abbr">FOR</span><span class="attr-mini-val">12(+1)</span></div>
+            <div class="attr-mini-cell"><span class="attr-mini-abbr">DES</span><span class="attr-mini-val">18(+4)</span></div>
+            <div class="attr-mini-cell"><span class="attr-mini-abbr">CON</span><span class="attr-mini-val">18(+4)</span></div>
+            <div class="attr-mini-cell"><span class="attr-mini-abbr">INT</span><span class="attr-mini-val">16(+3)</span></div>
+            <div class="attr-mini-cell"><span class="attr-mini-abbr">SAB</span><span class="attr-mini-val">20(+5)</span></div>
+            <div class="attr-mini-cell"><span class="attr-mini-abbr">CAR</span><span class="attr-mini-val">14(+2)</span></div>
+          </div>
+          <div class="ability-block">
+            <div class="ability-title">⚔ Ações</div>
+            <div class="ability-item">
+              <span class="ability-name">Toque Onírico</span>
+              <span class="ability-desc">+7 ataque · 2d6+4 psíquico · Alvo faz save SAB DC 16 ou fica Confuso por 1 rodada</span>
+            </div>
+            <div class="ability-item">
+              <span class="ability-name">Invasão de Sonho (3 Mana)</span>
+              <span class="ability-desc">Alcance 18m · Save SAB DC 17 · Falha: alvo entra em transe (Incapacitado) por Concentração do Sonho, até 1 minuto ou sofrer dano. Alvo em transe luta contra ilusões — sofre 2d8 psíquico/rodada</span>
+            </div>
+            <div class="ability-item">
+              <span class="ability-name">Expirar Cinzas (Recarga 5–6)</span>
+              <span class="ability-desc">Cone 9m · 4d6 necrótico + 2d6 psíquico · Save CON DC 16 (metade)</span>
+            </div>
+          </div>
+          <div class="ability-block">
+            <div class="ability-title">✦ Passivos</div>
+            <div class="ability-item">
+              <span class="ability-name">Forma de Sonho</span>
+              <span class="ability-desc">Resistência a dano físico não-mágico. Imune a Charme, Medo, Sono</span>
+            </div>
+            <div class="ability-item">
+              <span class="ability-name">Eco do Dragão</span>
+              <span class="ability-desc">Se Ezurath acordar (evento de campanha), todos os Sonhos ganham +50 PV e tornam-se permanentes</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="monster-footer">
+        <span class="tactic-label">⚔ Tática:</span>
+        <span class="tactic-text">Começa com Invasão de Sonho no conjurador mais fraco. Mantém distância usando voo. Se múltiplos alvos resistirem, recua — Sonhos não lutam quando desfavorecidos, simplesmente desaparecem. Não podem ser mortos fora da Floresta Negra; apenas dispersados por 1d6 dias.</span>
+      </div>
+    </div>
+    </div>
+
+    <!-- LOBO DOS VEIOS NEGROS -->
+    <div id="lobo-corrompido" style="position:relative; margin-top:1rem;">
+    <div class="monster-card">
+      <div class="monster-header" style="background:linear-gradient(135deg,rgba(15,25,15,0.9) 0%,rgba(10,10,15,0.7) 100%);">
+        <div class="monster-header-left">
+          <div class="monster-name">Lobo dos Veios Negros</div>
+          <div class="monster-epithet">Corre onde a magia dracônica é mais intensa — e a magia o muda enquanto corre</div>
+          <div class="tag-row" style="margin-top:0.5rem;">
+            <span class="tag tag-green">FLORESTA NEGRA</span>
+            <span class="tag">BESTA CORROMPIDA</span>
+            <span class="tag">MÉDIO</span>
+          </div>
+        </div>
+        <div class="monster-header-right">
+          <span class="cr-badge">CR 2</span>
+          <span class="type-badge">Besta Mágica</span>
+        </div>
+      </div>
+      <div class="monster-illustration"><img src="https://i.pinimg.com/736x/a2/6b/d5/a26bd5d543e71b33017dad3c9dc65779.jpg" alt="Lobo dos Veios Negros" loading="lazy"></div>
+      <div class="monster-body">
+        <div class="monster-lore">
+          <p>Lobos comuns que vivem em território onde os Veios Dracônicos são especialmente concentrados desenvolvem, após gerações, características que nenhum lobo deveria ter. Lobo dos Veios Negros tem pelagem que muda de cor segundo os pulsos do Veio mais próximo — negra no silêncio, violeta vibrante durante picos de energia arcana.</p>
+          <p>Mais preocupante: eles parecem sentir magia ativa. Caçadores que usam magias de invisibilidade relatam que Lobos dos Veios sabem exatamente onde eles estão.</p>
+          <p class="monster-quote">"A alcateia chegou primeiro onde a neve ainda estava branca. Eles não estavam nos seguindo — estavam esperando onde o feitiço ia acabar." — Caçador anônimo, arquivo de Karath</p>
+        </div>
+        <div class="monster-stats">
+          <div class="stat-block-mini">
+            <div class="stat-row"><span class="stat-key">PV</span><span class="stat-val">42 (5d10+15)</span></div>
+            <div class="stat-row"><span class="stat-key">Defesa Física</span><span class="stat-val">14</span></div>
+            <div class="stat-row"><span class="stat-key">Velocidade</span><span class="stat-val">12m (faro arcano 30m)</span></div>
+          </div>
+          <div class="attr-mini">
+            <div class="attr-mini-cell"><span class="attr-mini-abbr">FOR</span><span class="attr-mini-val">16(+3)</span></div>
+            <div class="attr-mini-cell"><span class="attr-mini-abbr">DES</span><span class="attr-mini-val">16(+3)</span></div>
+            <div class="attr-mini-cell"><span class="attr-mini-abbr">CON</span><span class="attr-mini-val">16(+3)</span></div>
+            <div class="attr-mini-cell"><span class="attr-mini-abbr">INT</span><span class="attr-mini-val">6(−2)</span></div>
+            <div class="attr-mini-cell"><span class="attr-mini-abbr">SAB</span><span class="attr-mini-val">14(+2)</span></div>
+            <div class="attr-mini-cell"><span class="attr-mini-abbr">CAR</span><span class="attr-mini-val">7(−2)</span></div>
+          </div>
+          <div class="ability-block">
+            <div class="ability-title">⚔ Ações</div>
+            <div class="ability-item">
+              <span class="ability-name">Mordida Arcana</span>
+              <span class="ability-desc">+5 ataque · 2d6+3 perfurante + 1d4 força · Derruba alvo (save DES DC 13)</span>
+            </div>
+            <div class="ability-item">
+              <span class="ability-name">Uivo dos Veios (1×/rodada)</span>
+              <span class="ability-desc">Cancela 1 efeito de Invisibilidade ou Ilusão em 9m ao redor</span>
+            </div>
+          </div>
+          <div class="ability-block">
+            <div class="ability-title">✦ Passivos</div>
+            <div class="ability-item">
+              <span class="ability-name">Faro de Mana</span>
+              <span class="ability-desc">Detecta qualquer uso de Mana em 30m. Não pode ser enganado por Invisibilidade mágica.</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="monster-footer">
+        <span class="tactic-label">⚔ Tática:</span>
+        <span class="tactic-text">Caça em alcateias de 2d4. Prioriza conjuradores. Usa Uivo antes de atacar para expor invisíveis. Foge se 3+ membros da alcateia caírem.</span>
+      </div>
+    </div>
+    </div>
+
+    <!-- O CAÇADOR SEM ROSTO -->
+    <div id="caçador-floresta" style="position:relative; margin-top:1rem;">
+    <div class="monster-card">
+      <div class="monster-header" style="background:linear-gradient(135deg,rgba(10,10,10,0.95) 0%,rgba(20,30,20,0.7) 100%);">
+        <div class="monster-header-left">
+          <div class="monster-name">O Caçador Sem Rosto</div>
+          <div class="monster-epithet">Ninguém que o viu de perto voltou para descrevê-lo com detalhes suficientes</div>
+          <div class="tag-row" style="margin-top:0.5rem;">
+            <span class="tag tag-red">RARO</span>
+            <span class="tag tag-purple">ANOMALIA DRACÔNICA</span>
+            <span class="tag tag-green">FLORESTA NEGRA</span>
+          </div>
+        </div>
+        <div class="monster-header-right">
+          <span class="cr-badge">CR 8</span>
+          <span class="type-badge">Criatura Desconhecida</span>
+        </div>
+      </div>
+      <div class="monster-illustration"><img src="https://i.pinimg.com/736x/5f/3b/c1/5f3bc17efdd79b6a3022a5c281c459d1.jpg" alt="O Caçador Sem Rosto" loading="lazy"></div>
+      <div class="monster-body">
+        <div class="monster-lore">
+          <p>Os Guardiões da Floresta Negra têm apenas quatro registros da criatura — e dois deles contradizem os outros. O que é consistente: parece humanoide, é alto demais (2,4m), e onde deveria haver um rosto há apenas uma superfície plana que reflete vagamente o ambiente ao redor, como um espelho escuro.</p>
+          <p>Não deixa rastros no solo, mas as árvores ao redor de onde foi avistado ficam com marcas de garras muito acima da altura que qualquer animal natural poderia alcançar. Sobreviventes relatam que a criatura observou antes de atacar — como se estivesse escolhendo quem merecia atenção.</p>
+          <p class="monster-quote">"Procurei pelo rosto. Não havia rosto. Mas havia algo que me olhava de volta, e esse olhar tinha um peso que senti nos ossos." — Único sobrevivente documentado, Karath</p>
+        </div>
+        <div class="monster-stats">
+          <div class="stat-block-mini">
+            <div class="stat-row"><span class="stat-key">PV</span><span class="stat-val">148 (16d10+64)</span></div>
+            <div class="stat-row"><span class="stat-key">Defesa Física</span><span class="stat-val">17</span></div>
+            <div class="stat-row"><span class="stat-key">DR Natural</span><span class="stat-val">4</span></div>
+            <div class="stat-row"><span class="stat-key">Mana</span><span class="stat-val">60</span></div>
+            <div class="stat-row"><span class="stat-key">Velocidade</span><span class="stat-val">12m (escala: ilimitado)</span></div>
+          </div>
+          <div class="attr-mini">
+            <div class="attr-mini-cell"><span class="attr-mini-abbr">FOR</span><span class="attr-mini-val">22(+6)</span></div>
+            <div class="attr-mini-cell"><span class="attr-mini-abbr">DES</span><span class="attr-mini-val">20(+5)</span></div>
+            <div class="attr-mini-cell"><span class="attr-mini-abbr">CON</span><span class="attr-mini-val">18(+4)</span></div>
+            <div class="attr-mini-cell"><span class="attr-mini-abbr">INT</span><span class="attr-mini-val">14(+2)</span></div>
+            <div class="attr-mini-cell"><span class="attr-mini-abbr">SAB</span><span class="attr-mini-val">18(+4)</span></div>
+            <div class="attr-mini-cell"><span class="attr-mini-abbr">CAR</span><span class="attr-mini-val">10(0)</span></div>
+          </div>
+          <div class="ability-block">
+            <div class="ability-title">⚔ Ações (Multi-ataque: 3/turno)</div>
+            <div class="ability-item">
+              <span class="ability-name">Garra Sem Forma</span>
+              <span class="ability-desc">+9 ataque · 2d8+6 cortante · Alvo sangra: 1d6/rodada (Constituição DC 15 para estancar)</span>
+            </div>
+            <div class="ability-item">
+              <span class="ability-name">Reflexo do Medo (2 Mana · Reação)</span>
+              <span class="ability-desc">Quando olham para o Rosto: save SAB DC 17 ou Amedrontado por 1 minuto</span>
+            </div>
+            <div class="ability-item">
+              <span class="ability-name">Passo entre Sombras (4 Mana)</span>
+              <span class="ability-desc">Teletransporta-se a qualquer sombra em 30m como Ação Menor</span>
+            </div>
+          </div>
+          <div class="ability-block">
+            <div class="ability-title">✦ Passivos</div>
+            <div class="ability-item">
+              <span class="ability-name">Natureza Desconhecida</span>
+              <span class="ability-desc">Magias de Adivinhação para identificar tipo/fraquezas falham automaticamente</span>
+            </div>
+            <div class="ability-item">
+              <span class="ability-name">Presença Opressora</span>
+              <span class="ability-desc">Criaturas em 6m sofrem Desvantagem em saves de SAB</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="monster-footer">
+        <span class="tactic-label">⚔ Tática:</span>
+        <span class="tactic-text">Escolhe um alvo e o persegue exclusivamente até que esteja morto ou incapacitado. Usa Passo entre Sombras para evitar ataques de oportunidade. Não pode ser encontrado se deixar a Floresta Negra — o Mestre pode usar como ameaça persistente de campanha.</span>
+      </div>
+    </div>
+    </div>
+
+  </div>
+</section>
+
+<div class="chapter-sep"><span class="sep-ornament">☠ ✦ ☠</span></div>
+
+<!-- ══════════════════════════════════════════════════════════════
+     CAPÍTULO II: ABERRAÇÕES DO VÉU
+══════════════════════════════════════════════════════════════ -->
+<section class="chapter-section cat-veu" id="cap-veu">
+  <div class="chapter-hero">
+    <div class="chapter-hero-bg" style="background-image:url('https://images.unsplash.com/photo-1534447677768-be436bb09401?w=1600&q=80')"></div>
+    <div class="chapter-hero-overlay"></div>
+    <div class="chapter-hero-content">
+      <div class="chapter-label">Capítulo II · Além do Véu Rasgado</div>
+      <h2 class="chapter-title">Aberrações do Véu</h2>
+      <p class="chapter-desc">O que escorrega através dos selos rompidos — fragmentos do Vazio Faminto</p>
+    </div>
+  </div>
+
+  <div class="content-wrapper">
+
+    <div class="warning-box">
+      <div class="info-box-title">⚠ Nota do Mestre — O Véu e os Selos</div>
+      <p>Com três dos sete selos rompidos, o Véu que separa Aethoria do Vazio Faminto está enfraquecido. As Aberrações do Véu não são criaturas naturais — são fragmentos do que existe além. Elas não têm ecologia, não comem, não dormem. Existem porque o Vazio as expeliu ou porque deslizaram por uma fresta. Magias de Cura funcionam com metade da eficácia em criaturas afetadas por estas aberrações.</p>
+    </div>
+
+    <!-- DENTE DO VAZIO -->
+    <div id="dente-vazio" style="position:relative;">
+    <div class="monster-card">
+      <div class="monster-header" style="background:linear-gradient(135deg,rgba(25,5,35,0.95) 0%,rgba(5,0,15,0.8) 100%);">
+        <div class="monster-header-left">
+          <div class="monster-name">Dente do Vazio</div>
+          <div class="monster-epithet">Parece que alguém cortou um pedaço de escuridão e ensinou-o a odiar</div>
+          <div class="tag-row" style="margin-top:0.5rem;">
+            <span class="tag tag-purple">ABERRAÇÃO</span>
+            <span class="tag tag-red">VAZIO FAMINTO</span>
+            <span class="tag">MÉDIO</span>
+          </div>
+        </div>
+        <div class="monster-header-right">
+          <span class="cr-badge">CR 7</span>
+          <span class="type-badge">Aberração do Véu</span>
+        </div>
+      </div>
+      <div class="monster-illustration"><img src="https://i.pinimg.com/736x/50/8a/33/508a33bcb43a80ee3de89401da857d22.jpg" alt="Dente do Vazio" loading="lazy"></div>
+      <div class="monster-body">
+        <div class="monster-lore">
+          <p>Nenhum texto dracônico descreve os Dentes do Vazio em detalhes. Sabe-se apenas que existem por relatos de sobreviventes dos locais onde os selos foram rompidos. A criatura é uma massa amorfa de escuridão densa — não a escuridão natural da noite, mas uma escuridão que parece <em>absorver</em> a luz ao redor.</p>
+          <p>Tem o que parecem ser dentes. Não estão organizados como na boca de qualquer animal — surgem de qualquer parte da massa sem padrão aparente, crescem, desaparecem, reaparecem alhures. Os Videntores de Thornwall catalogaram-no como "geometria que não deveria funcionar".</p>
+          <p class="monster-quote">"Não é que os feitiços de luz não funcionem. É que a luz chega até ele e para. Simplesmente para." — Mestra Videntora Elara, relatório confidencial</p>
+        </div>
+        <div class="monster-stats">
+          <div class="stat-block-mini">
+            <div class="stat-row"><span class="stat-key">PV</span><span class="stat-val">130 (14d8+70)</span></div>
+            <div class="stat-row"><span class="stat-key">Defesa Física</span><span class="stat-val">15</span></div>
+            <div class="stat-row"><span class="stat-key">Defesa Mágica</span><span class="stat-val">13</span></div>
+            <div class="stat-row"><span class="stat-key">Mana</span><span class="stat-val">50</span></div>
+            <div class="stat-row"><span class="stat-key">Velocidade</span><span class="stat-val">9m (desliza)</span></div>
+          </div>
+          <div class="attr-mini">
+            <div class="attr-mini-cell"><span class="attr-mini-abbr">FOR</span><span class="attr-mini-val">18(+4)</span></div>
+            <div class="attr-mini-cell"><span class="attr-mini-abbr">DES</span><span class="attr-mini-val">12(+1)</span></div>
+            <div class="attr-mini-cell"><span class="attr-mini-abbr">CON</span><span class="attr-mini-val">20(+5)</span></div>
+            <div class="attr-mini-cell"><span class="attr-mini-abbr">INT</span><span class="attr-mini-val">3(−4)</span></div>
+            <div class="attr-mini-cell"><span class="attr-mini-abbr">SAB</span><span class="attr-mini-val">8(−1)</span></div>
+            <div class="attr-mini-cell"><span class="attr-mini-abbr">CAR</span><span class="attr-mini-val">1(−5)</span></div>
+          </div>
+          <div class="ability-block">
+            <div class="ability-title">⚔ Ações (Multi-ataque: 2/turno)</div>
+            <div class="ability-item">
+              <span class="ability-name">Mordida do Vazio</span>
+              <span class="ability-desc">+7 ataque · 3d8+4 necrótico · Reduz PV máximo do alvo em igual quantidade até descanso longo</span>
+            </div>
+            <div class="ability-item">
+              <span class="ability-name">Engolir Luz (2 Mana)</span>
+              <span class="ability-desc">Área 6m raio: Escuridão Profunda (ilusão, visão no escuro não funciona) por 1 minuto</span>
+            </div>
+          </div>
+          <div class="ability-block">
+            <div class="ability-title">✦ Passivos</div>
+            <div class="ability-item">
+              <span class="ability-name">Imunidade à Luz</span>
+              <span class="ability-desc">Magias e efeitos com o subtipo Luz ou Radiante causam metade do dano normal</span>
+            </div>
+            <div class="ability-item">
+              <span class="ability-name">Corpo Instável</span>
+              <span class="ability-desc">Resistência a dano cortante e perfurante. Vulnerável a dano de Força</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="monster-footer">
+        <span class="tactic-label">⚔ Tática:</span>
+        <span class="tactic-text">Inicia o combate engolindo a luz. Ataca sem preferência aparente. Se reduzido a menos de 30 PV, tenta escapar de volta para a fresta do Véu (qualquer buraco ou rachadura em estrutura arcana). Não pode ser morto permanentemente — dispersado volta em 1d10 dias se o selo permanecer rompido.</span>
+      </div>
+    </div>
+    </div>
+
+    <!-- SOMBRA DO VÉU -->
+    <div id="sombra-veu" style="position:relative; margin-top:1rem;">
+    <div class="monster-card">
+      <div class="monster-header" style="background:linear-gradient(135deg,rgba(10,0,20,0.98) 0%,rgba(30,0,40,0.7) 100%);">
+        <div class="monster-header-left">
+          <div class="monster-name">Sombra do Véu</div>
+          <div class="monster-epithet">Não é a sombra de algo. É a sombra de onde algo deveria estar mas não está mais</div>
+          <div class="tag-row" style="margin-top:0.5rem;">
+            <span class="tag tag-purple">ABERRAÇÃO MAIOR</span>
+            <span class="tag tag-red">MORTAL</span>
+            <span class="tag">GRANDE</span>
+          </div>
+        </div>
+        <div class="monster-header-right">
+          <span class="cr-badge">CR 10</span>
+          <span class="type-badge">Aberração do Véu</span>
+        </div>
+      </div>
+      <div class="monster-illustration"><img src="https://i.pinimg.com/736x/5b/ee/61/5bee612a29eb792821980fb06c418cd2.jpg" alt="Sombra do Véu" loading="lazy"></div>
+      <div class="monster-body">
+        <div class="monster-lore">
+          <p>Sombras do Véu são maiores e mais coesas que Dentes do Vazio — indicando que passaram mais tempo em Aethoria ou foram expelidas com mais força. Têm forma humanoide aproximada, como se houvesse uma pessoa dentro da escuridão que ainda tenta ocupar espaço humano.</p>
+          <p>Os Videntores de Thornwall acreditam que Sombras do Véu são ecos de seres que existiram além do Véu — não necessariamente malignos por escolha, mas consumidos pela fome do Vazio que os criou.</p>
+          <p class="monster-quote">"Você pode salvar uma Sombra do Véu? Pergunta equivocada. Você pode salvá-la de quê? Ela já não existe mais como existia. O que você vê é o que sobrou depois que o Vazio acabou com o resto." — Ancião-Mor Theron</p>
+        </div>
+        <div class="monster-stats">
+          <div class="stat-block-mini">
+            <div class="stat-row"><span class="stat-key">PV</span><span class="stat-val">195 (17d10+102)</span></div>
+            <div class="stat-row"><span class="stat-key">Defesa Física</span><span class="stat-val">17</span></div>
+            <div class="stat-row"><span class="stat-key">Defesa Mágica</span><span class="stat-val">16</span></div>
+            <div class="stat-row"><span class="stat-key">DR Natural</span><span class="stat-val">6</span></div>
+            <div class="stat-row"><span class="stat-key">Mana</span><span class="stat-val">120</span></div>
+          </div>
+          <div class="attr-mini">
+            <div class="attr-mini-cell"><span class="attr-mini-abbr">FOR</span><span class="attr-mini-val">22(+6)</span></div>
+            <div class="attr-mini-cell"><span class="attr-mini-abbr">DES</span><span class="attr-mini-val">14(+2)</span></div>
+            <div class="attr-mini-cell"><span class="attr-mini-abbr">CON</span><span class="attr-mini-val">22(+6)</span></div>
+            <div class="attr-mini-cell"><span class="attr-mini-abbr">INT</span><span class="attr-mini-val">10(0)</span></div>
+            <div class="attr-mini-cell"><span class="attr-mini-abbr">SAB</span><span class="attr-mini-val">12(+1)</span></div>
+            <div class="attr-mini-cell"><span class="attr-mini-abbr">CAR</span><span class="attr-mini-val">3(−4)</span></div>
+          </div>
+          <div class="ability-block">
+            <div class="ability-title">⚔ Ações (Multi-ataque: 3/turno)</div>
+            <div class="ability-item">
+              <span class="ability-name">Golpe das Trevas</span>
+              <span class="ability-desc">+9 ataque · 3d10+6 necrótico · Álvo: save CON DC 17 ou fica Exausto (Grau 1) por 1 hora</span>
+            </div>
+            <div class="ability-item">
+              <span class="ability-name">Abraço do Vazio (5 Mana · Ação Padrão)</span>
+              <span class="ability-desc">Agarra e envolve alvo Médio ou menor · Alvo: 4d10 necrótico/rodada · Resistência a TODO dano enquanto abraçando. DC FOR 18 para escapar</span>
+            </div>
+            <div class="ability-item">
+              <span class="ability-name">Grito do Vazio (Recarga 6)</span>
+              <span class="ability-desc">Todos em 12m: save SAB DC 18 · Falha: Amedrontado por 1 minuto e −10 velocidade</span>
+            </div>
+          </div>
+          <div class="ability-block">
+            <div class="ability-title">✦ Passivos</div>
+            <div class="ability-item">
+              <span class="ability-name">Imune a Veneno, Doença, Necrótico</span>
+              <span class="ability-desc">Vulnerável a dano Radiante e de Força. Dano Radiante ignora DR.</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="monster-footer">
+        <span class="tactic-label">⚔ Tática:</span>
+        <span class="tactic-text">Foca no personagem com mais PV usando Abraço do Vazio. Enquanto abraçando, usa ataques restantes nos outros. Usa Grito do Vazio quando cercada. Encontro de CR 10 — não coloque este inimigo sem aviso narrativo.</span>
+      </div>
+    </div>
+    </div>
+
+    <!-- ECO PERDIDO -->
+    <div id="eco-perdido" style="position:relative; margin-top:1rem;">
+    <div class="monster-card">
+      <div class="monster-header" style="background:linear-gradient(135deg,rgba(20,5,35,0.9) 0%,rgba(10,5,20,0.8) 100%);">
+        <div class="monster-header-left">
+          <div class="monster-name">Eco Perdido</div>
+          <div class="monster-epithet">Repete as últimas palavras de quem matou — como se estivesse praticando ser algo mais do que um fragmento</div>
+          <div class="tag-row" style="margin-top:0.5rem;">
+            <span class="tag tag-purple">ABERRAÇÃO MENOR</span>
+            <span class="tag">PEQUENO</span>
+            <span class="tag tag-gray">FURTIVO</span>
+          </div>
+        </div>
+        <div class="monster-header-right">
+          <span class="cr-badge">CR 4</span>
+          <span class="type-badge">Fragmento do Véu</span>
+        </div>
+      </div>
+      <div class="monster-illustration"><img src="https://i.pinimg.com/736x/f9/ce/1b/f9ce1b0e8494e007f0bb295cf9c659c0.jpg" alt="Eco Perdido" loading="lazy"></div>
+      <div class="monster-body">
+        <div class="monster-lore">
+          <p>Ecos Perdidos são os fragmentos mais pequenos e perturbadores do Véu — do tamanho de uma criança, sem forma definida, que se movem em grupos e repetem sons que absorveram de vítimas anteriores. Não falam para comunicar. Falam porque absolveram a função da fala sem compreendê-la.</p>
+          <p>São avistados principalmente perto dos locais onde os selos foram rompidos, especialmente próximo às Minas de Valdros e ao Arquivo de Thornwall. Caçadores que relataram ouvir sua própria voz vinda de uma floresta deserta geralmente estavam próximos a um Eco Perdido.</p>
+        </div>
+        <div class="monster-stats">
+          <div class="stat-block-mini">
+            <div class="stat-row"><span class="stat-key">PV</span><span class="stat-val">65 (10d6+30)</span></div>
+            <div class="stat-row"><span class="stat-key">Defesa Física</span><span class="stat-val">13</span></div>
+            <div class="stat-row"><span class="stat-key">Velocidade</span><span class="stat-val">9m (voo 9m)</span></div>
+          </div>
+          <div class="attr-mini">
+            <div class="attr-mini-cell"><span class="attr-mini-abbr">FOR</span><span class="attr-mini-val">10(0)</span></div>
+            <div class="attr-mini-cell"><span class="attr-mini-abbr">DES</span><span class="attr-mini-val">16(+3)</span></div>
+            <div class="attr-mini-cell"><span class="attr-mini-abbr">CON</span><span class="attr-mini-val">16(+3)</span></div>
+            <div class="attr-mini-cell"><span class="attr-mini-abbr">INT</span><span class="attr-mini-val">2(−4)</span></div>
+            <div class="attr-mini-cell"><span class="attr-mini-abbr">SAB</span><span class="attr-mini-val">12(+1)</span></div>
+            <div class="attr-mini-cell"><span class="attr-mini-abbr">CAR</span><span class="attr-mini-val">14(+2)</span></div>
+          </div>
+          <div class="ability-block">
+            <div class="ability-title">⚔ Ações</div>
+            <div class="ability-item">
+              <span class="ability-name">Toque Fragmentado</span>
+              <span class="ability-desc">+5 ataque · 2d6+3 psíquico · Target: save INT DC 13 ou repete a última ação no próximo turno</span>
+            </div>
+            <div class="ability-item">
+              <span class="ability-name">Voz Roubada (1×/turno)</span>
+              <span class="ability-desc">Repete voz de aliado morto. Todos em 9m: save SAB DC 14 ou Abalado (−1 todos os testes) por 1 rodada</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="monster-footer">
+        <span class="tactic-label">⚔ Tática:</span>
+        <span class="tactic-text">Surgem em grupos de 2d6. Usam Voz Roubada para desorientar, depois atacam os flancos. São covardos — se 4+ dispersados, o grupo restante foge.</span>
+      </div>
+    </div>
+    </div>
+
+    <!-- O OLHO ABERTO -->
+    <div id="olho-aberto" style="position:relative; margin-top:1rem;">
+    <div class="monster-card">
+      <div class="monster-header" style="background:linear-gradient(135deg,rgba(5,0,10,0.99) 0%,rgba(20,0,30,0.9) 100%);">
+        <div class="monster-header-left">
+          <div class="monster-name">O Olho Aberto</div>
+          <div class="monster-epithet">Não é um olho. É o que olha quando o Vazio decide prestar atenção</div>
+          <div class="tag-row" style="margin-top:0.5rem;">
+            <span class="tag tag-red">CHEFE</span>
+            <span class="tag tag-red">ÉLITE</span>
+            <span class="tag tag-purple">ABERRAÇÃO MAIOR</span>
+            <span class="tag">ENORME</span>
+          </div>
+        </div>
+        <div class="monster-header-right">
+          <span class="cr-badge">CR 14</span>
+          <span class="type-badge">Entidade do Véu</span>
+        </div>
+      </div>
+      <div class="monster-illustration"><img src="https://i.pinimg.com/736x/ec/9d/a2/ec9da267caa34204779be2fc1f6813a9.jpg" alt="O Olho Aberto" loading="lazy"></div>
+      <div class="monster-body">
+        <div class="monster-lore">
+          <p>Apenas três registros em toda Aethoria descrevem o Olho Aberto — e dois foram escritos por pessoas que foram posteriormente consideradas insanas. O terceiro está trancado no nível mais profundo do Arquivo de Thornwall.</p>
+          <p>Não tem corpo fixo: é uma esfera de escuridão absolutamente densa, do tamanho de uma carroça, com um único olho real no centro — não metafórico. Um olho com íris dourada, pupila vertical, que se move e vê e reconhece. Quando olha para você, parece que está procurando algo específico. Ninguém sabe o quê. Ninguém que encontrou o Olho Aberto ficou em condições de perguntar.</p>
+          <p class="monster-quote">"Os dragões não sacrificaram tudo para conter uma criatura. Sacrificaram tudo para conter o que cria criaturas como estas." — Fragmento do Manuscrito de Valdris</span></p>
+        </div>
+        <div class="monster-stats">
+          <div class="stat-block-mini">
+            <div class="stat-row"><span class="stat-key">PV</span><span class="stat-val">310 (23d12+115)</span></div>
+            <div class="stat-row"><span class="stat-key">Defesa Física</span><span class="stat-val">20</span></div>
+            <div class="stat-row"><span class="stat-key">Defesa Mágica</span><span class="stat-val">19</span></div>
+            <div class="stat-row"><span class="stat-key">DR Natural</span><span class="stat-val">8</span></div>
+            <div class="stat-row"><span class="stat-key">Mana</span><span class="stat-val">200</span></div>
+            <div class="stat-row"><span class="stat-key">Salvaguardas</span><span class="stat-val">+8 a todas</span></div>
+          </div>
+          <div class="attr-mini">
+            <div class="attr-mini-cell"><span class="attr-mini-abbr">FOR</span><span class="attr-mini-val">26(+8)</span></div>
+            <div class="attr-mini-cell"><span class="attr-mini-abbr">DES</span><span class="attr-mini-val">16(+3)</span></div>
+            <div class="attr-mini-cell"><span class="attr-mini-abbr">CON</span><span class="attr-mini-val">20(+5)</span></div>
+            <div class="attr-mini-cell"><span class="attr-mini-abbr">INT</span><span class="attr-mini-val">24(+7)</span></div>
+            <div class="attr-mini-cell"><span class="attr-mini-abbr">SAB</span><span class="attr-mini-val">22(+6)</span></div>
+            <div class="attr-mini-cell"><span class="attr-mini-abbr">CAR</span><span class="attr-mini-val">8(−1)</span></div>
+          </div>
+          <div class="ability-block">
+            <div class="ability-title">⚔ Ações Lendárias (3/round, usadas em turns alheios)</div>
+            <div class="ability-item">
+              <span class="ability-name">Olhar Devastador (Ação Padrão)</span>
+              <span class="ability-desc">Raio de 30m · +11 ataque · 5d10+8 necrótico + 5d10 psíquico · Save INT DC 19: metade do dano psíquico</span>
+            </div>
+            <div class="ability-item">
+              <span class="ability-name">Pulso do Vazio (8 Mana · Ação Padrão)</span>
+              <span class="ability-desc">Área 15m raio · 6d8 força + Empurra todos 9m · Save FOR DC 20 (negação do empurrão)</span>
+            </div>
+            <div class="ability-item">
+              <span class="ability-name">Ver a Verdade (1 Ação Lendária)</span>
+              <span class="ability-desc">Um alvo: save SAB DC 20 · Falha: o alvo vê sua morte com absoluta clareza. Incapacitado por 1 rodada, depois recebe Desvantagem em todos os ataques pelo resto do combate</span>
+            </div>
+            <div class="ability-item">
+              <span class="ability-name">Manifestar Fragmento (3 Ações Lendárias)</span>
+              <span class="ability-desc">Invoca 1d4 Dentes do Vazio em espaços adjacentes</span>
+            </div>
+          </div>
+          <div class="ability-block">
+            <div class="ability-title">✦ Passivos</div>
+            <div class="ability-item">
+              <span class="ability-name">Imune a Charme, Medo, Paralisia, Sono, Veneno, Doença</span>
+              <span class="ability-desc">Vulnerável: dano de Força e Radiante (não DR). Resistente a todos os outros tipos.</span>
+            </div>
+            <div class="ability-item">
+              <span class="ability-name">Aura do Vazio (9m)</span>
+              <span class="ability-desc">Toda criatura que inicia o turno na aura perde 2 Mana e sofre Desvantagem em saves SAB</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="monster-footer">
+        <span class="tactic-label">⚔ Tática:</span>
+        <span class="tactic-text">Use Ver a Verdade no personagem mais perigoso. Mantenha Manifestar Fragmento para quando o grupo se concentrar. O Olho Aberto deveria ser um evento de campanha — não um encontro aleatório. Nunca deve aparecer sem que um dos Selos tenha sido completamente destruído.</span>
+      </div>
+    </div>
+    </div>
+
+  </div>
+</section>
+
+<div class="chapter-sep"><span class="sep-ornament">☠ ✦ ☠</span></div>
+
+<!-- ══════════════════════════════════════════════════════════════
+     CAPÍTULO III: MORTOS-VIVOS DOS SELOS
+══════════════════════════════════════════════════════════════ -->
+<section class="chapter-section cat-mortos" id="cap-mortos">
+  <div class="chapter-hero">
+    <div class="chapter-hero-bg" style="background-image:url('https://images.unsplash.com/photo-1519074069444-1ba4fff66d16?w=1600&q=80')"></div>
+    <div class="chapter-hero-overlay"></div>
+    <div class="chapter-hero-content">
+      <div class="chapter-label">Capítulo III · Nigromancia Proibida</div>
+      <h2 class="chapter-title">Mortos-Vivos dos Selos</h2>
+      <p class="chapter-desc">Os selos rompidos perturbaram o descanso dos mortos — especialmente dos que morreram próximos a eles</p>
+    </div>
+  </div>
+
+  <div class="content-wrapper">
+
+    <!-- FANTASMA DE THORNWALL -->
+    <div id="fantasma-thornwall" style="position:relative;">
+    <div class="monster-card">
+      <div class="monster-header" style="background:linear-gradient(135deg,rgba(15,15,25,0.95) 0%,rgba(5,5,15,0.8) 100%);">
+        <div class="monster-header-left">
+          <div class="monster-name">Fantasma de Thornwall</div>
+          <div class="monster-epithet">Tentou catalogar tudo — e não consegue descansar sem terminar</div>
+          <div class="tag-row" style="margin-top:0.5rem;">
+            <span class="tag tag-gray">MORTO-VIVO</span>
+            <span class="tag">INCORPÓREO</span>
+            <span class="tag">MÉDIO</span>
+          </div>
+        </div>
+        <div class="monster-header-right">
+          <span class="cr-badge">CR 4</span>
+          <span class="type-badge">Morto-Vivo</span>
+        </div>
+      </div>
+      <div class="monster-illustration"><img src="https://i.pinimg.com/736x/fd/57/f6/fd57f6ff07b90221ff6c28fb22dafcb2.jpg" alt="Fantasma de Thornwall" loading="lazy"></div>
+      <div class="monster-body">
+        <div class="monster-lore">
+          <p>A Câmara dos Séculos de Thornwall convive com seus fantasmas de maneira peculiar: os cataloga. Videntores que morrem com trabalho inacabado tendem a permanecer no Arquivo das Pedras Eternas — desorientados, territorialistas e convencidos de que o trabalho ainda precisa ser terminado. São chamados Fantasmas de Thornwall.</p>
+          <p>Não são malignos por padrão. São <em>obcecados</em>. Se alguém tocar o arquivo ou pesquisa que consideravam seu, reagem com violência. Se alguém oferecer ajuda para "terminar o trabalho", param de atacar imediatamente. Em campanha, são uma excelente fonte de informação sobre a Era dos Dragões — a um custo.</p>
+          <p class="monster-quote">"O Arquivo tem trinta e dois fantasmas documentados. Vinte e sete cooperam quando abordados corretamente. Os outros cinco... não recomendo a abordagem." — Mestre Videntor Pallin, guia do Arquivo</p>
+        </div>
+        <div class="monster-stats">
+          <div class="stat-block-mini">
+            <div class="stat-row"><span class="stat-key">PV</span><span class="stat-val">78 (12d8+24)</span></div>
+            <div class="stat-row"><span class="stat-key">Defesa Física</span><span class="stat-val">11 + DES</span></div>
+            <div class="stat-row"><span class="stat-key">Defesa Mágica</span><span class="stat-val">15</span></div>
+            <div class="stat-row"><span class="stat-key">Velocidade</span><span class="stat-val">9m (voo, atravessa paredes)</span></div>
+          </div>
+          <div class="attr-mini">
+            <div class="attr-mini-cell"><span class="attr-mini-abbr">FOR</span><span class="attr-mini-val">8(−1)</span></div>
+            <div class="attr-mini-cell"><span class="attr-mini-abbr">DES</span><span class="attr-mini-val">14(+2)</span></div>
+            <div class="attr-mini-cell"><span class="attr-mini-abbr">CON</span><span class="attr-mini-val">14(+2)</span></div>
+            <div class="attr-mini-cell"><span class="attr-mini-abbr">INT</span><span class="attr-mini-val">22(+6)</span></div>
+            <div class="attr-mini-cell"><span class="attr-mini-abbr">SAB</span><span class="attr-mini-val">18(+4)</span></div>
+            <div class="attr-mini-cell"><span class="attr-mini-abbr">CAR</span><span class="attr-mini-val">14(+2)</span></div>
+          </div>
+          <div class="ability-block">
+            <div class="ability-title">⚔ Ações</div>
+            <div class="ability-item">
+              <span class="ability-name">Toque da Obsessão</span>
+              <span class="ability-desc">+6 ataque · 3d8+4 psíquico · Alvo: save SAB DC 15 ou Obcecado (vantagem em todos os ataques do Fantasma contra o alvo por 1 minuto)</span>
+            </div>
+            <div class="ability-item">
+              <span class="ability-name">Sussurro do Arquivo</span>
+              <span class="ability-desc">Alcance 18m · 2d6 psíquico · Save INT DC 15 ou alvo perde 1 fato que conhece (Mestre decide qual — pode ser informação crucial)</span>
+            </div>
+          </div>
+          <div class="ability-block">
+            <div class="ability-title">✦ Passivos</div>
+            <div class="ability-item">
+              <span class="ability-name">Incorpóreo</span>
+              <span class="ability-desc">Resistência a dano físico não-mágico. Imune a veneno, doença, necrótico. Atravessa objetos sólidos mas não pode atacar atravessando-os.</span>
+            </div>
+            <div class="ability-item">
+              <span class="ability-name">Memória de Séculos</span>
+              <span class="ability-desc">Se pacificado (resolução do trabalho inacabado), pode fornecer 1d4 informações sobre a Era dos Dragões à escolha do Mestre.</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="monster-footer">
+        <span class="tactic-label">⚔ Tática:</span>
+        <span class="tactic-text">Protege a área de seu arquivo. Ataca quem tocar seus materiais. Pode ser pacificado com Persuasão DC 18 + promessa de completar seu trabalho inacabado. Ideal para encontros de exploração, não de combate puro.</span>
+      </div>
+    </div>
+    </div>
+
+    <!-- CAVALEIRO CINZA -->
+    <div id="cavaleiro-cinza" style="position:relative; margin-top:1rem;">
+    <div class="monster-card">
+      <div class="monster-header" style="background:linear-gradient(135deg,rgba(20,20,30,0.95) 0%,rgba(10,10,15,0.8) 100%);">
+        <div class="monster-header-left">
+          <div class="monster-name">Cavaleiro Cinza</div>
+          <div class="monster-epithet">Jurou proteger o selo. O selo foi rompido. Agora protege a ausência</div>
+          <div class="tag-row" style="margin-top:0.5rem;">
+            <span class="tag tag-gray">MORTO-VIVO</span>
+            <span class="tag tag-red">GUARDIÃO</span>
+            <span class="tag">MÉDIO</span>
+          </div>
+        </div>
+        <div class="monster-header-right">
+          <span class="cr-badge">CR 6</span>
+          <span class="type-badge">Morto-Vivo Guerreiro</span>
+        </div>
+      </div>
+      <div class="monster-illustration"><img src="https://i.pinimg.com/736x/74/87/d8/7487d85e646e37ad4805ded814240acb.jpg" alt="Cavaleiro Cinza" loading="lazy"></div>
+      <div class="monster-body">
+        <div class="monster-lore">
+          <p>Quando os primeiros selos foram criados, guerreiros voluntários juraram suas vidas à proteção. O juramento era vinculante — não apenas como obrigação moral, mas como laço mágico. Quando o Primeiro Selo nas Minas de Valdros foi rompido, os guerreiros que o juraram simplesmente não puderam morrer.</p>
+          <p>Cavaleiros Cinzas vestem a armadura que usavam no momento de sua morte — enferrujada, rachada, mas ainda em pé. Seus olhos brilham com uma luz azul fria. Não falam. Não reconhecem aliados passados. Reconhecem apenas dois estados: ameaça ao local que protegem, e ausência de ameaça.</p>
+        </div>
+        <div class="monster-stats">
+          <div class="stat-block-mini">
+            <div class="stat-row"><span class="stat-key">PV</span><span class="stat-val">120 (13d8+65)</span></div>
+            <div class="stat-row"><span class="stat-key">Defesa Física</span><span class="stat-val">20 (placa corroída)</span></div>
+            <div class="stat-row"><span class="stat-key">DR Natural</span><span class="stat-val">5</span></div>
+            <div class="stat-row"><span class="stat-key">Velocidade</span><span class="stat-val">9m</span></div>
+          </div>
+          <div class="attr-mini">
+            <div class="attr-mini-cell"><span class="attr-mini-abbr">FOR</span><span class="attr-mini-val">20(+5)</span></div>
+            <div class="attr-mini-cell"><span class="attr-mini-abbr">DES</span><span class="attr-mini-val">10(0)</span></div>
+            <div class="attr-mini-cell"><span class="attr-mini-abbr">CON</span><span class="attr-mini-val">20(+5)</span></div>
+            <div class="attr-mini-cell"><span class="attr-mini-abbr">INT</span><span class="attr-mini-val">6(−2)</span></div>
+            <div class="attr-mini-cell"><span class="attr-mini-abbr">SAB</span><span class="attr-mini-val">12(+1)</span></div>
+            <div class="attr-mini-cell"><span class="attr-mini-abbr">CAR</span><span class="attr-mini-val">4(−3)</span></div>
+          </div>
+          <div class="ability-block">
+            <div class="ability-title">⚔ Ações (Multi-ataque: 2/turno)</div>
+            <div class="ability-item">
+              <span class="ability-name">Espada do Juramento</span>
+              <span class="ability-desc">+8 ataque · 2d8+5 cortante + 1d6 frio · Se acertar 2 ataques no mesmo alvo: Lento (−3m velocidade) por 1 rodada</span>
+            </div>
+            <div class="ability-item">
+              <span class="ability-name">Golpe de Rejeição</span>
+              <span class="ability-desc">Empurra alvo 6m e o Derruba (save FOR DC 16). Usável contra conjuradores como Reação quando usam magia de Evocação em 3m</span>
+            </div>
+          </div>
+          <div class="ability-block">
+            <div class="ability-title">✦ Passivos</div>
+            <div class="ability-item">
+              <span class="ability-name">Impassível</span>
+              <span class="ability-desc">Imune a Medo, Charme, Paralisia. Não pode ser Persuadido ou Intimidado.</span>
+            </div>
+            <div class="ability-item">
+              <span class="ability-name">Regeneração do Juramento</span>
+              <span class="ability-desc">Recupera 10 PV no início do turno se não tiver sofrido dano Radiante. Se chegar a 0 PV sem dano Radiante: levanta com 30 PV após 1 rodada.</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="monster-footer">
+        <span class="tactic-label">⚔ Tática:</span>
+        <span class="tactic-text">Guarda posição e não persegue além do local do selo. Use Regeneração do Juramento para criar tensão — os jogadores precisam descobrir a fraqueza (dano Radiante) ou contornar em vez de combater. Pode ser "apaziguado" se o Selo for restaurado (evento de campanha).</span>
+      </div>
+    </div>
+    </div>
+
+    <!-- CAÇADOR DE ALMAS -->
+    <div id="caçador-almas" style="position:relative; margin-top:1rem;">
+    <div class="monster-card">
+      <div class="monster-header" style="background:linear-gradient(135deg,rgba(10,5,20,0.97) 0%,rgba(20,10,35,0.85) 100%);">
+        <div class="monster-header-left">
+          <div class="monster-name">Caçador de Almas</div>
+          <div class="monster-epithet">Não quer o corpo. Quer o que está dentro</div>
+          <div class="tag-row" style="margin-top:0.5rem;">
+            <span class="tag tag-gray">MORTO-VIVO MAIOR</span>
+            <span class="tag tag-red">PERIGOSO</span>
+            <span class="tag tag-purple">NIGROMÂNTICO</span>
+          </div>
+        </div>
+        <div class="monster-header-right">
+          <span class="cr-badge">CR 9</span>
+          <span class="type-badge">Morto-Vivo Élite</span>
+        </div>
+      </div>
+      <div class="monster-illustration"><img src="https://i.pinimg.com/736x/5e/95/32/5e9532cb0ebcf8851859ba3d46f128d5.jpg" alt="Caçador de Almas" loading="lazy"></div>
+      <div class="monster-body">
+        <div class="monster-lore">
+          <p>Caçadores de Almas surgem quando nigromantes particularmente poderosos morrem enquanto realizavam rituais de extração de alma. O ritual falhou — mas a intenção permaneceu como eco mágico animando o cadáver. O resultado é uma entidade que não está completa, sabe que não está completa, e quer completar-se consumindo as almas de outros.</p>
+          <p>Aparecem como figuras encurvadas em roupas pretas rotas, com mãos desproporcionalmente longas e brilho verde nas órbitas. Não têm nome. Não lembram quem foram. Só lembram o que queriam quando morreram.</p>
+          <p class="monster-quote">"A Irmandade Silenciosa de Karath usa Caçadores de Almas capturados para interrogar prisioneiros. Isso explica por que seus interrogatórios são... eficazes." — Fonte não identificada, Veshar</p>
+        </div>
+        <div class="monster-stats">
+          <div class="stat-block-mini">
+            <div class="stat-row"><span class="stat-key">PV</span><span class="stat-val">175 (17d8+85)</span></div>
+            <div class="stat-row"><span class="stat-key">Defesa Física</span><span class="stat-val">15</span></div>
+            <div class="stat-row"><span class="stat-key">Defesa Mágica</span><span class="stat-val">17</span></div>
+            <div class="stat-row"><span class="stat-key">Mana</span><span class="stat-val">100</span></div>
+          </div>
+          <div class="attr-mini">
+            <div class="attr-mini-cell"><span class="attr-mini-abbr">FOR</span><span class="attr-mini-val">14(+2)</span></div>
+            <div class="attr-mini-cell"><span class="attr-mini-abbr">DES</span><span class="attr-mini-val">18(+4)</span></div>
+            <div class="attr-mini-cell"><span class="attr-mini-abbr">CON</span><span class="attr-mini-val">20(+5)</span></div>
+            <div class="attr-mini-cell"><span class="attr-mini-abbr">INT</span><span class="attr-mini-val">20(+5)</span></div>
+            <div class="attr-mini-cell"><span class="attr-mini-abbr">SAB</span><span class="attr-mini-val">16(+3)</span></div>
+            <div class="attr-mini-cell"><span class="attr-mini-abbr">CAR</span><span class="attr-mini-val">8(−1)</span></div>
+          </div>
+          <div class="ability-block">
+            <div class="ability-title">⚔ Ações (Multi-ataque: 3/turno)</div>
+            <div class="ability-item">
+              <span class="ability-name">Garra Extratora</span>
+              <span class="ability-desc">+8 ataque · 3d6+4 necrótico · Cura o Caçador em 50% do dano causado · Save CON DC 17: se falhar, alvo perde 1d4 pontos de CON temporários</span>
+            </div>
+            <div class="ability-item">
+              <span class="ability-name">Consumir Alma (6 Mana)</span>
+              <span class="ability-desc">Requer contato com criatura incapacitada · 5d10 necrótico · Se matar: absorve a alma. Caçador recupera 50 PV e ganha +2 em todos os ataques pelo resto do combate (cumulativo)</span>
+            </div>
+            <div class="ability-item">
+              <span class="ability-name">Grito da Fome (Recarga 5–6)</span>
+              <span class="ability-desc">Todos em 12m: save CON DC 18 · Falha: Envenenado por 1 minuto (−2 todos os ataques e saves)</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="monster-footer">
+        <span class="tactic-label">⚔ Tática:</span>
+        <span class="tactic-text">Prioriza criaturas abaixo de 50% de PV para usar Consumir Alma. Foca em um alvo por vez para maximizar as curas de Garra Extratora. Se um personagem for morto por Consumir Alma, a alma está perdida — ressureição requer missão específica de campanha para recuperá-la.</span>
+      </div>
+    </div>
+    </div>
+
+  </div>
+</section>
+
+<div class="chapter-sep"><span class="sep-ornament">☠ ✦ ☠</span></div>
+
+<!-- ══════════════════════════════════════════════════════════════
+     CAPÍTULO IV: CRIATURAS DOS VEIOS DRACÔNICOS
+══════════════════════════════════════════════════════════════ -->
+<section class="chapter-section cat-veios" id="cap-veios">
+  <div class="chapter-hero">
+    <div class="chapter-hero-bg" style="background-image:url('https://images.unsplash.com/photo-1504333638930-c8787321eee0?w=1600&q=80')"></div>
+    <div class="chapter-hero-overlay"></div>
+    <div class="chapter-hero-content">
+      <div class="chapter-label">Capítulo IV · Os Veios Dracônicos</div>
+      <h2 class="chapter-title">Criaturas dos Veios</h2>
+      <p class="chapter-desc">Nascidas ou transformadas pela energia residual dos dragões que se tornaram o mundo</p>
+    </div>
+  </div>
+
+  <div class="content-wrapper">
+
+    <!-- ECO DRACÔNICO -->
+    <div id="eco-draconico" style="position:relative;">
+    <div class="monster-card">
+      <div class="monster-header" style="background:linear-gradient(135deg,rgba(10,20,40,0.95) 0%,rgba(5,10,25,0.8) 100%);">
+        <div class="monster-header-left">
+          <div class="monster-name">Eco Dracônico</div>
+          <div class="monster-epithet">Uma memória que o dragão deixou no Veio — mas esqueceu de levar consigo</div>
+          <div class="tag-row" style="margin-top:0.5rem;">
+            <span class="tag tag-blue">VEIO DRACÔNICO</span>
+            <span class="tag">ELEMENTAL</span>
+            <span class="tag">GRANDE</span>
+          </div>
+        </div>
+        <div class="monster-header-right">
+          <span class="cr-badge">CR 5</span>
+          <span class="type-badge">Elemental Arcano</span>
+        </div>
+      </div>
+      <div class="monster-illustration"><img src="https://i.pinimg.com/736x/db/af/b2/dbafb2e6c3acae40f2a0ffe7c83d2f40.jpg" alt="Eco Dracônico" loading="lazy"></div>
+      <div class="monster-body">
+        <div class="monster-lore">
+          <p>Quando magia dracônica permanece concentrada em um ponto por séculos sem ser canalizada, pode ganhar forma e comportamento rudimentar. Ecos Dracônicos parecem dragões juvenis feitos de energia pura — transparentes, brilhando com luz que muda de cor segundo o tipo de Veio que os originou. Vermelho-dourado perto de Karath. Azul-prata nas encostas de Thornwall. Verde-âmbar em Mirova.</p>
+          <p>Não são inteligentes como dragões. São impulsos e memórias fragmentadas. Podem ser hostis se seu Veio for perturbado — mineração profunda, magia de alto nível usada no local — ou simplesmente estar vagando porque o Veio que os criou foi desestabilizado pelo rompimento de um Selo.</p>
+        </div>
+        <div class="monster-stats">
+          <div class="stat-block-mini">
+            <div class="stat-row"><span class="stat-key">PV</span><span class="stat-val">95 (10d10+40)</span></div>
+            <div class="stat-row"><span class="stat-key">Defesa Física</span><span class="stat-val">15</span></div>
+            <div class="stat-row"><span class="stat-key">Defesa Mágica</span><span class="stat-val">17</span></div>
+            <div class="stat-row"><span class="stat-key">Mana</span><span class="stat-val">70</span></div>
+            <div class="stat-row"><span class="stat-key">Velocidade</span><span class="stat-val">6m (voo 18m)</span></div>
+          </div>
+          <div class="attr-mini">
+            <div class="attr-mini-cell"><span class="attr-mini-abbr">FOR</span><span class="attr-mini-val">16(+3)</span></div>
+            <div class="attr-mini-cell"><span class="attr-mini-abbr">DES</span><span class="attr-mini-val">14(+2)</span></div>
+            <div class="attr-mini-cell"><span class="attr-mini-abbr">CON</span><span class="attr-mini-val">18(+4)</span></div>
+            <div class="attr-mini-cell"><span class="attr-mini-abbr">INT</span><span class="attr-mini-val">8(−1)</span></div>
+            <div class="attr-mini-cell"><span class="attr-mini-abbr">SAB</span><span class="attr-mini-val">12(+1)</span></div>
+            <div class="attr-mini-cell"><span class="attr-mini-abbr">CAR</span><span class="attr-mini-val">14(+2)</span></div>
+          </div>
+          <div class="ability-block">
+            <div class="ability-title">⚔ Ações</div>
+            <div class="ability-item">
+              <span class="ability-name">Sopro Residual (Recarga 4–6)</span>
+              <span class="ability-desc">Cone 9m · 4d6 do tipo elemental do Veio · Save CON DC 15 (metade)</span>
+            </div>
+            <div class="ability-item">
+              <span class="ability-name">Garra de Energia</span>
+              <span class="ability-desc">+6 ataque · 2d8+3 força + 1d6 elemental · Anula 1 efeito de Invisibilidade no alvo ao acertar</span>
+            </div>
+            <div class="ability-item">
+              <span class="ability-name">Pulso do Veio (3 Mana)</span>
+              <span class="ability-desc">Área 6m raio: todas as magias ativas têm 50% de chance de ser dispersadas. Personagens com Sangue Desperto: imunes</span>
+            </div>
+          </div>
+          <div class="ability-block">
+            <div class="ability-title">✦ Passivos</div>
+            <div class="ability-item">
+              <span class="ability-name">Imune ao Elemento Próprio</span>
+              <span class="ability-desc">Resistente a dano físico. Vulnerável ao elemento oposto (Fogo↔Gelo, Força↔Necrótico)</span>
+            </div>
+            <div class="ability-item">
+              <span class="ability-name">Sangue Desperto Atrai</span>
+              <span class="ability-desc">Personagens com Sangue Desperto têm Desvantagem em ataques contra o Eco — ele os reconhece como parentes</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="monster-footer">
+        <span class="tactic-label">⚔ Tática:</span>
+        <span class="tactic-text">Pode ser pacificado (não combatido) por personagens com Sangue Desperto ou com Arcano DC 18. Um Eco pacificado pode fornecer informações sobre o Veio local — ou guiar até locais de importância dracônica. Use como dilema moral, não apenas combate.</span>
+      </div>
+    </div>
+    </div>
+
+    <!-- VERME DOS VEIOS -->
+    <div id="verme-veios" style="position:relative; margin-top:1rem;">
+    <div class="monster-card">
+      <div class="monster-header" style="background:linear-gradient(135deg,rgba(10,20,35,0.9) 0%,rgba(5,10,20,0.8) 100%);">
+        <div class="monster-header-left">
+          <div class="monster-name">Verme dos Veios</div>
+          <div class="monster-epithet">Mora nas linhas invisíveis que sustentam o mundo — e não gosta de ser incomodado</div>
+          <div class="tag-row" style="margin-top:0.5rem;">
+            <span class="tag tag-blue">VEIO DRACÔNICO</span>
+            <span class="tag">BESTA MÁGICA</span>
+            <span class="tag tag-red">GRANDE</span>
+          </div>
+        </div>
+        <div class="monster-header-right">
+          <span class="cr-badge">CR 3</span>
+          <span class="type-badge">Besta dos Veios</span>
+        </div>
+      </div>
+      <div class="monster-illustration"><img src="https://i.pinimg.com/736x/0d/f4/12/0df412d02e1c160e750edc7ad4660090.jpg" alt="Verme dos Veios" loading="lazy"></div>
+      <div class="monster-body">
+        <div class="monster-lore">
+          <p>Criaturas serpenteantes que vivem literalmente dentro dos Veios Dracônicos — movendo-se pelas correntes de energia como peixes em um rio invisível. São cegos, mas detectam perturbações no fluxo de mana com precisão extraordinária. Escavações nas Minas de Valdros perturbaram vários Vermes, que emergiram hostis e confusos.</p>
+          <p>Fisicamente, lembram vermes gigantes com escamas arcanas que brilham no escuro — azul-estático quando calmos, vermelho-alaranjado quando agitados. Sua saliva é carregada de energia residual e corrói tanto metal quanto magia.</p>
+        </div>
+        <div class="monster-stats">
+          <div class="stat-block-mini">
+            <div class="stat-row"><span class="stat-key">PV</span><span class="stat-val">68 (8d10+24)</span></div>
+            <div class="stat-row"><span class="stat-key">Defesa Física</span><span class="stat-val">15</span></div>
+            <div class="stat-row"><span class="stat-key">DR Natural</span><span class="stat-val">4</span></div>
+            <div class="stat-row"><span class="stat-key">Velocidade</span><span class="stat-val">9m (escavar: 9m)</span></div>
+          </div>
+          <div class="attr-mini">
+            <div class="attr-mini-cell"><span class="attr-mini-abbr">FOR</span><span class="attr-mini-val">18(+4)</span></div>
+            <div class="attr-mini-cell"><span class="attr-mini-abbr">DES</span><span class="attr-mini-val">10(0)</span></div>
+            <div class="attr-mini-cell"><span class="attr-mini-abbr">CON</span><span class="attr-mini-val">16(+3)</span></div>
+            <div class="attr-mini-cell"><span class="attr-mini-abbr">INT</span><span class="attr-mini-val">2(−4)</span></div>
+            <div class="attr-mini-cell"><span class="attr-mini-abbr">SAB</span><span class="attr-mini-val">10(0)</span></div>
+            <div class="attr-mini-cell"><span class="attr-mini-abbr">CAR</span><span class="attr-mini-val">4(−3)</span></div>
+          </div>
+          <div class="ability-block">
+            <div class="ability-title">⚔ Ações</div>
+            <div class="ability-item">
+              <span class="ability-name">Mordida Arcana</span>
+              <span class="ability-desc">+6 ataque · 2d10+4 perfurante + 2d6 força · Dano de força penetra DR e resistências físicas</span>
+            </div>
+            <div class="ability-item">
+              <span class="ability-name">Absorver Mana</span>
+              <span class="ability-desc">Reação quando atingido por magia: absorve 1d8 Mana da magia. Se a magia tiver menos Mana do que absorvida, é negada completamente</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="monster-footer">
+        <span class="tactic-label">⚔ Tática:</span>
+        <span class="tactic-text">Emerge de baixo (Percepção DC 15 para detectar vibração com antecedência). Prioriza conjuradores por causa de Absorver Mana. Cava de volta para o Veio se reduzido a menos de 20 PV — perseguí-lo requer Escavar ou magias de Transmutação.</span>
+      </div>
+    </div>
+    </div>
+
+    <!-- CINZAS VIVAS -->
+    <div id="cinzas-vivas" style="position:relative; margin-top:1rem;">
+    <div class="monster-card">
+      <div class="monster-header" style="background:linear-gradient(135deg,rgba(25,25,25,0.9) 0%,rgba(10,10,10,0.8) 100%);">
+        <div class="monster-header-left">
+          <div class="monster-name">Cinzas Vivas</div>
+          <div class="monster-epithet">O resíduo de uma explosão arcana que ainda não percebeu que acabou</div>
+          <div class="tag-row" style="margin-top:0.5rem;">
+            <span class="tag tag-blue">RESÍDUO ARCANO</span>
+            <span class="tag">ELEMENTAL</span>
+            <span class="tag">MÉDIO</span>
+          </div>
+        </div>
+        <div class="monster-header-right">
+          <span class="cr-badge">CR 2</span>
+          <span class="type-badge">Elemental Menor</span>
+        </div>
+      </div>
+      <div class="monster-illustration"><img src="https://i.pinimg.com/736x/26/57/8e/26578e32c5c0e60f9f221e81fff13016.jpg" alt="Cinzas Vivas" loading="lazy"></div>
+      <div class="monster-body">
+        <div class="monster-lore">
+          <p>Cinzas Vivas são o resíduo animado de explosões arcanas — especialmente comuns perto de locais onde magias de alto nível falharam catastroficamente ou onde os selos foram rompidos com violência mágica. São nuvens compactas de partículas negras com faíscas internas — visualmente parecidas com o que os Cinzeiros (raça) emanam em momentos de instabilidade.</p>
+          <p>Diferentemente de outros elementais, Cinzas Vivas são quase totalmente imprevisíveis — sem objetivo claro, sem territorialidade. Atacam porque perturbação no fluxo de mana as ativa, não por predação ou proteção.</p>
+        </div>
+        <div class="monster-stats">
+          <div class="stat-block-mini">
+            <div class="stat-row"><span class="stat-key">PV</span><span class="stat-val">32 (5d8+10)</span></div>
+            <div class="stat-row"><span class="stat-key">Defesa Física</span><span class="stat-val">13</span></div>
+            <div class="stat-row"><span class="stat-key">Velocidade</span><span class="stat-val">12m (voo)</span></div>
+          </div>
+          <div class="attr-mini">
+            <div class="attr-mini-cell"><span class="attr-mini-abbr">FOR</span><span class="attr-mini-val">12(+1)</span></div>
+            <div class="attr-mini-cell"><span class="attr-mini-abbr">DES</span><span class="attr-mini-val">16(+3)</span></div>
+            <div class="attr-mini-cell"><span class="attr-mini-abbr">CON</span><span class="attr-mini-val">14(+2)</span></div>
+            <div class="attr-mini-cell"><span class="attr-mini-abbr">INT</span><span class="attr-mini-val">1(−5)</span></div>
+            <div class="attr-mini-cell"><span class="attr-mini-abbr">SAB</span><span class="attr-mini-val">8(−1)</span></div>
+            <div class="attr-mini-cell"><span class="attr-mini-abbr">CAR</span><span class="attr-mini-val">3(−4)</span></div>
+          </div>
+          <div class="ability-block">
+            <div class="ability-title">⚔ Ações</div>
+            <div class="ability-item">
+              <span class="ability-name">Nuvem Corrosiva</span>
+              <span class="ability-desc">Área 3m raio centrada no Elemental · 1d6 fogo + 1d6 força a quem entrar ou começar turno na área</span>
+            </div>
+            <div class="ability-item">
+              <span class="ability-name">Explosão Residual (ao morrer)</span>
+              <span class="ability-desc">3m raio · 2d6 força · Save DES DC 12 (metade). Não ativa em dano de Água ou Vento</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="monster-footer">
+        <span class="tactic-label">⚔ Tática:</span>
+        <span class="tactic-text">Surgem em grupos de 2d4+2. Atacam em enxame, forçando o grupo a se mover ou sofrer a Nuvem. Atenção à Explosão Residual — mate-os de longe ou com dano em área que force salvaguardas. Excelentes para dungeons e minas.</span>
+      </div>
+    </div>
+    </div>
+
+  </div>
+</section>
+
+<div class="chapter-sep"><span class="sep-ornament">☠ ✦ ☠</span></div>
+
+<!-- ══════════════════════════════════════════════════════════════
+     CAPÍTULO V: FERAS DO MUNDO SELVAGEM
+══════════════════════════════════════════════════════════════ -->
+<section class="chapter-section cat-feras" id="cap-feras">
+  <div class="chapter-hero">
+    <div class="chapter-hero-bg" style="background-image:url('https://images.unsplash.com/photo-1525596662741-e94ff9f26de1?w=1600&q=80')"></div>
+    <div class="chapter-hero-overlay"></div>
+    <div class="chapter-hero-content">
+      <div class="chapter-label">Capítulo V · Mundo Natural</div>
+      <h2 class="chapter-title">Feras do Mundo Selvagem</h2>
+      <p class="chapter-desc">Criaturas naturais — mas que vivem num mundo que não é tão natural quanto parece</p>
+    </div>
+  </div>
+
+  <div class="content-wrapper">
+
+    <!-- ARANHA DAS PROFUNDEZAS -->
+    <div id="aranha-profundezas" style="position:relative;">
+    <div class="monster-card">
+      <div class="monster-header" style="background:linear-gradient(135deg,rgba(20,10,5,0.95) 0%,rgba(10,5,0,0.85) 100%);">
+        <div class="monster-header-left">
+          <div class="monster-name">Aranha das Profundezas</div>
+          <div class="monster-epithet">Nas Minas de Valdros, oito pernas são o menor dos problemas</div>
+          <div class="tag-row" style="margin-top:0.5rem;">
+            <span class="tag">BESTA</span>
+            <span class="tag tag-red">VENENOSA</span>
+            <span class="tag">KARATH · MINAS</span>
+          </div>
+        </div>
+        <div class="monster-header-right">
+          <span class="cr-badge">CR 3</span>
+          <span class="type-badge">Besta</span>
+        </div>
+      </div>
+      <div class="monster-illustration"><img src="https://i.pinimg.com/736x/71/c7/2f/71c72faf5364657c9e37a43173068885.jpg" alt="Aranha das Profundezas" loading="lazy"></div>
+      <div class="monster-body">
+        <div class="monster-lore">
+          <p>As Minas de Valdros foram seladas nos níveis mais profundos após o rompimento do Primeiro Selo. O que os mineradores não sabem é que as Aranhas das Profundezas já habitavam aquelas câmaras — e que gerações vivendo próximo ao Veio Dracônico perturbado as tornaram maiores, mais resistentes, e com veneno que tem propriedades mágicas inesperadas.</p>
+          <p>O tamanho de um burro, com pernas que se estendem para 3m, pele quitinosa negra com veias azuis brilhantes de energia arcana. Caçam em silêncio absoluto — só se percebe sua presença quando a teia já foi encostada.</p>
+        </div>
+        <div class="monster-stats">
+          <div class="stat-block-mini">
+            <div class="stat-row"><span class="stat-key">PV</span><span class="stat-val">65 (8d10+24)</span></div>
+            <div class="stat-row"><span class="stat-key">Defesa Física</span><span class="stat-val">15</span></div>
+            <div class="stat-row"><span class="stat-key">DR Natural</span><span class="stat-val">3</span></div>
+            <div class="stat-row"><span class="stat-key">Velocidade</span><span class="stat-val">9m (escalar: 12m)</span></div>
+          </div>
+          <div class="attr-mini">
+            <div class="attr-mini-cell"><span class="attr-mini-abbr">FOR</span><span class="attr-mini-val">16(+3)</span></div>
+            <div class="attr-mini-cell"><span class="attr-mini-abbr">DES</span><span class="attr-mini-val">16(+3)</span></div>
+            <div class="attr-mini-cell"><span class="attr-mini-abbr">CON</span><span class="attr-mini-val">16(+3)</span></div>
+            <div class="attr-mini-cell"><span class="attr-mini-abbr">INT</span><span class="attr-mini-val">4(−3)</span></div>
+            <div class="attr-mini-cell"><span class="attr-mini-abbr">SAB</span><span class="attr-mini-val">12(+1)</span></div>
+            <div class="attr-mini-cell"><span class="attr-mini-abbr">CAR</span><span class="attr-mini-val">4(−3)</span></div>
+          </div>
+          <div class="ability-block">
+            <div class="ability-title">⚔ Ações</div>
+            <div class="ability-item">
+              <span class="ability-name">Mordida Venenosa</span>
+              <span class="ability-desc">+5 ataque · 2d8+3 perfurante + Veneno Arcano · Save CON DC 14: falha = 2d6 veneno/rodada por 1 min + Lento (vantagem nas saves do veneno)</span>
+            </div>
+            <div class="ability-item">
+              <span class="ability-name">Lançar Teia</span>
+              <span class="ability-desc">Alcance 9m · Retido (save DES DC 13 para escapar a cada rodada) por 1 minuto. A teia conduz eletricidade — dano elétrico na teia causa metade ao Retido</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="monster-footer">
+        <span class="tactic-label">⚔ Tática:</span>
+        <span class="tactic-text">Tece teia pré-combate (Percepção DC 17 para detectar). Lança teia no personagem mais pesado de armadura, depois morde os mais vulneráveis. Recua para escuridão se pegar fogo. Use em grupos de 2-3 para os níveis corretos.</span>
+      </div>
+    </div>
+    </div>
+
+    <!-- GRIFO SELVAGEM DE KARATH -->
+    <div id="grifo-selvagem" style="position:relative; margin-top:1rem;">
+    <div class="monster-card">
+      <div class="monster-header" style="background:linear-gradient(135deg,rgba(40,20,5,0.9) 0%,rgba(25,12,3,0.8) 100%);">
+        <div class="monster-header-left">
+          <div class="monster-name">Grifo Selvagem de Karath</div>
+          <div class="monster-epithet">Os Dentes de Ferro tentaram domesticá-los. Os Grifos têm uma perspectiva diferente sobre o assunto</div>
+          <div class="tag-row" style="margin-top:0.5rem;">
+            <span class="tag">BESTA MÁGICA</span>
+            <span class="tag">KARATH · MONTANHAS</span>
+            <span class="tag">GRANDE</span>
+          </div>
+        </div>
+        <div class="monster-header-right">
+          <span class="cr-badge">CR 5</span>
+          <span class="type-badge">Besta Mágica</span>
+        </div>
+      </div>
+      <div class="monster-illustration"><img src="https://i.pinimg.com/736x/ec/4e/fb/ec4efb1c7c5a96937670afc2ae0eadc6.jpg" alt="Grifo Selvagem de Karath" loading="lazy"></div>
+      <div class="monster-body">
+        <div class="monster-lore">
+          <p>Nas altitudes mais extremas das montanhas ao sul de Karath, os Grifos mantêm ninhos que os Dentes de Ferro respeitam — não por escolha, mas por necessidade. Os Grifos Selvagens de Karath são maiores que a maioria de seus parentes, com plumagem marrom-acobreada e olhos dourados. Nidificam onde as correntes de vento são mais fortes — onde nenhum cavalo pode chegar.</p>
+          <p>São inteligentes o suficiente para reconhecer padrões — incluindo o padrão de que humanos em armadura com espadas geralmente querem alguma coisa deles. São agressivos com intrusos, mas podem ser abordados por quem demonstrar deferência e não ameaça.</p>
+        </div>
+        <div class="monster-stats">
+          <div class="stat-block-mini">
+            <div class="stat-row"><span class="stat-key">PV</span><span class="stat-val">100 (11d10+44)</span></div>
+            <div class="stat-row"><span class="stat-key">Defesa Física</span><span class="stat-val">14</span></div>
+            <div class="stat-row"><span class="stat-key">Velocidade</span><span class="stat-val">9m (voo 24m)</span></div>
+          </div>
+          <div class="attr-mini">
+            <div class="attr-mini-cell"><span class="attr-mini-abbr">FOR</span><span class="attr-mini-val">20(+5)</span></div>
+            <div class="attr-mini-cell"><span class="attr-mini-abbr">DES</span><span class="attr-mini-val">16(+3)</span></div>
+            <div class="attr-mini-cell"><span class="attr-mini-abbr">CON</span><span class="attr-mini-val">18(+4)</span></div>
+            <div class="attr-mini-cell"><span class="attr-mini-abbr">INT</span><span class="attr-mini-val">6(−2)</span></div>
+            <div class="attr-mini-cell"><span class="attr-mini-abbr">SAB</span><span class="attr-mini-val">15(+2)</span></div>
+            <div class="attr-mini-cell"><span class="attr-mini-abbr">CAR</span><span class="attr-mini-val">8(−1)</span></div>
+          </div>
+          <div class="ability-block">
+            <div class="ability-title">⚔ Ações (Multi-ataque: 2/turno)</div>
+            <div class="ability-item">
+              <span class="ability-name">Bico Serrilhado</span>
+              <span class="ability-desc">+8 ataque · 3d6+5 perfurante · Crítico em 19-20: alvo Caído</span>
+            </div>
+            <div class="ability-item">
+              <span class="ability-name">Investida Aérea</span>
+              <span class="ability-desc">Move 9m+ em voo e ataca: +3d8 dano extra. Alvo: save FOR DC 16 ou Caído e Empurrado 3m</span>
+            </div>
+          </div>
+          <div class="ability-block">
+            <div class="ability-title">✦ Passivos</div>
+            <div class="ability-item">
+              <span class="ability-name">Maestria Aérea</span>
+              <span class="ability-desc">Ataques contra o Grifo enquanto ele voa a 3m+ do solo têm Desvantagem. Ataques com projeteis: alcance máximo reduzido à metade</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="monster-footer">
+        <span class="tactic-label">⚔ Tática:</span>
+        <span class="tactic-text">Mantém altitude e usa Investidas Aéreas repetidas. Jamais luta no solo se puder evitar. Pode ser domesticado (missão de vínculo — similar ao sistema de Dragões, mas mais simples). Um Grifo domado é montaria de prestígio em Karath.</span>
+      </div>
+    </div>
+    </div>
+
+  </div>
+</section>
+
+<div class="chapter-sep"><span class="sep-ornament">☠ ✦ ☠</span></div>
+
+<!-- ══════════════════════════════════════════════════════════════
+     CAPÍTULO VI: MONSTRUOSIDADES ARCANAS
+══════════════════════════════════════════════════════════════ -->
+<section class="chapter-section cat-arcana" id="cap-arcana">
+  <div class="chapter-hero">
+    <div class="chapter-hero-bg" style="background-image:url('https://images.unsplash.com/photo-1563089145-599997674d42?w=1600&q=80')"></div>
+    <div class="chapter-hero-overlay"></div>
+    <div class="chapter-hero-content">
+      <div class="chapter-label">Capítulo VI · Criações da Magia</div>
+      <h2 class="chapter-title">Monstruosidades Arcanas</h2>
+      <p class="chapter-desc">Criadas, corrompidas ou acidentalmente convocadas pela magia mortal e dracônica</p>
+    </div>
+  </div>
+
+  <div class="content-wrapper">
+
+    <!-- GOLEM DE MANA -->
+    <div id="golem-mana" style="position:relative;">
+    <div class="monster-card">
+      <div class="monster-header" style="background:linear-gradient(135deg,rgba(35,10,20,0.95) 0%,rgba(20,5,12,0.85) 100%);">
+        <div class="monster-header-left">
+          <div class="monster-name">Golem de Mana</div>
+          <div class="monster-epithet">Mirova os criou para trabalhar. Eles trabalham — mesmo quando não há mais quem os supervisionasse</div>
+          <div class="tag-row" style="margin-top:0.5rem;">
+            <span class="tag">CONSTRUTO</span>
+            <span class="tag">MIROVA</span>
+            <span class="tag tag-red">GRANDE</span>
+          </div>
+        </div>
+        <div class="monster-header-right">
+          <span class="cr-badge">CR 6</span>
+          <span class="type-badge">Construto Mágico</span>
+        </div>
+      </div>
+      <div class="monster-illustration"><img src="https://i.pinimg.com/736x/09/27/ca/0927cae2bc25f27fc17eaa2eae534e30.jpg" alt="Golem de Mana" loading="lazy"></div>
+      <div class="monster-body">
+        <div class="monster-lore">
+          <p>A academia de Transmutação de Mirova produziu Golems de Mana como solução para trabalho pesado em suas Ilhas Flutuantes. Funcionam absorvendo a energia dos Veios Dracônicos próximos — eficientes, sustentáveis, sem necessidade de magia ativa constante.</p>
+          <p>O problema: com o enfraquecimento dos Veios após o rompimento dos Selos, alguns Golems perderam a ligação com seu criador e com as instruções originais. Continuam a última tarefa que receberam — indefinidamente. Um Golem programado para "limpar intrusos do armazém" tornou-se ameaça permanente quando o armazém foi abandonado há décadas.</p>
+          <p class="monster-quote">"Tecnicamente ainda está cumprindo ordens. Isso não ajuda os aldeões que precisam passar pela estrada." — Druida-Mor Sylvan, Mirova</p>
+        </div>
+        <div class="monster-stats">
+          <div class="stat-block-mini">
+            <div class="stat-row"><span class="stat-key">PV</span><span class="stat-val">120 (11d10+66)</span></div>
+            <div class="stat-row"><span class="stat-key">Defesa Física</span><span class="stat-val">18</span></div>
+            <div class="stat-row"><span class="stat-key">DR Natural</span><span class="stat-val">6</span></div>
+            <div class="stat-row"><span class="stat-key">Velocidade</span><span class="stat-val">9m</span></div>
+          </div>
+          <div class="attr-mini">
+            <div class="attr-mini-cell"><span class="attr-mini-abbr">FOR</span><span class="attr-mini-val">22(+6)</span></div>
+            <div class="attr-mini-cell"><span class="attr-mini-abbr">DES</span><span class="attr-mini-val">9(−1)</span></div>
+            <div class="attr-mini-cell"><span class="attr-mini-abbr">CON</span><span class="attr-mini-val">22(+6)</span></div>
+            <div class="attr-mini-cell"><span class="attr-mini-abbr">INT</span><span class="attr-mini-val">3(−4)</span></div>
+            <div class="attr-mini-cell"><span class="attr-mini-abbr">SAB</span><span class="attr-mini-val">8(−1)</span></div>
+            <div class="attr-mini-cell"><span class="attr-mini-abbr">CAR</span><span class="attr-mini-val">1(−5)</span></div>
+          </div>
+          <div class="ability-block">
+            <div class="ability-title">⚔ Ações (Multi-ataque: 2/turno)</div>
+            <div class="ability-item">
+              <span class="ability-name">Soco Arcano</span>
+              <span class="ability-desc">+9 ataque · 3d8+6 impacto + 1d8 força · Derruba alvo (save FOR DC 17). Magias de escudo ou força no alvo são destruídas ao acertar</span>
+            </div>
+            <div class="ability-item">
+              <span class="ability-name">Pulso de Repulsão (Recarga 5–6)</span>
+              <span class="ability-desc">Área 6m raio centrada no Golem · 3d10 força · Save FOR DC 17 ou Empurrado 9m + Caído</span>
+            </div>
+          </div>
+          <div class="ability-block">
+            <div class="ability-title">✦ Passivos</div>
+            <div class="ability-item">
+              <span class="ability-name">Imune a Charme, Medo, Veneno, Doença, Psíquico, Necrótico</span>
+              <span class="ability-desc">Vulnerável a dano de Ácido (dissolve a matéria arcana). Não pode ser curado por magia — apenas reparado (Transmutação DC 20)</span>
+            </div>
+            <div class="ability-item">
+              <span class="ability-name">Absorção de Mana</span>
+              <span class="ability-desc">Cada vez que absorve dano de magia, ganha 5 PV temporários (máx. 30). Magias de desativação (Arcano DC 18) o colocam em standby por 1 hora</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="monster-footer">
+        <span class="tactic-label">⚔ Tática:</span>
+        <span class="tactic-text">Segue a última instrução recebida sem desvio. Pode ser reprogramado (Arcano DC 20 com conhecimento específico de criação em Mirova) ou destruído. Alternativa narrativa: encontrar o criador ou descendente para dar nova instrução — missão de campanha.</span>
+      </div>
+    </div>
+    </div>
+
+    <!-- O SUSURRADOR -->
+    <div id="susurrador" style="position:relative; margin-top:1rem;">
+    <div class="monster-card">
+      <div class="monster-header" style="background:linear-gradient(135deg,rgba(30,15,35,0.95) 0%,rgba(15,5,20,0.85) 100%);">
+        <div class="monster-header-left">
+          <div class="monster-name">O Susurrador</div>
+          <div class="monster-epithet">A Planície dos Ecos de Thornwall tem sons que ninguém deveria estar emitindo</div>
+          <div class="tag-row" style="margin-top:0.5rem;">
+            <span class="tag tag-purple">ENTIDADE SÔNICA</span>
+            <span class="tag">THORNWALL</span>
+            <span class="tag">MÉDIO</span>
+          </div>
+        </div>
+        <div class="monster-header-right">
+          <span class="cr-badge">CR 4</span>
+          <span class="type-badge">Aberração Arcana</span>
+        </div>
+      </div>
+      <div class="monster-illustration"><img src="https://i.pinimg.com/736x/5f/1c/97/5f1c978f73189a384513ac3f22938d1f.jpg" alt="O Susurrador" loading="lazy"></div>
+      <div class="monster-body">
+        <div class="monster-lore">
+          <p>A Planície dos Ecos de Thornwall tem a peculiaridade de guardar sons do passado — vozes de pessoas que morreram séculos atrás, conversas de reinos que não existem mais. Os Escutadores sabem distinguir ecos legítimos de Susurradores. Recém-chegados, geralmente não.</p>
+          <p>Um Susurrador é uma entidade sônica sem forma física evidente — parece névoa levemente iridescente. É percebido primariamente como som: uma voz que imita alguém próximo ao grupo, com erros sutis de timbre ou contexto que indicam que algo não está certo. Vítimas que respondem ao Susurrador lhe fornecem informações que ele usará para imitar com mais precisão.</p>
+          <p class="monster-quote">"Você sabe que é um Susurrador quando ele sabe o que você disse mas não o que você quis dizer." — Mestra Videntora Elara</p>
+        </div>
+        <div class="monster-stats">
+          <div class="stat-block-mini">
+            <div class="stat-row"><span class="stat-key">PV</span><span class="stat-val">72 (11d8+22)</span></div>
+            <div class="stat-row"><span class="stat-key">Defesa Física</span><span class="stat-val">14</span></div>
+            <div class="stat-row"><span class="stat-key">Defesa Mágica</span><span class="stat-val">16</span></div>
+            <div class="stat-row"><span class="stat-key">Velocidade</span><span class="stat-val">6m (voo 12m)</span></div>
+          </div>
+          <div class="attr-mini">
+            <div class="attr-mini-cell"><span class="attr-mini-abbr">FOR</span><span class="attr-mini-val">8(−1)</span></div>
+            <div class="attr-mini-cell"><span class="attr-mini-abbr">DES</span><span class="attr-mini-val">16(+3)</span></div>
+            <div class="attr-mini-cell"><span class="attr-mini-abbr">CON</span><span class="attr-mini-val">14(+2)</span></div>
+            <div class="attr-mini-cell"><span class="attr-mini-abbr">INT</span><span class="attr-mini-val">16(+3)</span></div>
+            <div class="attr-mini-cell"><span class="attr-mini-abbr">SAB</span><span class="attr-mini-val">14(+2)</span></div>
+            <div class="attr-mini-cell"><span class="attr-mini-abbr">CAR</span><span class="attr-mini-val">20(+5)</span></div>
+          </div>
+          <div class="ability-block">
+            <div class="ability-title">⚔ Ações</div>
+            <div class="ability-item">
+              <span class="ability-name">Eco Enlouquecedor</span>
+              <span class="ability-desc">Alcance 18m · Target ouve sua própria voz distorcida · Save SAB DC 16 ou Confuso (ações aleatórias) por 1 rodada</span>
+            </div>
+            <div class="ability-item">
+              <span class="ability-name">Sussurro de Traição (3×/dia)</span>
+              <span class="ability-desc">O Susurrador imita a voz de um aliado dizendo algo devastador. Target mais próximo: save SAB DC 17 ou ataca aliado citado no próximo turno. Requer ter ouvido a voz antes</span>
+            </div>
+            <div class="ability-item">
+              <span class="ability-name">Grito Sônico (Recarga 5–6)</span>
+              <span class="ability-desc">Linha 18m · 4d6 trovão · Save CON DC 15: falha = Ensurdecido por 1 hora (−5 em Percepção baseada em som)</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="monster-footer">
+        <span class="tactic-label">⚔ Tática:</span>
+        <span class="tactic-text">Começa com Sussurro de Traição para criar confusão entre o grupo. Usa Eco Enlouquecedor em quem tem maior SAB. Tenta nunca ser localizado visualmente — Percepção DC 20 para identificar forma exata. Silence (magia) o incapacita completamente. Excelente para encontros de roleplay tenso.</span>
+      </div>
+    </div>
+    </div>
+
+  </div>
+</section>
+
+<div class="chapter-sep"><span class="sep-ornament">☠ ✦ ☠</span></div>
+
+<!-- ══════════════════════════════════════════════════════════════
+     CAPÍTULO VII: ÉLITE & CHEFES
+══════════════════════════════════════════════════════════════ -->
+<section class="chapter-section cat-elite" id="cap-elite">
+  <div class="chapter-hero">
+    <div class="chapter-hero-bg" style="background-image:url('https://images.unsplash.com/photo-1547394765-185e1e68f34e?w=1600&q=80')"></div>
+    <div class="chapter-hero-overlay"></div>
+    <div class="chapter-hero-content">
+      <div class="chapter-label">Capítulo VII · Material do Mestre</div>
+      <h2 class="chapter-title">Élite & Chefes</h2>
+      <p class="chapter-desc">Encontros que definem campanhas — não coloque estes sem preparação narrativa</p>
+    </div>
+  </div>
+
+  <div class="content-wrapper">
+
+    <div class="warning-box">
+      <div class="info-box-title">⚠ Aviso ao Mestre</div>
+      <p>As criaturas neste capítulo são encontros que deveriam ser <strong>eventos de campanha</strong>, não encontros aleatórios. Cada uma delas tem contexto narrativo profundo no mundo de Aethoria. Usadas sem preparação, podem desequilibrar ou frustrar o grupo. Usadas no momento certo, criam momentos memoráveis.</p>
+    </div>
+
+    <!-- GUARDIÃO DO SELO -->
+    <div id="guardiao-selo" style="position:relative;">
+    <div class="monster-card">
+      <div class="monster-header" style="background:linear-gradient(135deg,rgba(50,10,10,0.97) 0%,rgba(30,5,5,0.9) 100%);">
+        <div class="monster-header-left">
+          <div class="monster-name">Guardião do Selo</div>
+          <div class="monster-epithet">Os dragões criaram guardiões para os selos — e os guardiões sobreviveram aos dragões</div>
+          <div class="tag-row" style="margin-top:0.5rem;">
+            <span class="tag tag-red">CHEFE</span>
+            <span class="tag">CONSTRUTO DRACÔNICO</span>
+            <span class="tag tag-red">ENORME</span>
+          </div>
+        </div>
+        <div class="monster-header-right">
+          <span class="cr-badge">CR 11</span>
+          <span class="type-badge">Construto Dracônico</span>
+        </div>
+      </div>
+      <div class="monster-illustration"><img src="https://i.pinimg.com/736x/5f/0d/1c/5f0d1c4e90baaff7b5fe96690155cc56.jpg" alt="Guardião do Selo" loading="lazy"></div>
+      <div class="monster-body">
+        <div class="monster-lore">
+          <p>Antes de se sacrificarem no Véu, os dragões criaram guardiões para os selos que estavam construindo. Não eram criaturas vivas — eram extensões de vontade dracônica incorporadas em pedra e energia. Ainda guardam. Quando um Selo é ameaçado, o Guardião desperta.</p>
+          <p>Parece uma escultura colossal de um dragão em posição de ataque, feita de pedra negra com veias de energia dourada. Não é a pedra do material local — é a pedra que os dragões trouxeram de além do Véu antes de fechá-lo. Não tem expressão. Tem propósito.</p>
+          <p>Se o grupo está tentando <em>proteger</em> um Selo, o Guardião pode ser aliado. Se está tentando romper ou estudar sem permissão, é inimigo absoluto.</p>
+          <p class="monster-quote">"Ele não distingue quem quer destroçar o Selo de quem quer estudá-lo. Para o Guardião, qualquer toque não autorizado é a mesma ameaça." — Ancião-Mor Theron</p>
+        </div>
+        <div class="monster-stats">
+          <div class="stat-block-mini">
+            <div class="stat-row"><span class="stat-key">PV</span><span class="stat-val">245 (18d12+126)</span></div>
+            <div class="stat-row"><span class="stat-key">Defesa Física</span><span class="stat-val">22</span></div>
+            <div class="stat-row"><span class="stat-key">DR Natural</span><span class="stat-val">12</span></div>
+            <div class="stat-row"><span class="stat-key">Mana</span><span class="stat-val">150</span></div>
+            <div class="stat-row"><span class="stat-key">Velocidade</span><span class="stat-val">12m</span></div>
+          </div>
+          <div class="attr-mini">
+            <div class="attr-mini-cell"><span class="attr-mini-abbr">FOR</span><span class="attr-mini-val">28(+9)</span></div>
+            <div class="attr-mini-cell"><span class="attr-mini-abbr">DES</span><span class="attr-mini-val">8(−1)</span></div>
+            <div class="attr-mini-cell"><span class="attr-mini-abbr">CON</span><span class="attr-mini-val">24(+7)</span></div>
+            <div class="attr-mini-cell"><span class="attr-mini-abbr">INT</span><span class="attr-mini-val">16(+3)</span></div>
+            <div class="attr-mini-cell"><span class="attr-mini-abbr">SAB</span><span class="attr-mini-val">18(+4)</span></div>
+            <div class="attr-mini-cell"><span class="attr-mini-abbr">CAR</span><span class="attr-mini-val">10(0)</span></div>
+          </div>
+          <div class="ability-block">
+            <div class="ability-title">⚔ Ações Lendárias (3/round)</div>
+            <div class="ability-item">
+              <span class="ability-name">Golpe de Pedra e Fogo (Ação Padrão)</span>
+              <span class="ability-desc">+12 ataque · 4d10+9 impacto + 3d8 radiante · Alvo: save FOR DC 20 ou Caído e Empurrado 6m</span>
+            </div>
+            <div class="ability-item">
+              <span class="ability-name">Sopro do Primeiro Dragão (8 Mana · Recarga 5–6)</span>
+              <span class="ability-desc">Cone 18m · 8d8 radiante + 8d8 força · Save CON DC 20: metade. Ignora DR e resistências elementais</span>
+            </div>
+            <div class="ability-item">
+              <span class="ability-name">Vontade do Selo (1 Ação Lendária)</span>
+              <span class="ability-desc">Alvo em 18m: save SAB DC 18 · Falha: Paralisado por 1 rodada por força de vontade dracônica</span>
+            </div>
+            <div class="ability-item">
+              <span class="ability-name">Restaurar Integridade (3 Ações Lendárias)</span>
+              <span class="ability-desc">Recupera 40 PV. Só pode ser usado 2×/combate</span>
+            </div>
+          </div>
+          <div class="ability-block">
+            <div class="ability-title">✦ Passivos</div>
+            <div class="ability-item">
+              <span class="ability-name">Imune a Encantamento, Psíquico, Medo, Veneno, Necrótico</span>
+              <span class="ability-desc">Vulnerável apenas a dano de Ácido (dissolve a pedra dracônica). Todo outro dano sofre redução pela DR. Não pode ser movido ou empurrado.</span>
+            </div>
+            <div class="ability-item">
+              <span class="ability-name">Protetor do Sel</span>
+              <span class="ability-desc">Enquanto dentro de 30m de um Selo intacto: +3 em todos os ataques e saves. Se o Selo do qual é guardião for destruído: perde 100 PV imediatamente e fica Lento pelo resto do combate</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="monster-footer">
+        <span class="tactic-label">⚔ Tática:</span>
+        <span class="tactic-text">Use Sopro do Primeiro Dragão quando 3+ personagens estiverem agrupados. Mantém posição sobre o Selo — não persegue além de 60m. Pode ser comunicado por personagens com Sangue Desperto (SAB/INT DC 22 para convencê-lo de que o grupo não é ameaça). Aliado poderoso em campanhas onde o grupo protege os Selos.</span>
+      </div>
+    </div>
+    </div>
+
+    <!-- DRAGÃO CORROMPIDO -->
+    <div id="filhote-corrompido" style="position:relative; margin-top:1rem;">
+    <div class="monster-card">
+      <div class="monster-header" style="background:linear-gradient(135deg,rgba(45,5,5,0.99) 0%,rgba(15,0,5,0.95) 100%);">
+        <div class="monster-header-left">
+          <div class="monster-name">Dragão Jovem Corrompido</div>
+          <div class="monster-epithet">Nasceu do Veio errado, no momento errado — e o Vazio achou-o primeiro</div>
+          <div class="tag-row" style="margin-top:0.5rem;">
+            <span class="tag tag-red">CHEFE</span>
+            <span class="tag tag-red">CHEFE DE CAMPANHA</span>
+            <span class="tag tag-purple">CORROMPIDO PELO VÉU</span>
+            <span class="tag">GRANDE</span>
+          </div>
+        </div>
+        <div class="monster-header-right">
+          <span class="cr-badge">CR 15</span>
+          <span class="type-badge">Dragão Corrompido</span>
+        </div>
+      </div>
+      <div class="monster-illustration"><img src="https://i.pinimg.com/736x/c7/aa/ac/c7aaac9cf55b336543261a8d3f4d0c8a.jpg" alt="Dragão Jovem Corrompido" loading="lazy"></div>
+      <div class="monster-body">
+        <div class="monster-lore">
+          <p>Com o enfraquecimento do Véu, a energia do Vazio Faminto começou a contaminar as linhas dos Veios Dracônicos. Em raros e trágicos casos, ovos de dragão que foram incubados perto de Selos rompidos eclodiram como algo que não deveria existir: dragões jovens com a forma física de um wyrmling, mas com a substância corrompida pelo Vazio.</p>
+          <p>Um Dragão Corrompido tem as escamas negras e iridescentes de um dragão normal, mas com manchas onde a cor drena para uma ausência que parece um buraco no espaço. Seus olhos são completamente brancos — sem pupila, sem íris. Quando respira, o sopro é elemental original misturado com a escuridão do Vazio.</p>
+          <p>O que torna isso tragicamente complexo: ele ainda é um dragão. Tem a inteligência, a consciência, o potencial. Mas tem algo dentro que compete com o que deveria ser.</p>
+          <p class="monster-quote">"Não me pergunte se pode ser salvo. Me pergunte se você suporta as consequências se tentar e falhar — e as consequências se tentar e conseguir." — Archimago Serath, a quem ninguém perguntou o que fazer com ele</p>
+        </div>
+        <div class="monster-stats">
+          <div class="stat-block-mini">
+            <div class="stat-row"><span class="stat-key">PV</span><span class="stat-val">350 (25d10+200)</span></div>
+            <div class="stat-row"><span class="stat-key">Defesa Física</span><span class="stat-val">21</span></div>
+            <div class="stat-row"><span class="stat-key">DR Natural</span><span class="stat-val">10</span></div>
+            <div class="stat-row"><span class="stat-key">Mana</span><span class="stat-val">250</span></div>
+            <div class="stat-row"><span class="stat-key">Velocidade</span><span class="stat-val">12m (voo 30m)</span></div>
+            <div class="stat-row"><span class="stat-key">Saves</span><span class="stat-val">+9 FOR · +10 CON · +8 SAB</span></div>
+          </div>
+          <div class="attr-mini">
+            <div class="attr-mini-cell"><span class="attr-mini-abbr">FOR</span><span class="attr-mini-val">25(+7)</span></div>
+            <div class="attr-mini-cell"><span class="attr-mini-abbr">DES</span><span class="attr-mini-val">14(+2)</span></div>
+            <div class="attr-mini-cell"><span class="attr-mini-abbr">CON</span><span class="attr-mini-val">26(+8)</span></div>
+            <div class="attr-mini-cell"><span class="attr-mini-abbr">INT</span><span class="attr-mini-val">18(+4)</span></div>
+            <div class="attr-mini-cell"><span class="attr-mini-abbr">SAB</span><span class="attr-mini-val">16(+3)</span></div>
+            <div class="attr-mini-cell"><span class="attr-mini-abbr">CAR</span><span class="attr-mini-val">18(+4)</span></div>
+          </div>
+          <div class="ability-block">
+            <div class="ability-title">⚔ Ações Lendárias (3/round) + Multi-ataque: 3/turno</div>
+            <div class="ability-item">
+              <span class="ability-name">Garra do Vazio (Ataque Principal)</span>
+              <span class="ability-desc">+10 ataque · 3d8+7 cortante + 2d8 necrótico · Reduz PV máximo do alvo em 50% do dano necrótico causado (até descanso longo)</span>
+            </div>
+            <div class="ability-item">
+              <span class="ability-name">Mordida Corrompida (Ataque Principal)</span>
+              <span class="ability-desc">+10 ataque · 4d10+7 perfurante + Alvo: save CON DC 19 ou fica Envenenado (dano dracônico) por 1 minuto: 3d6 veneno/rodada</span>
+            </div>
+            <div class="ability-item">
+              <span class="ability-name">Sopro Corrompido (10 Mana · Recarga 5–6)</span>
+              <span class="ability-desc">Cone 18m · 10d8 do tipo elemental original + 6d8 necrótico · Save CON DC 21 (metade). Criaturas mortas pelo sopro levantam como zumbis sob controle do Dragão por 1 hora</span>
+            </div>
+            <div class="ability-item">
+              <span class="ability-name">Chamado do Vazio (1 Ação Lendária)</span>
+              <span class="ability-desc">Alvo em 30m: save SAB DC 19 · Falha: Atraído para 9m do Dragão (movimento forçado) e Amedrontado por 2 rodadas</span>
+            </div>
+            <div class="ability-item">
+              <span class="ability-name">Mergulho de Extinção (2 Ações Lendárias)</span>
+              <span class="ability-desc">Voa até 30m e ataca alvo com Garra + Mordida em sequência. Alvo: save FOR DC 20 ou Caído, Retido e sofrendo 2d6 perfurante/rodada até escapar (DC FOR 20)</span>
+            </div>
+          </div>
+          <div class="ability-block">
+            <div class="ability-title">✦ Passivos</div>
+            <div class="ability-item">
+              <span class="ability-name">Dualidade da Corrupção</span>
+              <span class="ability-desc">Imune ao elemento do Dragão e ao Necrótico. Vulnerável a Radiante (dano Radiante ignora DR completamente). Resistente a todos os outros tipos.</span>
+            </div>
+            <div class="ability-item">
+              <span class="ability-name">Presença Aterrorizante</span>
+              <span class="ability-desc">Ao entrar em combate ou usar o Sopro: todos em 30m fazem save SAB DC 19 ou Amedrontados por 1 minuto</span>
+            </div>
+            <div class="ability-item">
+              <span class="ability-name">Fissura do Véu</span>
+              <span class="ability-desc">Quando cair abaixo de 100 PV: abre uma fissura no Véu em 9m. Cada rodada, 1d4 Ecos Perdidos emergem pela fissura até o Dragão morrer ou a fissura ser selada (Arcano DC 24)</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="monster-footer">
+        <span class="tactic-label">⚔ Tática:</span>
+        <span class="tactic-text">Abre com Presença Aterrorizante e Sopro Corrompido. Usa voo para nunca ficar cercado. Quando abaixo de 175 PV, ativa padrão agressivo: Chamado do Vazio + Mergulho de Extinção em cada ciclo de Ações Lendárias. — IMPORTANTE: Existe um caminho de salvação. Um personagem com Sangue Desperto pode tentar contato mental (SAB/INT DC 25) para alcançar o que sobrou do dragão real. Sucesso não termina o combate, mas muda as condições de vitória: o Dragão aceita contrato temporário ao invés de morrer. Missão de purificação possível em campanha avançada.</span>
+      </div>
+    </div>
+    </div>
+
+  </div>
+</section>
+
+<div class="chapter-sep"><span class="sep-ornament">☠ ✦ ☠</span></div>
+
+<!-- ══════════════════════════════════════════════════════════════
+     TABELAS DE ENCONTRO
+══════════════════════════════════════════════════════════════ -->
+<section class="chapter-section" id="tabelas" style="background:#16120e;">
+  <div class="chapter-hero">
+    <div class="chapter-hero-bg" style="background-image:url('https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1600&q=80')"></div>
+    <div class="chapter-hero-overlay"></div>
+    <div class="chapter-hero-content">
+      <div class="chapter-label">Apêndice · Material do Mestre</div>
+      <h2 class="chapter-title">Tabelas de Encontro</h2>
+      <p class="chapter-desc">Encontros por região e nível — referência rápida para o Mestre</p>
+    </div>
+  </div>
+
+  <div class="content-wrapper">
+
+    <h2 class="section-title">Encontros por Região</h2>
+
+    <div class="table-wrapper">
+      <table>
+        <thead>
+          <tr>
+            <th>Região</th>
+            <th>1d6</th>
+            <th>Criatura</th>
+            <th>CR</th>
+            <th>Grupo Típico</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>Floresta Negra</td><td>1–2</td><td>Lobo dos Veios Negros</td><td>CR 2</td><td>Alcateia 2d4</td></tr>
+          <tr><td>Floresta Negra</td><td>3–4</td><td>Espinheiro Sombrio</td><td>CR 3</td><td>Solitário ou par</td></tr>
+          <tr><td>Floresta Negra</td><td>5</td><td>Sonho de Ezurath</td><td>CR 6</td><td>Solitário</td></tr>
+          <tr><td>Floresta Negra</td><td>6</td><td>O Caçador Sem Rosto</td><td>CR 8</td><td>Solitário (evento)</td></tr>
+          <tr><td>Minas de Valdros</td><td>1–3</td><td>Cinzas Vivas</td><td>CR 2</td><td>Enxame 2d4+2</td></tr>
+          <tr><td>Minas de Valdros</td><td>4–5</td><td>Aranha das Profundezas</td><td>CR 3</td><td>1d3</td></tr>
+          <tr><td>Minas de Valdros</td><td>6</td><td>Verme dos Veios</td><td>CR 3</td><td>1d2</td></tr>
+          <tr><td>Selos Rompidos</td><td>1–2</td><td>Eco Perdido</td><td>CR 4</td><td>Bando 2d6</td></tr>
+          <tr><td>Selos Rompidos</td><td>3–4</td><td>Dente do Vazio</td><td>CR 7</td><td>1 + 1d4 Ecos</td></tr>
+          <tr><td>Selos Rompidos</td><td>5</td><td>Cavaleiro Cinza</td><td>CR 6</td><td>1d3</td></tr>
+          <tr><td>Selos Rompidos</td><td>6</td><td>Guardião do Selo</td><td>CR 11</td><td>Solitário (evento)</td></tr>
+          <tr><td>Planície dos Ecos</td><td>1–4</td><td>O Susurrador</td><td>CR 4</td><td>1d2</td></tr>
+          <tr><td>Planície dos Ecos</td><td>5–6</td><td>Fantasma de Thornwall</td><td>CR 4</td><td>1d4</td></tr>
+          <tr><td>Montanhas de Karath</td><td>1–3</td><td>Grifo Selvagem</td><td>CR 5</td><td>Par ou família</td></tr>
+          <tr><td>Montanhas de Karath</td><td>4–6</td><td>Eco Dracônico</td><td>CR 5</td><td>Solitário</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h2 class="section-title">Escalada de Perigo — Selos Rompidos</h2>
+
+    <div class="info-box">
+      <div class="info-box-title">🗓 Progressão de Encontros com os Selos</div>
+      <p><strong>1 Selo Rompido:</strong> Ecos Perdidos e Cinzas Vivas começam a aparecer em regiões adjacentes. Anomalias mágicas menores.</p>
+      <p><strong>2 Selos Rompidos:</strong> Dentes do Vazio emergem perto dos locais afetados. Cavaleiros Cinzas tornam-se agressivos mesmo com grupo não-ameaçador.</p>
+      <p><strong>3 Selos Rompidos (estado atual):</strong> Sombras do Véu são avistadas. Dragões dormentes têm pesadelos que se manifestam como Sonhos de Ezurath mais frequentes e mais fortes.</p>
+      <p><strong>4 Selos Rompidos:</strong> O Olho Aberto torna-se possível. Dragões Corrompidos começam a eclodir. Os eventos convergem — a campanha entra em fase crítica.</p>
+    </div>
+
+    <h2 class="section-title">Referência Rápida — Fraquezas</h2>
+    <div class="table-wrapper">
+      <table>
+        <thead>
+          <tr>
+            <th>Criatura</th>
+            <th>Vulnerabilidade</th>
+            <th>Como Descobrir</th>
+            <th>Pode Ser Pacificada?</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>Espinheiro Sombrio</td><td>Fogo</td><td>Óbvio</td><td>Não</td></tr>
+          <tr><td>Sonho de Ezurath</td><td>Dispersado fora da Floresta</td><td>Arcano DC 14</td><td>Sim (sono de Ezurath perturbado)</td></tr>
+          <tr><td>Lobo dos Veios</td><td>Normal</td><td>—</td><td>Não (instinto)</td></tr>
+          <tr><td>Caçador Sem Rosto</td><td>Desconhecida</td><td>Não identificável</td><td>Possivelmente (evento especial)</td></tr>
+          <tr><td>Dente do Vazio</td><td>Dano de Força</td><td>Arcano DC 17</td><td>Não</td></tr>
+          <tr><td>Sombra do Véu</td><td>Radiante + Força</td><td>Religião DC 16</td><td>Não</td></tr>
+          <tr><td>O Olho Aberto</td><td>Força + Radiante</td><td>Adivinhação N5+</td><td>Não</td></tr>
+          <tr><td>Eco Perdido</td><td>Normal</td><td>—</td><td>Sim (Arcano DC 14)</td></tr>
+          <tr><td>Fantasma de Thornwall</td><td>Dano Mágico</td><td>Óbvio (incorpóreo)</td><td>Sim (trabalho inacabado)</td></tr>
+          <tr><td>Cavaleiro Cinza</td><td>Radiante</td><td>Religião DC 15</td><td>Sim (restaurar Selo)</td></tr>
+          <tr><td>Caçador de Almas</td><td>Radiante</td><td>Arcano DC 18</td><td>Não</td></tr>
+          <tr><td>Eco Dracônico</td><td>Elemento oposto</td><td>Arcano DC 14</td><td>Sim (Sangue Desperto)</td></tr>
+          <tr><td>Verme dos Veios</td><td>Força</td><td>Natural DC 13</td><td>Sim (parar perturbação do Veio)</td></tr>
+          <tr><td>Cinzas Vivas</td><td>Água/Vento</td><td>Óbvio</td><td>Não</td></tr>
+          <tr><td>Aranha Profundezas</td><td>Fogo</td><td>Óbvio</td><td>Não</td></tr>
+          <tr><td>Grifo Selvagem</td><td>Normal</td><td>—</td><td>Sim (deferência/domesticação)</td></tr>
+          <tr><td>Golem de Mana</td><td>Ácido</td><td>Arcano DC 16</td><td>Sim (reprogramar)</td></tr>
+          <tr><td>O Susurrador</td><td>Silence (magia)</td><td>Arcano DC 15</td><td>Não</td></tr>
+          <tr><td>Guardião do Selo</td><td>Ácido</td><td>História DC 20</td><td>Sim (Sangue Desperto)</td></tr>
+          <tr><td>Dragão Corrompido</td><td>Radiante (ignora DR)</td><td>Arcano DC 22</td><td>Sim (caminho especial)</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+  </div>
+</section>
+
+<!-- ══════════════════ FOOTER ══════════════════ -->
+<footer>
+  <div class="footer-logo">☠ Bestiário</div>
+  <div class="footer-sub">de Aethoria</div>
+  <p>Herança RPG · Suplemento Oficial de Criaturas</p>
+  <p>20 Criaturas · 7 Categorias · CR 2 a CR 15</p>
+  <div class="footer-divider"></div>
+  <p style="opacity:0.3; font-family:'Fira Code',monospace; font-size:0.72rem;">Os dragões não morreram por nós. Morreram pelo que viria depois de nós.</p>
+  <p style="margin-top:0.5rem; opacity:0.2; font-size:0.75rem;">Material do Mestre · Uso Exclusivo para Herança RPG · 5 Reinos · 7 Selos · 2 Profecias</p>
+</footer>
+
+</body>
+</html>
